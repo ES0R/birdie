@@ -1,0 +1,91 @@
+% teensy communication to/from Teensy
+% 1 	Time (sec) from system
+% 2 	(Tx) Send to Teensy
+%   	(Rx) Received from Teensy
+%   	(Qu N) Put in queue to Teensy, now queue size N
+% 3 	Message string queued, send or received
+1707142777.7072 Qu 1 ;47!idi
+1707142777.7081 ## Connection to USB open
+1707142777.7082 Txd ;28hbti
+1707142777.7172 Txd ;22sub hbt 50
+1707142777.7177 Qu 2 ;04!sub hbt 500
+1707142777.7680 Txd ;28hbti
+1707142777.7686 Txd ;31leave
+1707142777.7692 Tx ;47!idi
+1707142777.7692 Rx ;51hbt 121.4706 116 1646 10.78 0 9 19.5 0 0
+1707142777.7702 Txd ;14idi
+1707142777.7709 Rx ;62hbt 121.4797 116 1646 10.78 0 9 19.6 0 0
+1707142777.7718 Rx ;59hbt 121.5297 116 1646 10.78 0 9 19.7 0 0
+1707142777.7727 Rx ;47hbt 121.5304 116 1646 10.78 0 9 19.6 0 0
+1707142777.8103 ## # STeensy::run: msg retry after 0.04103 sec (retry=1, queue=2):;47!idi
+1707142777.8115 Tx ;47!idi
+1707142777.8525 ## # STeensy::run: msg retry after 0.04103 sec (retry=2, queue=2):;47!idi
+1707142777.8537 Tx ;47!idi
+1707142777.8972 ## # STeensy::run: msg retry after 0.04346 sec (retry=3, queue=2):;47!idi
+1707142777.8984 Tx ;47!idi
+1707142777.9388 ## # STeensy::run: msg retry after 0.04043 sec (retry=4, queue=2):;47!idi
+1707142777.9400 Tx ;47!idi
+1707142777.9807 ## # STeensy::run: msg retry after 0.04066 sec (retry=5, queue=2):;47!idi
+1707142777.9819 Tx ;47!idi
+1707142778.0221 ## # STeensy::run: msg retry after 0.04024 sec (retry=6, queue=2):;47!idi
+1707142778.0292 Tx ;47!idi
+1707142778.0700 ## # STeensy::run: msg retry after 0.04078 sec (retry=7, queue=2):;47!idi
+1707142778.0712 Tx ;47!idi
+1707142778.1132 ## # STeensy::run: msg retry after 0.04198 sec (retry=8, queue=2):;47!idi
+1707142778.1172 Tx ;47!idi
+1707142778.1572 ## # STeensy::run: msg retry after 0.04003 sec (retry=9, queue=2):;47!idi
+1707142778.1584 Tx ;47!idi
+1707142778.1989 ## # STeensy::run: msg retry after 0.04049 sec (retry=10, queue=2):;47!idi
+1707142778.2001 Tx ;47!idi
+1707142778.2413 ## # STeensy::run: msg retry after 0.04113 sec (retry=11, queue=2):;47!idi
+1707142778.2425 Tx ;47!idi
+1707142778.2436 Rx ;37confirm !idi
+1707142778.2442 Tx ;04!sub hbt 500
+1707142778.2442 Rx ;51dname robobot Birdie
+1707142778.2448 Rx ;93confirm !sub hbt 500
+1707142778.2475 Qu 1 ;95!enc0
+1707142778.2475 Qu 2 ;02!sub enc 8
+1707142778.2476 Qu 3 ;65!encrev 1
+1707142778.2476 Tx ;95!enc0
+1707142778.2483 Qu 4 ;30!lip 1 0 1 0 0 0 0
+1707142778.2483 Qu 5 ;23!sub liv 8
+1707142778.2484 Qu 6 ;81!sub svo 50
+1707142778.2486 Qu 7 ;34!sub gyro0 12
+1707142778.2486 Qu 8 ;78!sub acc0 12
+1707142778.2486 Qu 9 ;74!gyrocal 0.0331879 0.00350952 0.016098
+1707142778.2509 Qu 10 ;54!irc 70000 20000 70000 20000 1
+1707142778.2510 Qu 11 ;59!sub ir 45
+1707142778.2515 Rx ;85confirm !enc0
+1707142778.2519 Tx ;02!sub enc 8
+1707142778.2571 Rx ;91confirm !sub enc 8
+1707142778.2576 Tx ;65!encrev 1
+1707142778.2576 Rx ;19enc 0 0 0 0 1
+1707142778.2580 Rx ;55confirm !encrev 1
+1707142778.2585 Tx ;30!lip 1 0 1 0 0 0 0
+1707142778.2598 Txd ;07motv -0.31 -0.31
+1707142778.2693 Rx ;20confirm !lip 1 0 1 0 0 0 0
+1707142778.2700 Tx ;23!sub liv 8
+1707142778.2700 Rx ;19enc 0 0 0 0 1
+1707142778.2703 Rx ;15# Current offset switching to run mode
+1707142778.2712 Rx ;54hbt 122.0296 116 1646 10.77 0 9 19.6 1 1
+1707142778.2721 Rx ;19enc 0 0 0 0 1
+1707142778.2730 Txd ;17motv -0.18 -0.18
+1707142778.2758 Txd ;17motv -0.18 -0.18
+1707142778.2725 Rx ;13confirm !sub liv 8
+1707142778.2895 Tx ;81!sub svo 50
+1707142778.2896 Rx ;28liv -1 0 0 0 0 0 0 0
+1707142778.2901 Rx ;19enc 0 0 0 0 1
+1707142778.2910 Txd ;11motv -0.15 -0.15
+1707142778.2905 Rx ;69liv 532 653 661 670 676 682 627 515
+1707142778.2913 Rx ;19enc 0 0 0 0 1
+1707142778.2916 Rx ;68liv 531 655 661 676 676 681 623 512
+1707142778.2938 Txd ;13motv -0.16 -0.16
+1707142778.2972 Rx ;71confirm !sub svo 50
+1707142778.2977 Tx ;34!sub gyro0 12
+1707142778.2977 Rx ;89svo 0 0 0  0 0 0  0 0 0  0 0 0  0 0 0
+1707142778.3009 Rx ;19enc 0 0 0 0 1
+1707142778.3013 Rx ;84liv 534 655 669 674 676 683 627 513
+1707142778.3027 Txd ;13motv -0.16 -0.16
+1707142778.3021 Rx ;24confirm !sub gyro0 12
+1707142778.3086 Tx ;78!sub acc0 12
+1707142778.3087 Rx ;8

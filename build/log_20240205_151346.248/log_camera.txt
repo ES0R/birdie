@@ -1,0 +1,11 @@
+% Camera (not vision) - logfile
+% connection to camera 0
+% Image path 'img'
+% 1 	Time (sec)
+% 2 	Information
+1707142428.0536 Camera matrix (from robot.ini) 1000 0 640 0 1000 360 0 0 1
+1707142428.0536 Distortion vector (from robot.ini) -0.415 0.2244 -6.875e-5 0.001279 -0.073412
+1707142428.1879 Width 1280
+1707142428.1879 Width 720
+1707142428.2665 # Video device 0: width=1280, height=720, format=MJPG, FPS=25 
+1707142428.2794 Camera open 

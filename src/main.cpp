@@ -54,9 +54,8 @@ int main (int argc, char **argv)
     // plan40.run();
     // plan101.run();
     //
-    mixer.setVelocity(0.0);
-    mixer.setTurnrate(0.0);
-    sleep(2); // to allow robot to stop
+    //mixer.setTurnrate(0.0);
+    // to allow robot to stop
     // turn off led 16
     gpio.setPin(16, 0);
     

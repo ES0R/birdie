@@ -1,0 +1,4 @@
+% Mission plan40 logfile
+% 1 	Time (sec)
+% 2 	Mission state
+% 3 	% Mission status (mostly for debug)

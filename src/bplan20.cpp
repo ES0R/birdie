@@ -62,7 +62,7 @@ void BPlan20::setup()
     fprintf(logfile, "%% 1 \tTime (sec)\n");
     fprintf(logfile, "%% 2 \tMission state\n");
     fprintf(logfile, "%% 3 \t%% Mission status (mostly for debug)\n");
-    toLog("starting");
+    
   }
   setupDone = true;
 }
@@ -96,15 +96,17 @@ void BPlan20::run()
   //
   while (not finished and not lost and not service.stop)
   {
-    toLog("In while loop");
+    
     switch (state)
     { // make a shift in heading-mission
       case 10:
         pose.resetPose();
         toLog("forward at 0.3m/s");
+        //mixer.setTurnrate(0.4);
         mixer.setVelocity(0.2);
-        
+        //medge.run();
         state = 11;
+        //finished = true;
         break;
       case 11: // wait for distance
         if (pose.dist >= 1.0)

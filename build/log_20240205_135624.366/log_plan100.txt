@@ -1,0 +1,13 @@
+% Mission plan100 logfile
+% 1 	Time (sec)
+% 2 	Mission state
+% 3 	% Mission status (mostly for debug)
+1707137785.9642 10 % Plan100 started
+1707137785.9643 10 % Reset pose
+1707137785.9643 10 % forward at 0.3m/s
+1707137785.9643 11 % state start
+1707137787.2196 11 % now turn at 0.5 rad/s and 0 m/s
+1707137787.2196 21 % state start
+1707137793.6009 21 % now go back
+1707137793.6009 31 % state start
+1707137794.9183 31 % Plan100 finished
