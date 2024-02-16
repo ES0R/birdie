@@ -41,6 +41,7 @@
 
 // create class object
 BPlan20 plan20;
+//CEdge edge; //for the line following
 
 
 void BPlan20::setup()
@@ -103,17 +104,20 @@ void BPlan20::run()
         pose.resetPose();
         toLog("forward at 0.3m/s");
         //mixer.setTurnrate(0.4);
-        mixer.setVelocity(0.2);
-        //medge.run();
+        mixer.setVelocity(0.1);
+        mixer.setEdgeMode(true, 0);
+        //cedge.run();
+        
+        //sleep(0.5);
         state = 11;
         //finished = true;
         break;
       case 11: // wait for distance
-        if (pose.dist >= 1.0)
+        if (pose.dist >= 0.7) //in x direction
         { // done, and then
           finished = true;
         }
-        else if (t.getTimePassed() > 10)
+        else if (t.getTimePassed() > 8)
           lost = true;
         break;
       default:
