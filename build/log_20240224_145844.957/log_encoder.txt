@@ -1,0 +1,4 @@
+% Encoder logfile
+% 1 	Time (sec)
+% 2,3 	enc left, right
+% 4,5 	encoder change left, right

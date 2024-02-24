@@ -1,11 +1,296 @@
-# UService:: created directory log_20240224_145633.937/
+# UService:: created directory log_20240224_145844.986/
 # UService::setup: open to Teensy
-# STeensy::setup: took 0.010071 sec to open to Teensy
+# STeensy::setup: took 0.020195 sec to open to Teensy
+# SGpio:: *********** failed to rese# UCam - camera could not open
+# UService::setup - waited 5.00308 sec for full setup
+# UService:: ************************************************************
+# UService:: Teensy setup communication msg resend 115, dumped 2 messages
+# UService:: ************************************************************
+# --------- terminating -----------
+# UCam:: logfile closed
+# UService:: configuration saved to robot.ini
+PIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to rese# UCam - camera could not open
+# UService::setup - waited 5.00976 sec for full setup
+# UService:: ************************************************************
+# UService:: Teensy setup communication msg resend 114, dumped 2 messages
+# UService:: ************************************************************
+# --------- terminating -----------
+# UCam:: logfile closed
+# UService:: configuration saved to robot.ini
+PIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to rese# UCam - camera could not open
+# UService::setup - waited 5.00394 sec for full setup
+# UService:: ************************************************************
+# UService:: Teensy setup communication msg resend 113, dumped 2 messages
+# UService:: ************************************************************
+# --------- terminating -----------
+# UCam:: logfile closed
+# UService:: configuration saved to robot.ini
+PIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to rese# UCam - camera could not open
+# UService::setup - waited 5.19814 sec for full setup
+# UService:: ************************************************************
+# UService:: Teensy setup communication msg resend 120, dumped 2 messages
+# UService:: ************************************************************
+# --------- terminating -----------
+# UCam:: logfile closed
+# UService:: configuration saved to robot.ini
+PIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to rese# UCam - camera could not open
+# UService::setup - waited 5.27269 sec for full setup
+# UService:: ************************************************************
+# UService:: Teensy setup communication msg resend 121, dumped 2 messages
+# UService:: ************************************************************
+# --------- terminating -----------
+# UCam:: logfile closed
+# UService:: configuration saved to robot.ini
+PIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
+# SGpio:: *********** failed to reserve GPIO pin 6
 # SpyVision:: disabled in robot.ini
 # UCam - camera could not open
-# UService::setup - waited 5.00024 sec for full setup
+# UService::setup - waited 5.33454 sec for full setup
 # UService:: ************************************************************
-# UService:: Teensy setup communication msg resend 116, dumped 2 messages
+# UService:: Teensy setup communication msg resend 123, dumped 2 messages
 # UService:: ************************************************************
 # --------- terminating -----------
 # UCam:: logfile closed

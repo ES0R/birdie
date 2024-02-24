@@ -104,8 +104,8 @@ void BPlan20::run()
         pose.resetPose();
         toLog("forward at 0.3m/s");
         //mixer.setTurnrate(0.4);
-        mixer.setVelocity(0.1);
-        mixer.setEdgeMode(true, 0);
+        mixer.setVelocity(0.7);
+        mixer.setEdgeMode(false, 0);
         //cedge.run();
         
         //sleep(0.5);
@@ -113,11 +113,11 @@ void BPlan20::run()
         //finished = true;
         break;
       case 11: // wait for distance
-        if (pose.dist >= 0.7) //in x direction
+        if (pose.dist >= 30) //in x direction
         { // done, and then
           finished = true;
         }
-        else if (t.getTimePassed() > 8)
+        else if (t.getTimePassed() > 120)
           lost = true;
         break;
       default:

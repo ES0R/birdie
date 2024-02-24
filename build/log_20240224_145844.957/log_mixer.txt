@@ -1,0 +1,12 @@
+% Mixer logfile
+% Wheel base used in calculation: 0.243 m
+% 1 	Time (sec)
+% 2 	manual override mode (0= automatic, 1=manuel mode)
+% 3 	Linear velocity (m/s)
+% 4 	Heading mode (0=turnrate, 1=heading, 2=edge)
+% 5 	Desired heading (heading mode, compared to pose.h)
+% 6 	Turnrate reference (rad/sec) positive is CCV
+% 7 	Turnrate after heading control (rad/sec) positive is CCV
+% 8 	Desired left wheel velocity (m/s)
+% 9 	Desired right wheel velocity (m/s)
+% 10 	Calculated commanded turn radius (999 if straight) (m)

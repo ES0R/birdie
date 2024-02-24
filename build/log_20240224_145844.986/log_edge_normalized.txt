@@ -1,0 +1,4 @@
+% Edge sensor logfile normalized 'log_20240224_145844.986/log_edge_normalized.txt'
+% 1 	Time (sec)
+% 2..9 	Sensor value in 0..1000 scale for black to white
+% 10 	Line width (m)
