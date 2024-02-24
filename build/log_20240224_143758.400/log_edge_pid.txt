@@ -1,0 +1,15 @@
+% Edge control logfile: log_20240224_143758.400/log_edge_pid.txt
+% PID parameters
+% 	Kp = 35
+% 	tau_d = 0.3, alpha = 0.5 (use lead=1)
+% 	tau_i = 25 (used=1)
+% 	sample time = 8.0 ms
+% 	(derived values: le0=1.97403, le1=-1.92208, lu1=-0.948052, ie=0.00016)
+% 1 	Time (sec)
+% 2 	Reference for desired value
+% 3 	Measured value
+% 4 	Value after Kp
+% 5 	Value after Lead
+% 6 	Integrator value
+% 7 	After controller (u)
+% 8 	Is output limited (1=limited)

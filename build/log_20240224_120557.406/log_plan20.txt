@@ -1,0 +1,7 @@
+% Mission plan20 logfile
+% 1 	Time (sec)
+% 2 	Mission state
+% 3 	% Mission status (mostly for debug)
+1708772757.9136 10 % forward at 0.3m/s
+1708772757.9137 11 % state start
+1708772769.5861 11 % Plan20 finished

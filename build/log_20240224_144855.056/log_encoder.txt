@@ -1,0 +1,7 @@
+% Encoder logfile
+% 1 	Time (sec)
+% 2,3 	enc left, right
+% 4,5 	encoder change left, right
+1708782538.4893 4 4 -1816 -1825
+1708782538.4969 19 19 15 15
+1708782538.5054 27 28 8 9

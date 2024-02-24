@@ -1,0 +1,15 @@
+% Servo logfile
+% 1 	Time (sec)
+% 2,3,4 	servo 1: enabled, position, velocity
+% 5,6,7 	servo 1: enabled, position, velocity
+% 8,9,10 	servo 1: enabled, position, velocity
+% 11,12,13 	servo 1: enabled, position, velocity
+% 14,15,16 	servo 1: enabled, position, velocity
+1708775379.305 0 0 0  0 0 0  0 0 0  0 0 0 0 0 0
+1708775379.356 0 0 0  0 0 0  0 0 0  0 0 0 0 0 0
+1708775379.404 0 0 0  0 0 0  0 0 0  0 0 0 0 0 0
+1708775379.455 0 0 0  0 0 0  0 0 0  0 0 0 0 0 0
+1708775379.504 0 0 0  0 0 0  0 0 0  0 0 0 0 0 0
+1708775379.554 0 0 0  0 0 0  0 0 0  0 0 0 0 0 0
+1708775379.605 0 0 0  0 0 0  0 0 0  0 0 0 0 0 0
+1708775379.654 0 0 0  0 0 0  0 0 0  0 0 0 0 0 0

@@ -1,0 +1,10 @@
+% Pose and velocity (log_20240224_144843.563/log_pose.txt)
+% 1 	Time (sec)
+% 2,3 	Velocity left, right (m/s)
+% 4 	Robot velocity (m/s)
+% 5 	Turnrate (rad/s)
+% 6 	Turn radius (m)
+% 7,8 	Position x,y (m)
+% 9 	heading (rad)
+% 10 	Driven distance (m) - signed
+% 11 	Turned angle (rad) - signed

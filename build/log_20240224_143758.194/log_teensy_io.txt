@@ -1,0 +1,265 @@
+% teensy communication to/from Teensy
+% 1 	Time (sec) from system
+% 2 	(Tx) Send to Teensy
+%   	(Rx) Received from Teensy
+%   	(Qu N) Put in queue to Teensy, now queue size N
+% 3 	Message string queued, send or received
+1708781878.1957 Qu 1 ;47!idi
+1708781878.1967 ## Connection to USB open
+1708781878.1968 Txd ;28hbti
+1708781878.2025 Txd ;22sub hbt 50
+1708781878.2061 Qu 2 ;04!sub hbt 500
+1708781878.2534 Txd ;28hbti
+1708781878.2541 Txd ;31leave
+1708781878.2558 Tx ;47!idi
+1708781878.2959 ## # STeensy::run: msg retry after 0.04005 sec (retry=1, queue=2):;47!idi
+1708781878.2970 Tx ;47!idi
+1708781878.3375 ## # STeensy::run: msg retry after 0.04048 sec (retry=2, queue=2):;47!idi
+1708781878.3387 Tx ;47!idi
+1708781878.3825 ## # STeensy::run: msg retry after 0.04377 sec (retry=3, queue=2):;47!idi
+1708781878.3837 Tx ;47!idi
+1708781878.4242 ## # STeensy::run: msg retry after 0.04046 sec (retry=4, queue=2):;47!idi
+1708781878.4254 Tx ;47!idi
+1708781878.4659 ## # STeensy::run: msg retry after 0.04049 sec (retry=5, queue=2):;47!idi
+1708781878.4670 Tx ;47!idi
+1708781878.5079 ## # STeensy::run: msg retry after 0.04088 sec (retry=6, queue=2):;47!idi
+1708781878.5091 Tx ;47!idi
+1708781878.5498 ## # STeensy::run: msg retry after 0.04071 sec (retry=7, queue=2):;47!idi
+1708781878.5510 Tx ;47!idi
+1708781878.5920 ## # STeensy::run: msg retry after 0.04100 sec (retry=8, queue=2):;47!idi
+1708781878.5932 Tx ;47!idi
+1708781878.6339 ## # STeensy::run: msg retry after 0.04066 sec (retry=9, queue=2):;47!idi
+1708781878.6350 Tx ;47!idi
+1708781878.6753 ## # STeensy::run: msg retry after 0.04030 sec (retry=10, queue=2):;47!idi
+1708781878.6765 Tx ;47!idi
+1708781878.7169 ## # STeensy::run: msg retry after 0.04044 sec (retry=11, queue=2):;47!idi
+1708781878.7181 Tx ;47!idi
+1708781878.7590 ## # STeensy::run: msg retry after 0.04082 sec (retry=12, queue=2):;47!idi
+1708781878.7601 Tx ;47!idi
+1708781878.8004 ## # STeensy::run: msg retry after 0.04025 sec (retry=13, queue=2):;47!idi
+1708781878.8015 Tx ;47!idi
+1708781878.8417 ## # STeensy::run: msg retry after 0.04017 sec (retry=14, queue=2):;47!idi
+1708781878.8428 Tx ;47!idi
+1708781878.8831 ## # STeensy::run: msg retry after 0.04031 sec (retry=15, queue=2):;47!idi
+1708781878.8843 Tx ;47!idi
+1708781878.9245 ## # STeensy::run: msg retry after 0.04021 sec (retry=16, queue=2):;47!idi
+1708781878.9257 Tx ;47!idi
+1708781878.9661 ## # STeensy::run: msg retry after 0.04047 sec (retry=17, queue=2):;47!idi
+1708781878.9673 Tx ;47!idi
+1708781879.0077 ## # STeensy::run: msg retry after 0.04038 sec (retry=18, queue=2):;47!idi
+1708781879.0088 Tx ;47!idi
+1708781879.0489 ## # STeensy::run: msg retry after 0.04006 sec (retry=19, queue=2):;47!idi
+1708781879.0500 Tx ;47!idi
+1708781879.0901 ## # STeensy::run: msg retry after 0.04008 sec (retry=20, queue=2):;47!idi
+1708781879.0912 Tx ;47!idi
+1708781879.1313 ## # STeensy::run: msg retry after 0.04007 sec (retry=21, queue=2):;47!idi
+1708781879.1324 Tx ;47!idi
+1708781879.1725 ## # STeensy::run: msg retry after 0.04004 sec (retry=22, queue=2):;47!idi
+1708781879.1736 Tx ;47!idi
+1708781879.2138 ## # STeensy::run: msg retry after 0.04019 sec (retry=23, queue=2):;47!idi
+1708781879.2149 Tx ;47!idi
+1708781879.2551 ## # STeensy::run: msg retry after 0.04020 sec (retry=24, queue=2):;47!idi
+1708781879.2562 Tx ;47!idi
+1708781879.2963 ## # STeensy::run: msg retry after 0.04011 sec (retry=25, queue=2):;47!idi
+1708781879.2975 Tx ;47!idi
+1708781879.3376 ## # STeensy::run: msg retry after 0.04008 sec (retry=26, queue=2):;47!idi
+1708781879.3387 Tx ;47!idi
+1708781879.3788 ## # STeensy::run: msg retry after 0.04008 sec (retry=27, queue=2):;47!idi
+1708781879.3799 Tx ;47!idi
+1708781879.4204 ## # STeensy::run: msg retry after 0.04049 sec (retry=28, queue=2):;47!idi
+1708781879.4215 Tx ;47!idi
+1708781879.4616 ## # STeensy::run: msg retry after 0.04009 sec (retry=29, queue=2):;47!idi
+1708781879.4627 Tx ;47!idi
+1708781879.5028 ## # STeensy::run: msg retry after 0.04006 sec (retry=30, queue=2):;47!idi
+1708781879.5039 Tx ;47!idi
+1708781879.5444 ## # STeensy::run: msg retry after 0.04041 sec (retry=31, queue=2):;47!idi
+1708781879.5456 Tx ;47!idi
+1708781879.5861 ## # STeensy::run: msg retry after 0.04046 sec (retry=32, queue=2):;47!idi
+1708781879.5872 Tx ;47!idi
+1708781879.6275 ## # STeensy::run: msg retry after 0.04026 sec (retry=33, queue=2):;47!idi
+1708781879.6287 Tx ;47!idi
+1708781879.6689 ## # STeensy::run: msg retry after 0.04025 sec (retry=34, queue=2):;47!idi
+1708781879.6701 Tx ;47!idi
+1708781879.7104 ## # STeensy::run: msg retry after 0.04035 sec (retry=35, queue=2):;47!idi
+1708781879.7116 Tx ;47!idi
+1708781879.7520 ## # STeensy::run: msg retry after 0.04045 sec (retry=36, queue=2):;47!idi
+1708781879.7531 Tx ;47!idi
+1708781879.7934 ## # STeensy::run: msg retry after 0.04024 sec (retry=37, queue=2):;47!idi
+1708781879.7945 Tx ;47!idi
+1708781879.8347 ## # STeensy::run: msg retry after 0.04021 sec (retry=38, queue=2):;47!idi
+1708781879.8359 Tx ;47!idi
+1708781879.8762 ## # STeensy::run: msg retry after 0.04027 sec (retry=39, queue=2):;47!idi
+1708781879.8775 Tx ;47!idi
+1708781879.9178 ## # STeensy::run: msg retry after 0.04028 sec (retry=40, queue=2):;47!idi
+1708781879.9189 Tx ;47!idi
+1708781879.9592 ## # STeensy::run: msg retry after 0.04022 sec (retry=41, queue=2):;47!idi
+1708781879.9603 Tx ;47!idi
+1708781880.0009 ## # STeensy::run: msg retry after 0.04060 sec (retry=42, queue=2):;47!idi
+1708781880.0021 Tx ;47!idi
+1708781880.0431 ## # STeensy::run: msg retry after 0.04108 sec (retry=43, queue=2):;47!idi
+1708781880.0443 Tx ;47!idi
+1708781880.0853 ## # STeensy::run: msg retry after 0.04104 sec (retry=44, queue=2):;47!idi
+1708781880.0865 Tx ;47!idi
+1708781880.1276 ## # STeensy::run: msg retry after 0.04112 sec (retry=45, queue=2):;47!idi
+1708781880.1288 Tx ;47!idi
+1708781880.1698 ## # STeensy::run: msg retry after 0.04096 sec (retry=46, queue=2):;47!idi
+1708781880.1710 Tx ;47!idi
+1708781880.2117 ## # STeensy::run: msg retry after 0.04067 sec (retry=47, queue=2):;47!idi
+1708781880.2128 Tx ;47!idi
+1708781880.2534 ## # STeensy::run: msg retry after 0.04055 sec (retry=48, queue=2):;47!idi
+1708781880.2546 Tx ;47!idi
+1708781880.2947 ## # STeensy::run: msg retry after 0.04011 sec (retry=49, queue=2):;47!idi
+1708781880.2959 Tx ;47!idi
+1708781880.3368 ## # STeensy::run: msg retry after 0.04090 sec (retry=50, queue=2):;47!idi
+1708781880.3384 Tx ;04!sub hbt 500
+1708781880.3792 ## # STeensy::run: msg retry after 0.04080 sec (retry=1, queue=1):;04!sub hbt 500
+1708781880.3804 Tx ;04!sub hbt 500
+1708781880.4214 ## # STeensy::run: msg retry after 0.04096 sec (retry=2, queue=1):;04!sub hbt 500
+1708781880.4225 Tx ;04!sub hbt 500
+1708781880.4629 ## # STeensy::run: msg retry after 0.04032 sec (retry=3, queue=1):;04!sub hbt 500
+1708781880.4640 Tx ;04!sub hbt 500
+1708781880.5047 ## # STeensy::run: msg retry after 0.04065 sec (retry=4, queue=1):;04!sub hbt 500
+1708781880.5058 Tx ;04!sub hbt 500
+1708781880.5463 ## # STeensy::run: msg retry after 0.04047 sec (retry=5, queue=1):;04!sub hbt 500
+1708781880.5474 Tx ;04!sub hbt 500
+1708781880.5883 ## # STeensy::run: msg retry after 0.04083 sec (retry=6, queue=1):;04!sub hbt 500
+1708781880.5894 Tx ;04!sub hbt 500
+1708781880.6302 ## # STeensy::run: msg retry after 0.04076 sec (retry=7, queue=1):;04!sub hbt 500
+1708781880.6313 Tx ;04!sub hbt 500
+1708781880.6717 ## # STeensy::run: msg retry after 0.04045 sec (retry=8, queue=1):;04!sub hbt 500
+1708781880.6729 Tx ;04!sub hbt 500
+1708781880.7131 ## # STeensy::run: msg retry after 0.04021 sec (retry=9, queue=1):;04!sub hbt 500
+1708781880.7142 Tx ;04!sub hbt 500
+1708781880.7550 ## # STeensy::run: msg retry after 0.04076 sec (retry=10, queue=1):;04!sub hbt 500
+1708781880.7562 Tx ;04!sub hbt 500
+1708781880.7967 ## # STeensy::run: msg retry after 0.04048 sec (retry=11, queue=1):;04!sub hbt 500
+1708781880.7979 Tx ;04!sub hbt 500
+1708781880.8382 ## # STeensy::run: msg retry after 0.04031 sec (retry=12, queue=1):;04!sub hbt 500
+1708781880.8394 Tx ;04!sub hbt 500
+1708781880.8799 ## # STeensy::run: msg retry after 0.04056 sec (retry=13, queue=1):;04!sub hbt 500
+1708781880.8811 Tx ;04!sub hbt 500
+1708781880.9212 ## # STeensy::run: msg retry after 0.04009 sec (retry=14, queue=1):;04!sub hbt 500
+1708781880.9224 Tx ;04!sub hbt 500
+1708781880.9626 ## # STeensy::run: msg retry after 0.04021 sec (retry=15, queue=1):;04!sub hbt 500
+1708781880.9638 Tx ;04!sub hbt 500
+1708781881.0040 ## # STeensy::run: msg retry after 0.04027 sec (retry=16, queue=1):;04!sub hbt 500
+1708781881.0052 Tx ;04!sub hbt 500
+1708781881.0462 ## # STeensy::run: msg retry after 0.04104 sec (retry=17, queue=1):;04!sub hbt 500
+1708781881.0474 Tx ;04!sub hbt 500
+1708781881.0883 ## # STeensy::run: msg retry after 0.04095 sec (retry=18, queue=1):;04!sub hbt 500
+1708781881.0894 Tx ;04!sub hbt 500
+1708781881.1295 ## # STeensy::run: msg retry after 0.04008 sec (retry=19, queue=1):;04!sub hbt 500
+1708781881.1307 Tx ;04!sub hbt 500
+1708781881.1712 ## # STeensy::run: msg retry after 0.04050 sec (retry=20, queue=1):;04!sub hbt 500
+1708781881.1723 Tx ;04!sub hbt 500
+1708781881.2124 ## # STeensy::run: msg retry after 0.04008 sec (retry=21, queue=1):;04!sub hbt 500
+1708781881.2135 Tx ;04!sub hbt 500
+1708781881.2537 ## # STeensy::run: msg retry after 0.04015 sec (retry=22, queue=1):;04!sub hbt 500
+1708781881.2548 Tx ;04!sub hbt 500
+1708781881.2958 ## # STeensy::run: msg retry after 0.04091 sec (retry=23, queue=1):;04!sub hbt 500
+1708781881.2969 Tx ;04!sub hbt 500
+1708781881.3376 ## # STeensy::run: msg retry after 0.04066 sec (retry=24, queue=1):;04!sub hbt 500
+1708781881.3388 Tx ;04!sub hbt 500
+1708781881.3790 ## # STeensy::run: msg retry after 0.04026 sec (retry=25, queue=1):;04!sub hbt 500
+1708781881.3802 Tx ;04!sub hbt 500
+1708781881.4204 ## # STeensy::run: msg retry after 0.04020 sec (retry=26, queue=1):;04!sub hbt 500
+1708781881.4215 Tx ;04!sub hbt 500
+1708781881.4617 ## # STeensy::run: msg retry after 0.04023 sec (retry=27, queue=1):;04!sub hbt 500
+1708781881.4629 Tx ;04!sub hbt 500
+1708781881.5032 ## # STeensy::run: msg retry after 0.04032 sec (retry=28, queue=1):;04!sub hbt 500
+1708781881.5043 Tx ;04!sub hbt 500
+1708781881.5445 ## # STeensy::run: msg retry after 0.04021 sec (retry=29, queue=1):;04!sub hbt 500
+1708781881.5457 Tx ;04!sub hbt 500
+1708781881.5863 ## # STeensy::run: msg retry after 0.04056 sec (retry=30, queue=1):;04!sub hbt 500
+1708781881.5874 Tx ;04!sub hbt 500
+1708781881.6277 ## # STeensy::run: msg retry after 0.04028 sec (retry=31, queue=1):;04!sub hbt 500
+1708781881.6288 Tx ;04!sub hbt 500
+1708781881.6691 ## # STeensy::run: msg retry after 0.04025 sec (retry=32, queue=1):;04!sub hbt 500
+1708781881.6702 Tx ;04!sub hbt 500
+1708781881.7104 ## # STeensy::run: msg retry after 0.04014 sec (retry=33, queue=1):;04!sub hbt 500
+1708781881.7115 Tx ;04!sub hbt 500
+1708781881.7519 ## # STeensy::run: msg retry after 0.04036 sec (retry=34, queue=1):;04!sub hbt 500
+1708781881.7530 Tx ;04!sub hbt 500
+1708781881.7932 ## # STeensy::run: msg retry after 0.04017 sec (retry=35, queue=1):;04!sub hbt 500
+1708781881.7943 Tx ;04!sub hbt 500
+1708781881.8345 ## # STeensy::run: msg retry after 0.04021 sec (retry=36, queue=1):;04!sub hbt 500
+1708781881.8357 Tx ;04!sub hbt 500
+1708781881.8759 ## # STeensy::run: msg retry after 0.04027 sec (retry=37, queue=1):;04!sub hbt 500
+1708781881.8771 Tx ;04!sub hbt 500
+1708781881.9173 ## # STeensy::run: msg retry after 0.04017 sec (retry=38, queue=1):;04!sub hbt 500
+1708781881.9184 Tx ;04!sub hbt 500
+1708781881.9587 ## # STeensy::run: msg retry after 0.04030 sec (retry=39, queue=1):;04!sub hbt 500
+1708781881.9598 Tx ;04!sub hbt 500
+1708781882.0000 ## # STeensy::run: msg retry after 0.04011 sec (retry=40, queue=1):;04!sub hbt 500
+1708781882.0011 Tx ;04!sub hbt 500
+1708781882.0412 ## # STeensy::run: msg retry after 0.04012 sec (retry=41, queue=1):;04!sub hbt 500
+1708781882.0424 Tx ;04!sub hbt 500
+1708781882.0825 ## # STeensy::run: msg retry after 0.04015 sec (retry=42, queue=1):;04!sub hbt 500
+1708781882.0837 Tx ;04!sub hbt 500
+1708781882.1238 ## # STeensy::run: msg retry after 0.04007 sec (retry=43, queue=1):;04!sub hbt 500
+1708781882.1249 Tx ;04!sub hbt 500
+1708781882.1650 ## # STeensy::run: msg retry after 0.04012 sec (retry=44, queue=1):;04!sub hbt 500
+1708781882.1661 Tx ;04!sub hbt 500
+1708781882.2062 ## # STeensy::run: msg retry after 0.04008 sec (retry=45, queue=1):;04!sub hbt 500
+1708781882.2075 Tx ;04!sub hbt 500
+1708781882.2475 ## # STeensy::run: msg retry after 0.04008 sec (retry=46, queue=1):;04!sub hbt 500
+1708781882.2487 Tx ;04!sub hbt 500
+1708781882.2889 ## # STeensy::run: msg retry after 0.04016 sec (retry=47, queue=1):;04!sub hbt 500
+1708781882.2900 Tx ;04!sub hbt 500
+1708781882.3308 ## # STeensy::run: msg retry after 0.04076 sec (retry=48, queue=1):;04!sub hbt 500
+1708781882.3319 Tx ;04!sub hbt 500
+1708781882.3721 ## # STeensy::run: msg retry after 0.04025 sec (retry=49, queue=1):;04!sub hbt 500
+1708781882.3733 Tx ;04!sub hbt 500
+1708781882.4142 ## # STeensy::run: msg retry after 0.04095 sec (retry=50, queue=1):;04!sub hbt 500
+1708781882.4152 Qu 1 ;95!enc0
+1708781882.4152 Qu 2 ;02!sub enc 8
+1708781882.4152 Qu 3 ;65!encrev 1
+1708781882.4157 Qu 4 ;30!lip 1 0 1 0 0 0 0
+1708781882.4157 Qu 5 ;23!sub liv 8
+1708781882.4158 Qu 6 ;81!sub svo 50
+1708781882.4159 Tx ;95!enc0
+1708781882.4160 Qu 7 ;34!sub gyro0 12
+1708781882.4160 Qu 8 ;78!sub acc0 12
+1708781882.4160 Qu 9 ;74!gyrocal 0.0331879 0.00350952 0.016098
+1708781882.4179 Qu 10 ;54!irc 70000 20000 70000 20000 1
+1708781882.4179 Qu 11 ;59!sub ir 45
+1708781882.4562 ## # STeensy::run: msg retry after 0.04036 sec (retry=1, queue=11):;95!enc0
+1708781882.4573 Tx ;95!enc0
+1708781882.4975 ## # STeensy::run: msg retry after 0.04010 sec (retry=2, queue=11):;95!enc0
+1708781882.4986 Tx ;95!enc0
+1708781882.5388 ## # STeensy::run: msg retry after 0.04017 sec (retry=3, queue=11):;95!enc0
+1708781882.5399 Tx ;95!enc0
+1708781882.5806 ## # STeensy::run: msg retry after 0.04065 sec (retry=4, queue=11):;95!enc0
+1708781882.5817 Tx ;95!enc0
+1708781882.6222 ## # STeensy::run: msg retry after 0.04047 sec (retry=5, queue=11):;95!enc0
+1708781882.6234 Tx ;95!enc0
+1708781882.6639 ## # STeensy::run: msg retry after 0.04053 sec (retry=6, queue=11):;95!enc0
+1708781882.6651 Tx ;95!enc0
+1708781882.7058 ## # STeensy::run: msg retry after 0.04061 sec (retry=7, queue=11):;95!enc0
+1708781882.7069 Tx ;95!enc0
+1708781882.7481 ## # STeensy::run: msg retry after 0.04110 sec (retry=8, queue=11):;95!enc0
+1708781882.7493 Tx ;95!enc0
+1708781882.7895 ## # STeensy::run: msg retry after 0.04022 sec (retry=9, queue=11):;95!enc0
+1708781882.7906 Tx ;95!enc0
+1708781882.8310 ## # STeensy::run: msg retry after 0.04033 sec (retry=10, queue=11):;95!enc0
+1708781882.8322 Tx ;95!enc0
+1708781882.8728 ## # STeensy::run: msg retry after 0.04060 sec (retry=11, queue=11):;95!enc0
+1708781882.8740 Tx ;95!enc0
+1708781882.9149 ## # STeensy::run: msg retry after 0.04087 sec (retry=12, queue=11):;95!enc0
+1708781882.9162 Tx ;95!enc0
+1708781882.9567 ## # STeensy::run: msg retry after 0.04051 sec (retry=13, queue=11):;95!enc0
+1708781882.9578 Tx ;95!enc0
+1708781882.9983 ## # STeensy::run: msg retry after 0.04043 sec (retry=14, queue=11):;95!enc0
+1708781882.9995 Tx ;95!enc0
+1708781883.0398 ## # STeensy::run: msg retry after 0.04028 sec (retry=15, queue=11):;95!enc0
+1708781883.0409 Tx ;95!enc0
+1708781883.0811 ## # STeensy::run: msg retry after 0.04017 sec (retry=16, queue=11):;95!enc0
+1708781883.0822 Tx ;95!enc0
+1708781883.1227 ## # STeensy::run: msg retry after 0.04052 sec (retry=17, queue=11):;95!enc0
+1708781883.1240 Tx ;95!enc0
+1708781883.1647 ## # STeensy::run: msg retry after 0.04070 sec (retry=18, queue=11):;95!enc0
+1708781883.1659 Tx ;95!enc0
+1708781883.1972 Qu 12 ;92!stop
+1708781883.2977 Txd ;94lip 0 0 0 0 0 0 0
+1708781883.2989 Txd ;31leave
+1708781883.2995 Txd ;44disp stopped

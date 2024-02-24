@@ -1,0 +1,14 @@
+% IR distance sensor logfile log_20240224_121822.856/log_irdist.txt
+% 1 	Time (sec)
+% 2,3 	sensor 1, 2 (m)
+% 4,5 	sensor AD value 1, 2 (filtered)
+% sensor 1 type: sharp
+% sensor 2 type: sharp
+% sensor 1 sharp calib: 13cm: 70000, 50cm: 20000
+% sensor 2 sharp calib: 13cm: 70000, 50cm: 20000
+% sensor ultrasound URM09 factor (both): 0.001270
+1708773505.1498 1.500 1.500 6487 1412
+1708773505.1929 1.500 1.500 8096 1488
+1708773505.2376 1.116 1.500 10300 1529
+1708773505.2832 1.500 1.500 6724 1531
+1708773505.3282 1.123 1.500 10248 1555

@@ -1,0 +1,9 @@
+% Edge sensor logfile log_20240224_143103.358/log_edge.txt
+% 	Calib white 466 563 571 595 596 609 566 464
+% 	Calib black 18 18 18 21 21 21 20 21
+% 	White threshold (of 1000) 700 
+% 1 	Time (sec)
+% 2 	Edge valid
+% 3 	Left edge position(m)
+% 4 	Right edge position (m)
+% 5 	Line width (m)
