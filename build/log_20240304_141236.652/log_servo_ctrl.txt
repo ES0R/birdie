@@ -1,0 +1,8 @@
+% Servo commands logfile
+% 1 	Time (sec)
+% 2 	Servo number
+% 3,4,5 	Enabled, position, velocity
+1709557958.580 1 -449 0
+1709557961.581 1 -300 0
+1709557964.581 1 -200 0
+1709557979.581 0 -200 0

@@ -1,0 +1,14 @@
+% Heartbeat logfile
+% 1 	Time (sec)
+% 2 	Robot name index
+% 3 	Version
+% 4 	State (0 = control is external to Teensy)
+% 5 	Battery voltage (V)
+% 6 	Teensy load (%)
+% 7-8 	Motor enabled flag (left,right) (may be 0 after overload)
+1709565883.553 116 1646 0 10.94 20.0 0 0
+1709565883.555 116 1646 0 10.94 20.0 0 0
+1709565883.556 116 1646 0 10.94 19.0 0 0
+1709565883.557 116 1646 0 10.94 19.0 0 0
+1709565884.052 116 1646 0 10.93 20.0 0 0
+1709565884.552 116 1646 0 10.92 19.0 0 0
