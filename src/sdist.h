@@ -57,7 +57,7 @@ public:
   float urm09factor;
   enum sensortypes {sharp, URM09};
   sensortypes sensortype[2];
-
+  
 public:
 //   mutex dataLock; // ensure consistency
   UTime updTimeLast;

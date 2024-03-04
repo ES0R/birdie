@@ -250,6 +250,33 @@ src/bplan40.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan40.cpp.s
 .PHONY : src/bplan40.cpp.s
 
+src/bplan_test.o: src/bplan_test.cpp.o
+
+.PHONY : src/bplan_test.o
+
+# target to build an object file
+src/bplan_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan_test.cpp.o
+.PHONY : src/bplan_test.cpp.o
+
+src/bplan_test.i: src/bplan_test.cpp.i
+
+.PHONY : src/bplan_test.i
+
+# target to preprocess a source file
+src/bplan_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan_test.cpp.i
+.PHONY : src/bplan_test.cpp.i
+
+src/bplan_test.s: src/bplan_test.cpp.s
+
+.PHONY : src/bplan_test.s
+
+# target to generate assembly for a file
+src/bplan_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan_test.cpp.s
+.PHONY : src/bplan_test.cpp.s
+
 src/cedge.o: src/cedge.cpp.o
 
 .PHONY : src/cedge.o
@@ -892,6 +919,9 @@ help:
 	@echo "... src/bplan40.o"
 	@echo "... src/bplan40.i"
 	@echo "... src/bplan40.s"
+	@echo "... src/bplan_test.o"
+	@echo "... src/bplan_test.i"
+	@echo "... src/bplan_test.s"
 	@echo "... src/cedge.o"
 	@echo "... src/cedge.i"
 	@echo "... src/cedge.s"

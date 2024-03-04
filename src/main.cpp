@@ -35,8 +35,9 @@
 #include "bplan21.h"
 #include "bplan40.h"
 #include "bplan101.h"
-
-
+#include "bplan_test.h"
+#include "cservo.h"
+#include "sdist.h"
 int main (int argc, char **argv)
 { // prepare all modules and start data flow
   // but also handle command-line options
@@ -45,18 +46,31 @@ int main (int argc, char **argv)
   if (not service.theEnd)
   { // all set to go
     // turn on LED on port 16
-    
-    
+    gpio.setPin(16, 1);
+    sleep(5);
+    // if (dist.dist[1] < 0.20){
+    //   gpio.setPin(16, 0);
+    // }
+    // sleep(4);
     gpio.setPin(16, 1);
     // run the planned missions
-    plan20.run();
+    // plan20.run();
+    sleep(1);
+    
+    // servo.setServo(2, 1, -799, 500);
+    // sleep(5);
+    // servo.setServo(2, 1, -15, 500);
     // plan21.run();
     // plan40.run();
     // plan101.run();
+    // plan_test.run();
     //
     //mixer.setTurnrate(0.0);
     // to allow robot to stop
     // turn off led 16
+    sleep(15);
+    // servo.setServo(1, 0, -300, 0);
+    servo.setServo(2, 0, -899, 1000);
     gpio.setPin(16, 0);
     
   }
