@@ -1,0 +1,21 @@
+% IP display service Teensy
+% 1 	Time (sec) from system
+% 2 	CPU temperature (deg C)
+% 3 	% (to help import to Matlab)
+% 4 	Message string (possibly more lines)
+1705915834.5351 0.0 % Mon Jan 22 10:30:34 CET 2024
+
+1705915834.5358 0.0 %  10.197.216.166
+1705915834.5360 49.2 % 
+1705915834.6542 49.2 %  10:30:34 up 22 min,  1 user,  load average: 0.37, 0.15, 0.06
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+local    pts/0    10.197.218.184   10:06    2.00s  0.51s  0.00s sh -c w
+
+1705915834.6543 49.2 % Teensy available
+1705915834.7250 49.2 % hbt 1356.1147 116 1646 12.13 0 9 19.6 0 0
+
+1705915835.2548 49.2 % IP updated to Teensy display, stopping connection to Teensy
+1705915837.2552 47.7 % 
+1705915855.2852 47.7 % Mon Jan 22 10:30:55 CET 2024
+
+1705915855.2852 47.7 % Closed log

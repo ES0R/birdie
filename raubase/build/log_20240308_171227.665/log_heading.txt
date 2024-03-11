@@ -1,0 +1,23 @@
+% Heading control logfile
+% 1 	Time (sec)
+% 2 	Reference for desired heading (rad)
+% 3 	Measured heading (rad)
+% 4 	Value after Kp (rad/s)
+% 5 	Value after Lead (rad/s)
+% 6 	Integrator value (rad/s)
+% 7 	After controller (u) (rad/s)
+% 8 	Is output limited (1=limited)
+% PID parameters
+% 	Kp = 10
+% 	tau_d = 0, alpha = 1 (use lead=0)
+% 	tau_i = 0 (used=0)
+% 	sample time = 8.0 ms
+% 	(derived values: le0=1, le1=0, lu1=0, ie=0)
+1709914348.6628 0.000 0.000 0.000 0.000 0.000 0.000 0
+1709914348.6713 0.000 0.000 0.000 0.000 0.000 0.000 0
+1709914348.6793 0.000 -0.002 0.016 0.016 0.000 0.016 0
+1709914348.6860 0.000 -0.002 0.016 0.016 0.000 0.016 0
+1709914348.6943 0.000 0.000 0.000 0.000 0.000 0.000 0
+1709914348.7018 0.000 0.000 0.000 0.000 0.000 0.000 0
+1709914348.7106 0.000 0.002 -0.016 -0.016 0.000 -0.016 0
+1709914348.7187 0.000 0.000 0.000 0.000 0.000 0.000 0

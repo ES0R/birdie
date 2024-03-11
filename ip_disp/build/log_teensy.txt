@@ -1,0 +1,20 @@
+% teensy communication to/from Teensy
+% 1 	Time (sec) from system
+% 2 	(Tx) Send to Teensy
+%   	(Rx) Received from Teensy
+%   	(Qu N) Put in queue to Teensy, now queue size N
+% 3 	Message string queued, send or received
+1705916644.5529 USB /dev/ttyACM0 opened
+1705916644.5529 Qu 1 ;48!disp  10.197.216.166
+1705916644.5529 Qu 2 ;47!idi
+1705916644.6145 Txd ;28hbti
+1705916644.6151 Txd ;31leave
+1705916644.6157 Tx ;48!disp  10.197.216.166
+1705916644.6157 Rx ;19hbt 2165.9885 116 1646 12.23 0 9 19.9 0 0
+1705916644.6476 Tx ;48!disp  10.197.216.166
+1705916644.6488 Rx ;38confirm !disp  10.197.216.166
+1705916644.6503 Tx ;47!idi
+1705916644.6514 Rx ;37confirm !idi
+1705916644.6520 Rx ;51dname robobot Birdie
+1705916647.6579 USB /dev/ttyACM0 closed
+% end of file

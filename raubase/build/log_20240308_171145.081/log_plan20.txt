@@ -1,0 +1,6 @@
+% Mission plan20 logfile
+% 1 	Time (sec)
+% 2 	Mission state
+% 3 	% Mission status (mostly for debug)
+1709914306.0672 10 % forward at 0.3m/s
+1709914306.0672 11 % state start

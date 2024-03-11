@@ -1,0 +1,24 @@
+% Motor control (right) logfile
+% 1 	Time (sec)
+% 2 	Reference for right motor (m/sec)
+% 3 	Measured velocity for motor (m/sec)
+% 4 	Value after Kp (V)
+% 5 	Value after Lead (V)
+% 6 	Integrator value (V)
+% 7 	Motor voltage output (V)
+% 8 	Is output limited (1=limited)
+% PID parameters
+% 	Kp = 7
+% 	tau_d = 0, alpha = 1 (use lead=0)
+% 	tau_i = 0.05 (used=1)
+% 	sample time = 8.0 ms
+% 	(derived values: le0=1, le1=0, lu1=0, ie=0.08)
+1709914348.6628 0.000 0.001 -0.004 -0.004 -0.000 -0.005 0
+1709914348.6713 0.000 0.001 -0.004 -0.004 -0.001 -0.005 0
+1709914348.6793 0.002 0.004 -0.015 -0.015 -0.003 -0.018 0
+1709914348.6860 0.402 0.281 0.843 0.843 0.064 0.907 0
+1709914348.6943 0.402 0.136 1.859 1.859 0.280 2.138 0
+1709914348.7018 0.400 0.102 2.089 2.089 0.596 2.685 0
+1709914348.7106 0.398 0.213 1.298 1.298 0.867 2.164 0
+1709914348.7187 0.398 0.279 0.833 0.833 1.037 1.870 0
+% ended at 1709914348.8275 2024-03-08 17:12:28.827

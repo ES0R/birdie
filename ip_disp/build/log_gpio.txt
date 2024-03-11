@@ -1,0 +1,3 @@
+% gpio logfile
+% 1 	Time (sec)
+% 2 	Pin 13 (start)

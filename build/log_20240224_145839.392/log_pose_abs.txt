@@ -1,6 +1,0 @@
-% Pose without folding and reset (log_20240224_145839.392/log_pose_abs.txt)
-% 1 	Time (sec)
-% 2,3 	Position x,y (m)
-% 4 	heading (rad)
-% 5 	Driven distance (m) - signed
-% 6 	Turned angle (rad) - signed
