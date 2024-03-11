@@ -2,35 +2,30 @@
 
 import socket
 
-def main():
-    # Server's IP address and port
-    server_host = '127.0.0.1'  # Adjust as necessary, e.g., to the server's IP if testing over a network
-    server_port = 25002  # Ensure this matches the port used by the server
+def send_command(host, port, command):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        try:
+            sock.connect((host, port))
+            # Receive the initial welcome message from the server.
+            welcome_msg = sock.recv(1024).decode('utf-8')
+            print("Received initial message:", welcome_msg)
 
-    # Create a socket object
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    try:
-        # Connect to server
-        sock.connect((server_host, server_port))
-        print("Connected to server at {}:{}".format(server_host, server_port))
-
-        # Sending a message to the server
-        message_to_send = "golf"  # Change this to send different commands
-        sock.sendall(message_to_send.encode('utf-8'))
-        print("Sent:", message_to_send)
-
-        # Receiving a response from the server
-        response = sock.recv(1024).decode('utf-8')  # Adjust buffer size as necessary
-        print("Received:", response)
-
-    except Exception as e:
-        print("An error occurred:", e)
-
-    finally:
-        # Closing the connection
-        sock.close()
-        print("Connection closed.")
+            # Send the command.
+            print(f"Sending command: {command}")
+            sock.sendall(command.encode('utf-8') + b'\r\n')
+            
+            # Wait for and print the specific response to the command.
+            response = sock.recv(1024).decode('utf-8')
+            print(f"Received response: {response}")
+        except ConnectionRefusedError:
+            print(f"Connection refused. Is the server running on {host}:{port}?")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    main()
+    server_host = '127.0.0.1'
+    server_port = 25003
+
+    # Example command to test.
+    send_command(server_host, server_port, "golf")
+    print("---")
