@@ -36,8 +36,9 @@
 #include "medge.h"
 #include "cedge.h"
 #include "cmixer.h"
-
+#include "sdist.h"
 #include "bplan20.h"
+#include "sencoder.h"
 
 // create class object
 BPlan20 plan20;
@@ -95,34 +96,45 @@ void BPlan20::run()
   //
   // toLog("Plan20 started");
   //
+  
+  
   while (not finished and not lost and not service.stop)
   {
-    
+    if (dist.dist[0] < 0.3 && encoder.enc[1] > 41100){ //&& encoder.enc[1] > 41100
+      finished = true;
+    }
     switch (state)
     { // make a shift in heading-mission
       case 10:
         pose.resetPose();
         toLog("forward at 0.3m/s");
         //mixer.setTurnrate(0.4);
-        mixer.setVelocity(0.7);
+        mixer.setVelocity(0.4);
         mixer.setEdgeMode(false, 0);
-        //cedge.run();
+        
         
         //sleep(0.5);
         state = 11;
-        //finished = true;
+        // finished = true;
         break;
       case 11: // wait for distance
         if (pose.dist >= 30) //in x direction
         { // done, and then
           finished = true;
+          service.stop = true;
         }
-        else if (t.getTimePassed() > 120)
+        else if (t.getTimePassed() > 120){
           lost = true;
+          service.stop = true;
+          
+        } 
         break;
+      
+      
       default:
         toLog("Unknown state");
         lost = true;
+        finished = true;
         break;
     }
     // toLog("Didn't enter while loop");
@@ -135,23 +147,34 @@ void BPlan20::run()
     }
     // wait a bit to offload CPU
     usleep(2000);
-  }
+  
   if (lost)
   { // there may be better options, but for now - stop
     toLog("Plan20 got lost");
     mixer.setVelocity(0);
     mixer.setTurnrate(0);
   }
-  else
-    toLog("Plan20 finished");
+  // else{toLog("Plan20 finished");}
+  }
+  teensy1.send("enc0\n");
+  sleep(1);
+  while (not service.stop && encoder.enc[1] < 425){
+      // pose.resetPose();
+      // mixer.setVelocity(0.4);
+      mixer.setTurnrate(2);
+      finished = true;
+    }
+
+  mixer.setVelocity(0);
+  mixer.setTurnrate(0);
+  // service.theEnd = true;
 }
-
-
-void BPlan20::terminate()
-{ //
-  if (logfile != nullptr)
+void BPlan20::terminate(){ 
+  if (logfile != nullptr){
     fclose(logfile);
-  logfile = nullptr;
+    logfile = nullptr;
+  }
+    
 }
 
 void BPlan20::toLog(const char* message)

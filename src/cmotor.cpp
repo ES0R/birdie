@@ -147,6 +147,7 @@ void CMotor::run()
       float * vr = mixer.getWheelVelocityArray();
       if (dt < 1.0)
       { // valid control timing
+        
         u[0] = pid[0].pid(vr[0], pose.wheelVel[0], limited);
         u[1] = pid[1].pid(vr[1], pose.wheelVel[1], limited);
         // test for output limiting

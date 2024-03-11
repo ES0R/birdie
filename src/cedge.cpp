@@ -163,13 +163,15 @@ void CEdge::run()
             limited = true;
             u = -maxTurnrate;
           }
-          else
+          else { //Bætti við brackets
             limited = motor.limited;
+          }
         }
         else
         {
           u = 0.0;
-          limited = motor.limited;
+          limited = motor.limited; 
+         
         }
         // finished calculating turn rate
         mixer.setInModeTurnrate(u);

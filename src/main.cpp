@@ -46,20 +46,22 @@ int main (int argc, char **argv)
   if (not service.theEnd)
   { // all set to go
     // turn on LED on port 16
-    gpio.setPin(16, 1);
-    sleep(5);
+    
+    // sleep(5);
     // if (dist.dist[1] < 0.20){
     //   gpio.setPin(16, 0);
     // }
     // sleep(4);
+    
     gpio.setPin(16, 1);
     // run the planned missions
-    // plan20.run();
-    sleep(1);
+    plan20.run();
+    // sleep(1);
     
-    // servo.setServo(2, 1, -799, 500);
+
+    // servo.setServo(2, 1, -799, 500); //alveg upp
     // sleep(5);
-    // servo.setServo(2, 1, -15, 500);
+    // servo.setServo(2, 1, -15, 500); Til að loka boltann
     // plan21.run();
     // plan40.run();
     // plan101.run();
@@ -68,10 +70,11 @@ int main (int argc, char **argv)
     //mixer.setTurnrate(0.0);
     // to allow robot to stop
     // turn off led 16
-    sleep(15);
+    
     // servo.setServo(1, 0, -300, 0);
-    servo.setServo(2, 0, -899, 1000);
+    // servo.setServo(2, 0, -899, 1000);
     gpio.setPin(16, 0);
+    
     
   }
   // close all logfiles etc.
