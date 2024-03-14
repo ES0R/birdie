@@ -2,7 +2,7 @@
 
 # Path to your python server script
 SERVER_SCRIPT="/home/local/svn/robobot/socket-base-py/server_socket.py"
-DEFAULT_PORT=25002
+DEFAULT_PORT=25004
 PORT=${1:-$DEFAULT_PORT}
 
 echo "Welcome to the Server Boot Script"
@@ -29,7 +29,6 @@ fi
 
 # Check if the port is available
 if check_port; then
-    echo "Starting the server on port $PORT..."
     python3 "$SERVER_SCRIPT"
 else
     echo "Server could not be started due to port issues."

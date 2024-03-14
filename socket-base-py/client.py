@@ -6,10 +6,6 @@ def send_command(host, port, command):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         try:
             sock.connect((host, port))
-            # Receive the initial welcome message from the server.
-            welcome_msg = sock.recv(1024).decode('utf-8')
-            print("Received initial message:", welcome_msg)
-
             # Send the command.
             print(f"Sending command: {command}")
             sock.sendall(command.encode('utf-8') + b'\r\n')
@@ -24,8 +20,6 @@ def send_command(host, port, command):
 
 if __name__ == "__main__":
     server_host = '127.0.0.1'
-    server_port = 25003
-
-    # Example command to test.
+    server_port = 25004
     send_command(server_host, server_port, "golf")
     print("---")
