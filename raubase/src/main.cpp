@@ -57,7 +57,8 @@ int main (int argc, char **argv)
     servo.setServo(2, 1, -796, 200);
     sleep(0.6);
     // run the planned missions
-    plan20.run();
+    //plan20.run();
+    plantest.run();
     // sleep(1);
     
     servo.setServo(2, 1, -798, 200);

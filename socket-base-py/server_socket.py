@@ -6,9 +6,28 @@ import threading
 import time
 import cv2
 
+def take_image()
+    camera_stream_url = "http://10.197.216.166:8081"
+    cap = cv2.VideoCapture(camera_stream_url, cv2.CAP_FFMPEG)
+    if not cap.isOpened():
+        print("Cannot open camera stream.")
+        exit()
+    self.send("Taking image...")
+
+    ret, frame = cap.read()
+    if ret:
+        image_path = 'captured_image.jpg'
+        cv2.imwrite(image_path, frame)
+        print(f"Image captured and saved at {image_path}")
+    else:
+        print("Failed to capture image from the stream.")
+
+    cap.release()
+
 class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     allow_reuse_address = True
     stop = False
+    
 
 class MyTCPHandler(socketserver.StreamRequestHandler):
     def handle(self):
@@ -43,24 +62,11 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
             try:
                 self.send("Taking image...")
 
-                camera_stream_url = "http://10.197.216.166:8081"
-                cap = cv2.VideoCapture(camera_stream_url, cv2.CAP_FFMPEG)
-                if not cap.isOpened():
-                    print("Cannot open camera stream.")
-                    exit()
-                self.send("Taking image...")
-
-                ret, frame = cap.read()
-                if ret:
-                    image_path = 'captured_image.jpg'
-                    cv2.imwrite(image_path, frame)
-                    print(f"Image captured and saved at {image_path}")
-                else:
-                    print("Failed to capture image from the stream.")
-
-                cap.release()
+                image = take_image()
 
                 self.send("Golf command received. Image captured and saved.")
+                
+                
               
             except Exception as e:
                 self.send(f"Error capturing image: {str(e)}")
