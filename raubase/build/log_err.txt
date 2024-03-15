@@ -1,0 +1,1 @@
+[ WARN:0] global ../modules/videoio/src/cap_v4l.cpp (893) open VIDEOIO(V4L2:/dev/video0): can't open camera by index

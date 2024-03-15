@@ -54,14 +54,17 @@ int main (int argc, char **argv)
     // sleep(4);
     
     gpio.setPin(16, 1);
+    servo.setServo(2, 1, -796, 200);
+    sleep(0.6);
     // run the planned missions
     plan20.run();
     // sleep(1);
     
-
-    // servo.setServo(2, 1, -799, 500); //alveg upp
+    servo.setServo(2, 1, -798, 200);
+    servo.setServo(2, 0, -788, 200);
+     //all the way up with servo is -799
     // sleep(5);
-    // servo.setServo(2, 1, -15, 500); Til að loka boltann
+    // servo.setServo(2, 1, -15, 500); to close on the ball
     // plan21.run();
     // plan40.run();
     // plan101.run();

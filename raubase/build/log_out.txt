@@ -1,16 +1,32 @@
-# UService:: created directory log_20240308_171315.517/
+# UService:: created directory log_20240313_140420.028/
 # UService::setup: open to Teensy
-# STeensy::setup: took 0.010079 sec to open to Teensy
+# STeensy::setup: took 0.010071 sec to open to Teensy
+# Teenst message discarded (crc-error) ;1ae;37coniirm !idi
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=77 != q2=37 (msg=;37cofm!i;1;37confirm !idi
+
+ UTeensy:: unused Teensy message: cofm!i;1;37confirm !idi
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=26 != q2=37 (msg=;37ofirm !idi
+
+ UTeensy:: unused Teensy message: ofirm !idi
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=40 != q2=37 (msg=;37confm;37confirm !idi
+
+ UTeensy:: unused Teensy message: confm;37confirm !idi
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=49 != q2=51 (msg=;51dnam robobot Birdie
+
+ UTeensy:: unused Teensy message: dnam robobot Birdie
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=45 != q2=37 (msg=;37confirm !d;rm !sub hbt 500
+
 # SState::decode: asked for new name (idi -> dname)
-# STeensy::run: Confirm OK after 9 retry and 0.4166s: send';47!idi
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=13 != q2=51 (msg=;51dname robobotBrdie
+
+# STeensy::run: Confirm OK after 5 retry and 2.2897s: send';04!sub hbt 500
 '# SpyVision:: disabled in robot.ini
-# Video device 0: width=1280, height=720, format=MJPG, FPS=25
-# Camera is running (to stabilize illumination)
-# UService::setup - waited 0.544623 sec for full setup
-# UService:: Teensy setup communication msg resend 8, dumped 0 messages
-# UService:: stop_switch say stop now
-Caught signal -1
+# UCam - camera could not open
+# STeensy::run: Confirm OK after 2 retry and 0.0509s: send';81!sub svo 50
+'# UService::setup - waited 2.37066 sec for full setup
+# UService:: ************************************************************
+# UService:: Teensy setup communication msg resend 54, dumped 1 messages
+# UService:: ************************************************************
 # --------- terminating -----------
-# UCam::run: camera released
-# UCam:: logfile closed
 # UService:: configuration saved to robot.ini

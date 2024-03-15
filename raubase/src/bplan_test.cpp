@@ -39,8 +39,11 @@
 #include "cmixer.h"
 #include "maruco.h"
 #include "scam.h"
-
-
+#include <iostream>
+#include <cstring>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 #include "bplan_test.h"
 
 // create class object
@@ -158,4 +161,49 @@ void BPlan_test::toLog(const char* message)
            message);
   }
 }
+
+
+
+void send_command(const std::string& host, int port, const std::string& command) {
+    int sock = 0;
+    struct sockaddr_in serv_addr;
+    char buffer[1024] = {0};
+
+    // Creating the socket
+    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+        std::cout << "Socket creation error" << std::endl;
+        return;
+    }
+
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(port);
+
+    // Convert IPv4 and IPv6 addresses from text to binary form
+    if(inet_pton(AF_INET, host.c_str(), &serv_addr.sin_addr) <= 0) {
+        std::cout << "Invalid address / Address not supported" << std::endl;
+        return;
+    }
+
+    if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
+        std::cout << "Connection Failed. Is the server running on " << host << ":" << port << "?" << std::endl;
+        return;
+    }
+
+    // Receive the initial welcome message from the server
+    read(sock, buffer, 1024);
+    std::cout << "Received initial message: " << buffer << std::endl;
+
+    // Send the command
+    std::cout << "Sending command: " << command << std::endl;
+    send(sock, command.c_str(), command.length(), 0);
+    send(sock, "\r\n", 2, 0); // Make sure to send the newline characters as well
+
+    memset(buffer, 0, sizeof(buffer)); // Clear the buffer before receiving new data
+    // Wait for and print the specific response to the command
+    read(sock, buffer, 1024);
+    std::cout << "Received response: " << buffer << std::endl;
+
+    close(sock);
+}
+
 

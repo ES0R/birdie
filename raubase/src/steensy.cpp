@@ -539,6 +539,7 @@ void STeensy::run()
         titsum[7] += tit[7].getTimePassed();
       }
     } // connected
+    
     ntpUpdate = false;
     if (tit[9].getTimePassed() > 2.0)
     { // likely NTP update received
