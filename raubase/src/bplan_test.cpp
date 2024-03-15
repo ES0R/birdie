@@ -107,7 +107,7 @@ void BPlan_test::run()
         state = 11;
       }
       case 11:
-        //calibrateCamera();
+        send_command() //LOOK HERE FIX
         state = 99; // Move to a finished or next state after calibration
       case 99:
         finished = true;

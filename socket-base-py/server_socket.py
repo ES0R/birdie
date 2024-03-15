@@ -3,26 +3,9 @@
 import socketserver
 import signal
 import threading
-import time
+import os
 import cv2
-
-def take_image()
-    camera_stream_url = "http://10.197.216.166:8081"
-    cap = cv2.VideoCapture(camera_stream_url, cv2.CAP_FFMPEG)
-    if not cap.isOpened():
-        print("Cannot open camera stream.")
-        exit()
-    self.send("Taking image...")
-
-    ret, frame = cap.read()
-    if ret:
-        image_path = 'captured_image.jpg'
-        cv2.imwrite(image_path, frame)
-        print(f"Image captured and saved at {image_path}")
-    else:
-        print("Failed to capture image from the stream.")
-
-    cap.release()
+import time
 
 class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     allow_reuse_address = True
@@ -33,25 +16,45 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
     def handle(self):
         print(f"Got new client from {self.client_address[0]}")
         while not self.server.stop:
-            data = self.rfile.readline().strip().decode('utf-8')
-            if not data:
-                break  # Client disconnected
-            command = data.split()
-            if command:
+            try:
+                data = self.rfile.readline().strip().decode('utf-8')
+                if not data:
+                    break  # Client disconnected
+                command = data.split()
                 print(f"Received Command: {command}")
-                if command[0] == "quit":
-                    break
-                elif command[0] == "off":
-                    self.send("Server shutdown")
-                    self.server.stop = True
-                    break
-                else:
-                    self.process_command(command)
+                self.process_command(command)
+            except ConnectionResetError:
+                break  # Handle sudden client disconnection
         print(f"Client on {self.client_address[0]} disconnected")
 
     def send(self, msg):
-        self.wfile.write(msg.encode('utf-8') + b"\r\n")
-        self.wfile.flush()
+        try:
+            self.wfile.write(msg.encode('utf-8') + b"\r\n")
+            self.wfile.flush()
+        except BrokenPipeError:
+            print("Client disconnected before message was sent.")
+
+    def take_image(self):
+        camera_stream_url = "http://10.197.216.166:8081"
+        cap = cv2.VideoCapture(camera_stream_url, cv2.CAP_FFMPEG)
+        if not cap.isOpened():
+            return "Cannot open camera stream.", False
+        
+        ret, frame = cap.read()
+        cap.release()
+
+        if ret:
+            # Ensure the directory exists
+            image_dir = os.path.join(os.getcwd(), "captured_images")
+            os.makedirs(image_dir, exist_ok=True)
+
+            image_path = os.path.join('/home/local/svn/robobot/socket-base-py/captured_images', 'captured_image_test.jpg')
+            if cv2.imwrite(image_path, frame):
+                return f"Image captured and saved at {image_path}", True
+            else:
+                return "Failed to write image to filesystem.", False
+        else:
+            return "Failed to capture image from the stream.", False
 
     def process_command(self, command):
         if command[0] == "help":
@@ -59,17 +62,8 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         elif command[0] == "aruco":
             self.send("Detected ArUco marker: ID 123 at position (x:100, y:200)")
         elif command[0] == "golf":
-            try:
-                self.send("Taking image...")
-
-                image = take_image()
-
-                self.send("Golf command received. Image captured and saved.")
-                
-                
-              
-            except Exception as e:
-                self.send(f"Error capturing image: {str(e)}")
+            message, success = self.take_image()
+            self.send(message)  # Send success or failure message
         else:
             self.send("Unknown command")
 
