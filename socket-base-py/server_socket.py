@@ -68,9 +68,9 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         
     def image_to_direction(self,image,save_image=True):
 
+        image = cv2.resize(image, (640, 640))
         boxes, scores = model.run_inference(image)
 
-        image = cv2.resize(image, (640, 640))
         img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 
@@ -82,38 +82,42 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
                             [0.0, 1064, 361.8],
                             [0.0, 0.0, 1.0]])
 
+        # Principal point (center of the image)
+        c_x = camera_matrix[0, 2]
+        c_y = camera_matrix[1, 2]
+        # Focal length
+        focal_length_x = camera_matrix[0, 0]
+        focal_length_y = camera_matrix[1, 1]
 
-        focal_length = (camera_matrix[0, 0] + camera_matrix[1, 1]) / 2
-
+        
         distance = None
-        ang = None
-        for box,score in zip(boxes,scores):
-            # print(box.shape)
-            if score > 0.7:
+        angle = None
+        for box, score in zip(boxes, scores):
+            if score > 0.7:  # If confidence score is greater than 70%
                 xmin, ymin, xmax, ymax = box
+                # Draw the bounding box
                 rect = patches.Rectangle((xmin, ymin), xmax-xmin, ymax-ymin, linewidth=1, edgecolor='r', facecolor='none')
                 ax.add_patch(rect)
-                ax.text(xmin, ymin, f"{score:.2f}", color='white', backgroundcolor='red')
-                
-                W_image = xmax - xmin  # Estimated width of the object in the image (in pixels)
-                object_center_x = (xmin + xmax) / 2  # X-coordinate of the object center in the image
+                # Estimate the width of the object in the image
+                W_image = xmax - xmin
 
                 # Calculate the distance to the object
-                distance = (W_real * focal_length) / W_image
+                distance = (W_real * focal_length_x) / W_image
 
-                # Calculate the angle in radians, then convert to degrees
-                theta_radians = math.atan((object_center_x - c_x) / focal_length)
-                ang = math.degrees(theta_radians)  # Angle in degrees
-                
-                
+                # Calculate the horizontal angle (azimuth)
+                object_center_x = xmin + W_image / 2
+                dx = object_center_x - c_x
+                angle = math.degrees(math.atan2(dx, focal_length_x))
+
         # save figure
         if save_image is True:
-            plt.savefig('output_test.png')
+            plt.savefig('/home/local/svn/robobot/socket-base-py/captured_images/output_test.png')
             plt.show()
+        
         #print(boxes,scores)         
         distance = str(distance) if distance is not None else "N/A"
-        ang = str(ang) if ang is not None else "N/A"
-        return str(distance), str(ang)
+        angle = str(angle) if angle is not None else "N/A"
+        return str(distance), str(angle)
 
     def process_command(self, command):
         if command[0] == "help":
@@ -122,8 +126,8 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
             self.send("Detected ArUco marker: ID 123 at position (x:100, y:200)")
         elif command[0] == "golf":
             image, message, success = self.take_image()
-            distance, ang = self.image_to_direction(image,save_image=True) if success else None
-            self.send(distance,ang)  # Send success or failure message
+            distance, angle = self.image_to_direction(image,save_image=True) if success else None
+            self.send(distance + "," + angle) 
         else:
             self.send("Unknown command")
 

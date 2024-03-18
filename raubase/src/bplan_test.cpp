@@ -168,7 +168,8 @@ void BPlan_test::toLog(const char* message)
 
 
 void send_command(const std::string& host, int port, const std::string& command) {
-    std::cout << "In send command" << std::endl;
+    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << "Connecting to TCP server: " << host << ":" << port << std::endl;
 
     int sock = 0;
     struct sockaddr_in serv_addr;
