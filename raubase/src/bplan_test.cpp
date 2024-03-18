@@ -99,19 +99,19 @@ void BPlan_test::run()
   {
     switch (state)
     { // Test ArUco plan
-      case 10:
-      { // brackets to allow local variables
-        pose.resetPose();
-        cv::Mat frame = cam.getFrameRaw();
-        cv::imwrite("img_test.jpg", frame);
-        state = 11;
-      }
-      case 11:
-        send_command() //LOOK HERE FIX
-        state = 99; // Move to a finished or next state after calibration
+      // case 10:
+      // { // brackets to allow local variables
+      //   pose.resetPose();
+      //   cv::Mat frame = cam.getFrameRaw();
+      //   cv::imwrite("img_test.jpg", frame);
+      //   state = 11;
+      // }
+      // case 11:
+      //   send_command() //LOOK HERE FIX
+      //   state = 99; // Move to a finished or next state after calibration
       case 99:
         finished = true;
-        //break;
+        break;
       default:
         toLog("Unknown state");
         lost = true;
