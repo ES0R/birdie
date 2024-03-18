@@ -15,7 +15,7 @@ if not cap.isOpened():
 
 ret, frame = cap.read()
 if ret:
-    image_path = 'captured_image_2.jpg'
+    image_path = 'captured_image_7.jpg'
     cv2.imwrite(image_path, frame)
     print(f"Image captured and saved at {image_path}")
 else:

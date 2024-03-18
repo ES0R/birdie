@@ -73,6 +73,14 @@ void BPlan_test::setup()
   setupDone = true;
 }
 
+void BPlan_test::terminate(){ 
+  if (logfile != nullptr){
+    fclose(logfile);
+    logfile = nullptr;
+  }
+    
+}
+
 BPlan_test::~BPlan_test()
 {
   terminate();
@@ -94,20 +102,23 @@ void BPlan_test::run()
   oldstate = state;
   //
   toLog("Plan_test started");
-  //
+  std::cout << "Start" << std::endl;
   while (not finished and not lost and not service.stop)
   {
     switch (state)
     { // Test ArUco plan
-      // case 10:
-      // { // brackets to allow local variables
-      //   pose.resetPose();
-      //   cv::Mat frame = cam.getFrameRaw();
-      //   cv::imwrite("img_test.jpg", frame);
-      //   state = 11;
-      // }
-      // case 11:
-      //   send_command() //LOOK HERE FIX
+      case 10:
+      
+         // brackets to allow local variables
+          //void send_command(const std::string& host, int port, const std::string& command) {
+          std::cout << "Test send command" << std::endl;
+
+           send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
+           state = 11;
+           break;
+
+      case 11:
+        break;
       //   state = 99; // Move to a finished or next state after calibration
       case 99:
         finished = true;
@@ -138,13 +149,6 @@ void BPlan_test::run()
 }
 
 
-void BPlan_test::terminate()
-{ //
-  if (logfile != nullptr)
-    fclose(logfile);
-  logfile = nullptr;
-}
-
 void BPlan_test::toLog(const char* message)
 {
   UTime t("now");
@@ -163,8 +167,9 @@ void BPlan_test::toLog(const char* message)
 }
 
 
-
 void send_command(const std::string& host, int port, const std::string& command) {
+    std::cout << "In send command" << std::endl;
+
     int sock = 0;
     struct sockaddr_in serv_addr;
     char buffer[1024] = {0};
@@ -189,21 +194,19 @@ void send_command(const std::string& host, int port, const std::string& command)
         return;
     }
 
-    // Receive the initial welcome message from the server
-    read(sock, buffer, 1024);
-    std::cout << "Received initial message: " << buffer << std::endl;
-
     // Send the command
     std::cout << "Sending command: " << command << std::endl;
     send(sock, command.c_str(), command.length(), 0);
-    send(sock, "\r\n", 2, 0); // Make sure to send the newline characters as well
+    send(sock, "\n", 1, 0); // Ensure to send the newline character
 
-    memset(buffer, 0, sizeof(buffer)); // Clear the buffer before receiving new data
-    // Wait for and print the specific response to the command
-    read(sock, buffer, 1024);
-    std::cout << "Received response: " << buffer << std::endl;
+    // Now attempt to read the response
+    memset(buffer, 0, sizeof(buffer)); // Clear the buffer
+    if(read(sock, buffer, 1024) < 0) {
+        std::cout << "Failed to read response" << std::endl;
+    } else {
+        std::cout << "Received response: " << buffer << std::endl;
+    }
 
     close(sock);
 }
-
 

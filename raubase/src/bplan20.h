@@ -37,6 +37,8 @@ public:
     ~BPlan20();
   /** setup and request data */
   void setup();
+
+  int getTicks(float distance);
   /**
    * run this mission */
   void run();
@@ -51,12 +53,16 @@ private:
   /// added to log
   int state, oldstate;
   /// private stuff
+  float distance_per_tick = 0.436; //mm
   // debug print to console
   bool toConsole = true;
   // logfile
   FILE * logfile = nullptr;
   bool setupDone = false;
 };
+
+
+
 
 /**
  * Make this visible to the rest of the software */

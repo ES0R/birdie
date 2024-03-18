@@ -2,7 +2,7 @@
 
 # Path to your python server script
 SERVER_SCRIPT="/home/local/svn/robobot/socket-base-py/server_socket.py"
-DEFAULT_PORT=25004
+DEFAULT_PORT=25005
 PORT=${1:-$DEFAULT_PORT}
 
 echo "Welcome to the Server Boot Script"

@@ -93,9 +93,8 @@ void BPlan20::run()
   bool lost = false;
   bool box = false;
   int step_counter = 0;
-  float distance_per_tick = 0.436; //mm
   state = 0;
-  int last_transition = 112; //BREAYTA I 0
+  int last_transition = 0; //BREAYTA I 0
   int encoder_target = 0;//BREYTA I 0
   oldstate = state;
   //
@@ -109,8 +108,8 @@ void BPlan20::run()
     switch (state)
     { 
       case 0: //TEST CASE
-        servo.setServo(3, 1, -850, 200);
-        sleep(10);
+        //servo.setServo(3, 1, -850, 200);
+        sleep(1);
         
         break;
       
@@ -118,24 +117,26 @@ void BPlan20::run()
         servo.setServo(3,1,600,200);
         break;
       
-      case 120:
-        servo.setServo(3, 1, -850, 200);
-        sleep(3);
-        pose.resetPose();
-        sleep(2);
-        mixer.setDesiredHeading(3.14);
-        sleep(2);
-        pose.resetPose();
-        sleep(2);
-        state = 121;
-        break;
+      // case 120:  //STAIRS START MIGHT DELETE THIS CASE THOUGH
+      //   servo.setServo(3, 1, -850, 200);
+      //   sleep(3);
+      //   pose.resetPose();
+      //   sleep(2);
+      //   mixer.setDesiredHeading(3.14);
+      //   sleep(2);
+      //   pose.resetPose();
+      //   sleep(2);
+      //   state = 121;
+      //   break;
 
-      case 121:
-
-        mixer.setEdgeMode(true, 0);
-        mixer.setVelocity(0.3);
-        sleep(3);
-        state = 122;
+      case 121: //START STAIRS
+        if (encoder.enc[1] > encoder_target){
+          mixer.setEdgeMode(true, 0);
+          mixer.setVelocity(0.3);
+          sleep(3);
+          state = 122;
+        }
+        
         break;
       
       case 122:
@@ -188,12 +189,25 @@ void BPlan20::run()
         servo.setServo(3, 1, -850, 200);
         sleep(5);
         mixer.setVelocity(0.2);
+        pose.resetPose();
         mixer.setEdgeMode(false, 0);
+        encoder_target = encoder.enc[1] + 1000;
+        last_transition = 138;
         state = 138;
         break;
 
       case 138:
+        if (encoder.enc[1] > encoder_target){
+          mixer.setVelocity(0);
+          sleep(2);
+          mixer.setDesiredHeading(-3.14*0.5);
+          last_transition = 138;
+          sleep(2);
+          mixer.setVelocity(0.1);
+          encoder_target = encoder.enc[1] + 1000;
+          state = 8;
 
+        }
         break;
 
       case 80: // After spinny thing put low speed to make turn
@@ -460,16 +474,18 @@ void BPlan20::run()
       case 8: // Find the line and latch onto it
 
         if (medge.edgeValid && encoder.enc[1] > encoder_target){
-          
           mixer.setEdgeMode(false, 0);
           encoder_target = encoder.enc[1] + 500;
-          state = 9;
+          if (last_transition == 0){
+            state = 121;
+          } else{
+            
+            state = 9;
+          }
+          
         }
 
       break;
-
-
-
 
       case 9: //Start following left the whole circle
         
@@ -891,26 +907,26 @@ void BPlan20::run()
         break;
 
 
-      case 70:
+      case 70: //Go from race position to reach line on the other end of spinny thing
       
         mixer.setVelocity(0.3);
         encoder_target = encoder.enc[1] + 3000;
         state = 71;
         break;
 
-      case 71:
+      case 71: //Find line and go slowly to get onto the line
         
         if (medge.edgeValid && encoder.enc[1] > encoder_target){
           mixer.setVelocity(0.15);
           mixer.setEdgeMode(true, 0);
           encoder_target = encoder.enc[1] + 4900;
           sleep(1);
-          last_transition = 71;
+          last_transition = 71; 
           state = 22;
         }
         break;
       
-      case 72:
+      case 72: 
         mixer.setVelocity(0.1);
         
         if (medge.edgeValid){
@@ -1173,6 +1189,14 @@ void BPlan20::run()
   // mixer.setTurnrate(0);
   // service.theEnd = true;
 }
+
+//Receives the distance in meters and converts it to encoder ticks
+int BPlan20::getTicks(float distance){ 
+  int ret;
+  ret = (int)((distance*1000)/distance_per_tick);
+  return ret; 
+}
+
 
 void BPlan20::terminate(){ 
   if (logfile != nullptr){
