@@ -82,7 +82,7 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         focal_length_x = camera_matrix[0, 0]
         W_real = 0.0427  # Real width of the golf ball
         distance = "-1"
-        angle = "-1"
+        distance_to_middle = "-1"
         for box, score in zip(boxes, scores):
             if score > 0.7:
                 xmin, ymin, xmax, ymax = box
@@ -94,16 +94,19 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
 
                 W_image_original = xmax_original - xmin_original  # Use original image width for distance calculation
                 distance = (W_real * focal_length_x) / W_image_original
+                distance = 0.88*distance-0.154 # funky conversion
+
 
                 object_center_x_original = xmin_original + W_image_original / 2
-                dx = object_center_x_original - c_x  # Use original image center for angle calculation
-                angle = math.degrees(math.atan2(dx, focal_length_x))
+
+                distance_to_middle = object_center_x_original-320
 
         if save_image:
             plt.savefig('/home/local/svn/robobot/socket-base-py/captured_images/output_test.png')
             plt.show()
 
-        return str(distance) if distance else "-1", str(angle) if angle else "-1"
+
+        return str(distance) if distance else "-1", str(distance_to_middle) if distance_to_middle else "-1"
 
     def process_command(self, command):
         if command[0] == "help":
@@ -112,8 +115,8 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
             self.send("Detected ArUco marker: ID 123 at position (x:100, y:200)")
         elif command[0] == "golf":
             image, message, success = self.take_image()
-            distance, angle = self.image_to_direction(image,save_image=True) if success else None
-            self.send(distance + "," + angle) 
+            distance, distance_to_middle = self.image_to_direction(image,save_image=True) if success else None
+            self.send(distance + "," + distance_to_middle) 
         else:
             self.send("Unknown command")
 

@@ -106,7 +106,11 @@ void BPlan20::run()
   //
   // toLog("Plan20 started");
   //
-  
+  servo.setServo(3, 1, -850, 200);
+  sleep(5);
+  mixer.setVelocity(0.1);
+  sleep(2);
+  mixer.setVelocity(0);
   
   while (not finished and not lost and not service.stop)
   {
@@ -114,15 +118,41 @@ void BPlan20::run()
     switch (state)
     { 
       case 0: //TEST CASE
-        servo.setServo(3, 1, -850, 200);
-        sleep(5);
-        send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
-        state = 11111;
+        
+        while (true){
+          sleep(3);
+          send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
+          cout << dist_to_ball << endl;
+          cout << angle_to_ball << endl;
+          if (angle_to_ball < 80 && angle_to_ball > 30){
+            mixer.setVelocity(0.1);
+            encoder_ = getTicks(dist_to_ball - 0.22);
+            cout << encoder_ << endl;
+            encoder_target = encoder.enc[1] + encoder_;
+            state = 11111;
+            break;
+            
+          } else if (angle_to_ball > 50){
+            mixer.setDesiredHeading(-3.14*0.025);
+            sleep(3);
+            pose.resetPose();
+          } else {
+            mixer.setDesiredHeading(3.14*0.025);
+            sleep(3);
+            pose.resetPose();
+          }
+        }
+        
         break;
       
       case 11111:
-        cout << dist_to_ball << endl;
-        sleep(2);
+        if (encoder.enc[1] > encoder_target){
+          mixer.setVelocity(0);
+          servo.setServo(3, 1, -50, 200);
+          sleep(5);
+          state = 0;
+        }
+
         break;
 
       case 10000:
