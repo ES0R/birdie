@@ -58,7 +58,6 @@ private:
   bool setupDone = false;
 };
 
-void send_command(const std::string& host, int port, const std::string& command);
 
 /**
  * Make this visible to the rest of the software */

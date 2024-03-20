@@ -1,6 +1,0 @@
-% Mission plan_test logfile
-% 1 	Time (sec)
-% 2 	Mission state
-% 3 	% Mission status (mostly for debug)
-1710785025.0643 10 % Plan_test started
-1710785025.1202 11 % state start

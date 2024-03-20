@@ -39,6 +39,8 @@ public:
   void setup();
 
   int getTicks(float distance);
+  void send_command(const std::string& host, int port, const std::string& command);
+
   /**
    * run this mission */
   void run();
@@ -52,15 +54,16 @@ private:
   void toLog(const char * message);
   /// added to log
   int state, oldstate;
+  
+  float dist_to_ball, angle_to_ball;
   /// private stuff
-  float distance_per_tick = 0.436; //mm
+  float distance_per_tick = 0.384; //mm
   // debug print to console
   bool toConsole = true;
   // logfile
   FILE * logfile = nullptr;
   bool setupDone = false;
 };
-
 
 
 

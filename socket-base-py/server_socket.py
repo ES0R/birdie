@@ -66,58 +66,44 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         else:
             return "Failed to capture image from the stream.", False
         
-    def image_to_direction(self,image,save_image=True):
-
-        image = cv2.resize(image, (640, 640))
-        boxes, scores = model.run_inference(image)
-
-        img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
+    def image_to_direction(self, image, save_image=True):
+        original_height, original_width = image.shape[:2]  # Original image size
+        resize_scale_width = original_width / 640.0  # Calculate the resize scale
+        resize_scale_height = original_height / 640.0
+        image_resized = cv2.resize(image, (640, 640))
+        boxes, scores = model.run_inference(image_resized)
+        img_rgb = cv2.cvtColor(image_resized, cv2.COLOR_BGR2RGB)
 
         fig, ax = plt.subplots()
         ax.imshow(img_rgb)
-        
-        W_real = 0.0427  # Real width of the object in meters (for example)
-        camera_matrix = np.array([[1060.6, 0.0, 734.8],
-                            [0.0, 1064, 361.8],
-                            [0.0, 0.0, 1.0]])
 
-        # Principal point (center of the image)
+        camera_matrix = np.array([[1060.6, 0.0, 734.8], [0.0, 1064, 361.8], [0.0, 0.0, 1.0]])
         c_x = camera_matrix[0, 2]
-        c_y = camera_matrix[1, 2]
-        # Focal length
         focal_length_x = camera_matrix[0, 0]
-        focal_length_y = camera_matrix[1, 1]
-
-        
-        distance = None
-        angle = None
+        W_real = 0.0427  # Real width of the golf ball
+        distance = "-1"
+        angle = "-1"
         for box, score in zip(boxes, scores):
-            if score > 0.7:  # If confidence score is greater than 70%
+            if score > 0.7:
                 xmin, ymin, xmax, ymax = box
-                # Draw the bounding box
-                rect = patches.Rectangle((xmin, ymin), xmax-xmin, ymax-ymin, linewidth=1, edgecolor='r', facecolor='none')
-                ax.add_patch(rect)
-                # Estimate the width of the object in the image
-                W_image = xmax - xmin
+                # Scale bounding box coordinates back to original image size
+                xmin_original = xmin * resize_scale_width
+                xmax_original = xmax * resize_scale_width
 
-                # Calculate the distance to the object
-                distance = (W_real * focal_length_x) / W_image
+                ax.add_patch(patches.Rectangle((xmin, ymin), xmax - xmin, ymax - ymin, linewidth=1, edgecolor='r', facecolor='none'))
 
-                # Calculate the horizontal angle (azimuth)
-                object_center_x = xmin + W_image / 2
-                dx = object_center_x - c_x
+                W_image_original = xmax_original - xmin_original  # Use original image width for distance calculation
+                distance = (W_real * focal_length_x) / W_image_original
+
+                object_center_x_original = xmin_original + W_image_original / 2
+                dx = object_center_x_original - c_x  # Use original image center for angle calculation
                 angle = math.degrees(math.atan2(dx, focal_length_x))
 
-        # save figure
-        if save_image is True:
+        if save_image:
             plt.savefig('/home/local/svn/robobot/socket-base-py/captured_images/output_test.png')
             plt.show()
-        
-        #print(boxes,scores)         
-        distance = str(distance) if distance is not None else "N/A"
-        angle = str(angle) if angle is not None else "N/A"
-        return str(distance), str(angle)
+
+        return str(distance) if distance else "-1", str(angle) if angle else "-1"
 
     def process_command(self, command):
         if command[0] == "help":

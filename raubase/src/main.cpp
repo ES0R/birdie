@@ -57,8 +57,8 @@ int main (int argc, char **argv)
    
     sleep(0.6);
     // run the planned missions
-    // plan20.run();
-    plan_test.run();
+    plan20.run();
+    // plan_test.run();
     // plantest.run();
     // sleep(1);
     

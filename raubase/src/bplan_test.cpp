@@ -102,7 +102,6 @@ void BPlan_test::run()
   oldstate = state;
   //
   toLog("Plan_test started");
-  std::cout << "Start" << std::endl;
   while (not finished and not lost and not service.stop)
   {
     switch (state)
@@ -111,9 +110,7 @@ void BPlan_test::run()
       
          // brackets to allow local variables
           //void send_command(const std::string& host, int port, const std::string& command) {
-          std::cout << "Test send command" << std::endl;
-
-           send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
+           //send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
            state = 11;
            break;
 
@@ -165,49 +162,3 @@ void BPlan_test::toLog(const char* message)
            message);
   }
 }
-
-
-void send_command(const std::string& host, int port, const std::string& command) {
-    std::cout << "--------------------------------------------" << std::endl;
-    std::cout << "Connecting to TCP server: " << host << ":" << port << std::endl;
-
-    int sock = 0;
-    struct sockaddr_in serv_addr;
-    char buffer[1024] = {0};
-
-    // Creating the socket
-    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        std::cout << "Socket creation error" << std::endl;
-        return;
-    }
-
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(port);
-
-    // Convert IPv4 and IPv6 addresses from text to binary form
-    if(inet_pton(AF_INET, host.c_str(), &serv_addr.sin_addr) <= 0) {
-        std::cout << "Invalid address / Address not supported" << std::endl;
-        return;
-    }
-
-    if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
-        std::cout << "Connection Failed. Is the server running on " << host << ":" << port << "?" << std::endl;
-        return;
-    }
-
-    // Send the command
-    std::cout << "Sending command: " << command << std::endl;
-    send(sock, command.c_str(), command.length(), 0);
-    send(sock, "\n", 1, 0); // Ensure to send the newline character
-
-    // Now attempt to read the response
-    memset(buffer, 0, sizeof(buffer)); // Clear the buffer
-    if(read(sock, buffer, 1024) < 0) {
-        std::cout << "Failed to read response" << std::endl;
-    } else {
-        std::cout << "Received response: " << buffer << std::endl;
-    }
-
-    close(sock);
-}
-
