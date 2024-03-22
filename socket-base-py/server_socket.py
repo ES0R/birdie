@@ -107,12 +107,54 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
 
 
         return str(distance) if distance else "-1", str(distance_to_middle) if distance_to_middle else "-1"
+    
+    def scan_for_aruco(self, image):
+        # Convert to grayscale
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        
+        # Initialize the detector parameters using default values
+        aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_250)
+        
+        # For versions that do not recognize DetectorParameters_create, use DetectorParameters
+        parameters = cv2.aruco.DetectorParameters()
+
+        detector = cv2.aruco.ArucoDetector(aruco_dict, parameters)
+
+        corners, ids, rejectedImgPoints = detector.detectMarkers(gray)
+
+        return corners, ids
+    
+    def calculate_distance_to_middle(self, corners):
+        # Extract the top-left, top-right, bottom-right, and bottom-left points
+        tl, tr, br, bl = corners
+        # calculate center of the rectangle
+        center = (tl + br) / 2
+        # calculate centers distance to the middle of image
+        distance_to_middle = center[0] - 320 # 320 is the middle of the image 
+
+        return distance_to_middle
 
     def process_command(self, command):
         if command[0] == "help":
             self.send("Commands: quit, off, aruco, golf, help")
         elif command[0] == "aruco":
-            self.send("Detected ArUco marker: ID 123 at position (x:100, y:200)")
+            image, message, success = self.take_image()
+            corners, ids = self.scan_for_aruco(image) if success else None
+            #self.image_to_direction_aruco(image)
+            # print(corners, ids)
+            list_id = []
+            list_corners = []
+            if ids is not None:
+                for cornor,id in zip(corners,ids):
+                    # print(cornor[0])
+                    distance_to_middle = self.calculate_distance_to_middle(cornor[0])
+                    print(f"Detected ArUco marker: ID {id} with distance to middle: {distance_to_middle}")
+                    list_id.append(id)
+                    list_corners.append(corners)
+            
+                self.send(f"{list_id},{list_corners}")
+            else:
+                self.send('-1')
         elif command[0] == "golf":
             image, message, success = self.take_image()
             distance, distance_to_middle = self.image_to_direction(image,save_image=True) if success else None
