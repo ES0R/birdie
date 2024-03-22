@@ -66,7 +66,7 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         else:
             return "Failed to capture image from the stream.", False
         
-    def image_to_direction(self, image, save_image=True):
+    def image_to_direction_golf(self, image, save_image=True):
         original_height, original_width = image.shape[:2]  # Original image size
         resize_scale_width = original_width / 640.0  # Calculate the resize scale
         resize_scale_height = original_height / 640.0
@@ -81,6 +81,7 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         c_x = camera_matrix[0, 2]
         focal_length_x = camera_matrix[0, 0]
         W_real = 0.0427  # Real width of the golf ball
+        
         distance = "-1"
         distance_to_middle = "-1"
         for box, score in zip(boxes, scores):
@@ -139,6 +140,7 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
             self.send("Commands: quit, off, aruco, golf, help")
         elif command[0] == "aruco":
             image, message, success = self.take_image()
+            distance, distance_to_middle = self.image_to_direction_aruco(image) if success else None
             corners, ids = self.scan_for_aruco(image) if success else None
             #self.image_to_direction_aruco(image)
             # print(corners, ids)
@@ -157,8 +159,8 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
                 self.send('-1')
         elif command[0] == "golf":
             image, message, success = self.take_image()
-            distance, distance_to_middle = self.image_to_direction(image,save_image=True) if success else None
-            self.send(distance + "," + distance_to_middle) 
+            distance, distance_to_middle = self.image_to_direction_golf(image,save_image=True) if success else None
+            self.send(f"{distance}, {distance_to_middle}") 
         else:
             self.send("Unknown command")
 
