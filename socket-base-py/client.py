@@ -21,5 +21,5 @@ def send_command(host, port, command):
 if __name__ == "__main__":
     server_host = '127.0.0.1'
     server_port = 25005
-    send_command(server_host, server_port, "golf")
+    send_command(server_host, server_port, "aruco")
     print("---")

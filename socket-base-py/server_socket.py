@@ -117,41 +117,40 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
     def image_to_direction_aruco(self, image, save_image=True):
         corners, ids = self.scan_for_aruco(image)
 
-        # Assuming W_real is the real width of the ArUco marker in meters
-        W_real = 0.05  # Adjust the real width of an ArUco marker as needed
+        W_real = 0.034
+        
+        if ids is not None and len(ids) > 0:
+            # Flatten ids if necessary to ensure it's iterable
+            ids = ids.flatten()
 
-        min_distance = float('inf')
-        selected_marker_info = None
-        selected_corner = None
+            min_distance = float('inf')
+            selected_marker_info = None
+            selected_corner = None
+            selected_id = None
 
-        if ids is not None:
-            for corner, id in zip(corners, np.squeeze(ids)):
-                # Calculate the bounding box's corners (min and max)
-                xmin, ymin = np.min(corner[0], axis=0)
-                xmax, ymax = np.max(corner[0], axis=0)
+            for corner, id in zip(corners, ids):
+                # Calculate bounding box's corners
+                xmin, ymin, xmax, ymax = corner[0].min(axis=0)[0], corner[0].min(axis=0)[1], corner[0].max(axis=0)[0], corner[0].max(axis=0)[1]
                 
                 # Calculate distance and displacement for each marker
                 distance, distance_to_middle = self.calculate_distances(image, (xmin, ymin, xmax, ymax), W_real)
 
-                # Check if this marker has the minimum distance so far
                 if distance < min_distance:
                     min_distance = distance
-                    selected_marker_info = (id, distance, distance_to_middle)
                     selected_corner = corner
+                    selected_id = id
+                    selected_marker_info = (id, distance, distance_to_middle)
 
-        # Visualization and saving of the marker with the lowest distance
-        if save_image:
-            # Draw only the selected marker
-            img_with_selected_marker = cv2.aruco.drawDetectedMarkers(image.copy(), [selected_corner], [np.array([selected_marker_info[0]])])
-            image_path = '/home/local/svn/robobot/socket-base-py/captured_images/aruco_closest_detected.jpg'
-            cv2.imwrite(image_path, img_with_selected_marker)
-            
-        if selected_marker_info:
-            return f"{selected_marker_info[0]}, {selected_marker_info[1]:.2f}, {selected_marker_info[2]:.2f}"
+            # Visualization and saving of the marker with the lowest distance
+            if save_image and selected_marker_info:
+                img_with_selected_marker = cv2.aruco.drawDetectedMarkers(image.copy(), [selected_corner], np.array([[selected_id]]))
+                image_path = '/home/local/svn/robobot/socket-base-py/captured_images/aruco_closest_detected.jpg'
+                cv2.imwrite(image_path, img_with_selected_marker)
+                return f"{selected_marker_info[0]}, {selected_marker_info[1]:.2f}, {selected_marker_info[2]:.2f}"
+            elif not selected_marker_info:
+                return "-2, -2, -2" #Error code for no aruco within length limit
         else:
-            print("No suitable ArUco marker found")
-            return "-1"
-
+            return "-1, -1, -1" #Error code for not detected in image
     
     def image_to_direction_golf(self, image, save_image=True):
 
@@ -161,15 +160,13 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         # Assuming W_real is the real width of the golf ball in meters
         W_real = 0.0427
 
-        # Define default as "-1" in case of no detection
-        distance = "-1"
-        distance_to_middle = "-1"
-
         # Sort boxes by scores in descending order
         sorted_boxes = sorted(zip(boxes, scores), key=lambda x: x[1], reverse=True)
 
+        detection = False
         for box, score in sorted_boxes:
             if score > 0.7:
+                detection = True
                 xmin, ymin, xmax, ymax = box
                 # Use your calculate_distances function
                 temp_distance, temp_distance_to_middle = self.calculate_distances(image, (xmin, ymin, xmax, ymax), W_real)
@@ -191,20 +188,24 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
             plt.savefig('/home/local/svn/robobot/socket-base-py/captured_images/golf.png')
             plt.close(fig)
 
-        return f"{distance}, {distance_to_middle}"
+        if detection:
+            return f"{distance:.2f}, {distance_to_middle:.2f}"
+        else:
+            print("No golf ball found")
+            return "-1, -1"
 
 
     def process_command(self, command):
         if command[0] == "help":
             self.send("Commands: quit, off, aruco, golf, help")
         elif command[0] == "aruco":
-            image, success = self.take_image()
-            message= self.image_to_direction_aruco(image) if success else None
-            self.send(message)
+            image, message, success = self.take_image()  # Adjusted to unpack three values
+            data = self.image_to_direction_aruco(image,save_image=True) if success else None
+            self.send(data)
         elif command[0] == "golf":
-            image, success = self.take_image()
-            message= self.image_to_direction_golf(image,save_image=True) if success else None
-            self.send(message) 
+            image, message, success = self.take_image()  # Adjusted to unpack three values
+            data = self.image_to_direction_golf(image,save_image=True) if success else None
+            self.send(data) 
         else:
             self.send("Unknown command")
 

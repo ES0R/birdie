@@ -56,6 +56,9 @@ private:
   int state, oldstate;
   
   float dist_to_ball, angle_to_ball;
+  float dist_to_aruco, angle_to_aruco; 
+  int aruco_id;
+   
   /// private stuff
   float distance_per_tick = 0.384; //mm
   // debug print to console

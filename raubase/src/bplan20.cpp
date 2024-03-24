@@ -97,7 +97,8 @@ void BPlan20::run()
   bool pick_up_upstairs_ball = false;
   int step_counter = 0;
   int encoder_ = 0;
-  state = 12345; //
+  int fail_counter = 0;
+  state = 75; //
   int last_transition = 71; //BREAYTA I 0
   int encoder_target = 0;//BREYTA I 0
   float heading_for_ball = 0;
@@ -106,6 +107,10 @@ void BPlan20::run()
   bool pick_up = false;
   dist_to_ball = 0;
   angle_to_ball = 0;
+  dist_to_aruco = 0;
+  angle_to_aruco = 0;
+  aruco_id = 0;
+  int aruco_box_id = 0;
   oldstate = state;
   float halfing_distance = 0.05;
   int minus = 40;
@@ -113,8 +118,8 @@ void BPlan20::run()
   // toLog("Plan20 started");
   //
   int revolve_counter = 1;
-  servo.setServo(3, 1, -800, 300); //MOVE TO 74
-  sleep(3);
+  // servo.setServo(3, 1, -800, 300); //MOVE TO 74
+  // sleep(3);
   // mixer.setVelocity(0.2);
   // sleep(2);
   // mixer.setVelocity(0);
@@ -128,11 +133,12 @@ void BPlan20::run()
   
   while (not finished and not lost and not service.stop)
   {
-    
     switch (state)
     { 
       case 12345:
+        
         send_command("127.0.0.1", 25005, "aruco"); //LOOK HERE FIX
+        cout << dist_to_aruco << ", "<< angle_to_aruco<< ", " << aruco_id <<endl;
         sleep(5);
         break;
       case 0: //TEST CASE
@@ -1568,7 +1574,7 @@ void BPlan20::run()
       case 75:
         mixer.setEdgeMode(false, 0); //DELETE
         mixer.setVelocity(0.1); //MOVE TO 74
-          
+        servo.setServo(3, 1, -20, 300); //MOVE TO 74
         if (dist.dist[1] < 0.125){
           mixer.setVelocity(0);
           state = 76;
@@ -1577,7 +1583,16 @@ void BPlan20::run()
 
       case 76:
         send_command("127.0.0.1", 25005, "aruco"); //LOOK HERE FIX
-        encoder_ = getTicks(0.2);
+        fail_counter = 0;
+        while (aruco_id == -1){
+          fail_counter ++;
+          mixer.setVelocity(-0.1);
+          sleep(1);
+          mixer.setVelocity(0);
+          send_command("127.0.0.1", 25005, "aruco");
+        }
+        aruco_box_id = aruco_id;
+        encoder_ = getTicks(0.19 + fail_counter*0.1);
         servo.setServo(3, 1, -850 + minus, 300);
         encoder_target = encoder.enc[1] + encoder_;
         sleep(2);
@@ -1615,7 +1630,7 @@ void BPlan20::run()
           sleep(1);
           mixer.setDesiredHeading(3.14*0.55);
           sleep(4);
-          encoder_ = getTicks(0.84);
+          encoder_ = getTicks(1.04);
           encoder_target = encoder.enc[1] + encoder_;
           state = 792;
           mixer.setVelocity(0.2);
@@ -1630,7 +1645,7 @@ void BPlan20::run()
           mixer.setDesiredHeading(0);
           
           sleep(4);
-          encoder_ = getTicks(0.25);
+          encoder_ = getTicks(0.58);
           mixer.setVelocity(0.1);
           encoder_target = encoder.enc[1] + encoder_;
           state = 793;
@@ -1640,14 +1655,40 @@ void BPlan20::run()
       case 793:
         if (encoder.enc[1] > encoder_target){
           mixer.setVelocity(0);
-          
+          sleep(2);
+          fail_counter = 1;
+          mixer.setDesiredHeading(3.14*0.3);
+
           state = 794;
         }
         break;
       
       case 794:
+
+        
+        sleep(3);
         send_command("127.0.0.1", 25005, "aruco"); //LOOK HERE FIX
         
+        if (aruco_box_id == aruco_id){
+          encoder_ = getTicks(dist_to_aruco - 0.3);
+          encoder_target = encoder.enc[1] + encoder_;
+          mixer.setVelocity(0.1);
+          state = 795;
+        } else {
+          mixer.setDesiredHeading(3.14*0.3 - 3.14*0.1*fail_counter);
+        }
+        fail_counter++;
+        break;
+      
+      case 795:
+        if (encoder.enc[1] > encoder_target){
+          mixer.setVelocity(0);
+          servo.setServo(3, 1, -800, 300); //MOVE TO 74
+          state = 796;
+        }
+        break;
+
+      case 796:
         break;
 
       case 41: //RACE 41 to 44 DO NOT RUN UNLESS IN PERFECT POSITION IT GOES VEEEEERY FAST
@@ -1971,10 +2012,17 @@ void BPlan20::send_command(const std::string& host, int port, const std::string&
             numbers.push_back(number);
         }
     }
-
+    if (sizeof(numbers)== 2){
     dist_to_ball = numbers[0];
     angle_to_ball = numbers[1];
+    }
+    else {
+    dist_to_aruco = numbers[1];
+    angle_to_aruco = numbers[2];
+    aruco_id = numbers[0];
+    }
     close(sock);
+
     
 }
 
