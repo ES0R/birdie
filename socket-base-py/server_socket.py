@@ -114,6 +114,42 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         return corners, ids
 
     
+    def image_to_direction_aruco_target(self, image, target_id, save_image=True):
+        corners, ids = self.scan_for_aruco(image)
+
+        W_real = 0.034  # Adjust based on the actual size of your ArUco marker
+
+        if ids is not None and len(ids) > 0:
+            # Flatten ids if necessary to ensure it's iterable
+            ids = ids.flatten()
+
+            selected_marker_info = None
+            selected_corner = None
+
+            for corner, id in zip(corners, ids):
+                # Check if the current marker is the target marker
+                if id == target_id:
+                    # Calculate bounding box's corners
+                    xmin, ymin, xmax, ymax = corner[0].min(axis=0)[0], corner[0].min(axis=0)[1], corner[0].max(axis=0)[0], corner[0].max(axis=0)[1]
+
+                    # Calculate distance and displacement for the target marker
+                    distance, distance_to_middle = self.calculate_distances(image, (xmin, ymin, xmax, ymax), W_real)
+                    selected_marker_info = (id, distance, distance_to_middle)
+                    selected_corner = corner
+                    break  # Since we found our target marker, no need to check further
+
+            # Visualization and saving of the target marker
+            if save_image and selected_marker_info:
+                img_with_selected_marker = cv2.aruco.drawDetectedMarkers(image.copy(), [selected_corner], np.array([[target_id]]))
+                image_path = '/home/local/svn/robobot/socket-base-py/captured_images/aruco_target_detected.jpg'
+                cv2.imwrite(image_path, img_with_selected_marker)
+                return f"{selected_marker_info[0]}, {selected_marker_info[1]:.2f}, {selected_marker_info[2]:.2f}"
+            elif not selected_marker_info:
+                return "-2, -2, -2"  # Error code for target ID not within criteria or not found
+        else:
+            return "-1, -1, -1"  # Error code for no ArUco markers detected in the image
+
+    
     def image_to_direction_aruco(self, image, save_image=True):
         corners, ids = self.scan_for_aruco(image)
 
@@ -135,7 +171,7 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
                 # Calculate distance and displacement for each marker
                 distance, distance_to_middle = self.calculate_distances(image, (xmin, ymin, xmax, ymax), W_real)
 
-                if distance < min_distance:
+                if distance < min_distance and ymin > 440:
                     min_distance = distance
                     selected_corner = corner
                     selected_id = id
@@ -206,6 +242,10 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
             image, message, success = self.take_image()  # Adjusted to unpack three values
             data = self.image_to_direction_golf(image,save_image=True) if success else None
             self.send(data) 
+        elif command[0] == "arcuo_target":
+            image, message, success = self.take_image()
+            data = self.image_to_direction_aruco_target(image,save_image=True) if success else None
+            self.send(data)
         else:
             self.send("Unknown command")
 
