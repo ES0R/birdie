@@ -1,0 +1,15 @@
+# UService:: created directory log_20240327_130510.174/
+# UService::setup: open to Teensy
+# STeensy::setup: took 0.010072 sec to open to Teensy
+# SState::decode: asked for new name (idi -> dname)
+# STeensy::run: Confirm OK after 6 retry and 0.2656s: send';47!idi
+'# SpyVision:: disabled in robot.ini
+# Video device 0: width=640, height=480, format=MJPG, FPS=25
+# Camera is running (to stabilize illumination)
+# UService::setup - waited 0.398998 sec for full setup
+# UService:: Teensy setup communication msg resend 5, dumped 0 messages
+# UService:: stop_switch say stop now
+Caught signal -1
+# --------- terminating -----------
+# UCam::run: camera released
+# UService:: configuration saved to robot.ini

@@ -13,6 +13,16 @@ def send_command(host, port, command):
             # Wait for and print the specific response to the command.
             response = sock.recv(1024).decode('utf-8')
             print(f"Received response: {response}")
+            if command == "aruco_target,5":
+                data = response.split(",")
+                cameraFOV = 60
+                imageWidth = 640
+                # 
+                turn_amount = (float(data[2]) * (cameraFOV / imageWidth))
+
+                print(turn_amount)
+                
+            print(f"Received response: {response}")
         except ConnectionRefusedError:
             print(f"Connection refused. Is the server running on {host}:{port}?")
         except Exception as e:
@@ -21,5 +31,5 @@ def send_command(host, port, command):
 if __name__ == "__main__":
     server_host = '127.0.0.1'
     server_port = 25005
-    send_command(server_host, server_port, "aruco")
+    send_command(server_host, server_port, "aruco_target,5")
     print("---")

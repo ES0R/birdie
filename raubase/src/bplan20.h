@@ -56,7 +56,7 @@ private:
   int state, oldstate;
   
   float dist_to_ball, angle_to_ball;
-  float dist_to_aruco, angle_to_aruco; 
+  float dist_to_aruco, angle_to_aruco, actual_angle_to_aruco, actual_angle_to_golf; 
   int aruco_id;
    
   /// private stuff

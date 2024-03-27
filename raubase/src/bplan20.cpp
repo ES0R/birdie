@@ -100,17 +100,21 @@ void BPlan20::run()
   int encoder_ = 0;
   int fail_counter = 0;
   float actual_distance_to_aruco_box = 0;
-  state = 174; //
+  state = 74; //
   int last_transition = 71; //BREAYTA I 0
-  int encoder_target = 0;//BREYTA I 0
+  int encoder_target = -1;//BREYTA I 0
   float heading_for_ball = 0;
   bool right = false;
   bool left = false;
   bool pick_up = false;
+  bool setVelZero = false;
+  float old_dist_to_ball = 1000;
   dist_to_ball = 0;
   angle_to_ball = 0;
   dist_to_aruco = 0;
   angle_to_aruco = 0;
+  actual_angle_to_aruco = 0;
+  actual_angle_to_golf = 0;
   aruco_id = 0;
   int aruco_box_id = 0;
   oldstate = state;
@@ -118,23 +122,25 @@ void BPlan20::run()
   int minus = 40;
   int ball_counter = 0;
   bool white_box_found = false;
-  
+  std::string aruco_command_target = "";
+  std::string aruco_box_str = "";
   //
   // toLog("Plan20 started");
   //
   int revolve_counter = 1;
-  servo.setServo(3, 1, -300, 300); 
-  sleep(3);
-  // mixer.setVelocity(0.2);
-  // sleep(2);
-  // mixer.setVelocity(0);
+  
+  
+ 
   // mixer.setDesiredHeading(-3.14*0.5);
+  
+  // servo.setServo(3, 1, -800, 400);
   // sleep(3);
-  float get_center_aruco = 0.0008;
   pose.resetPose(); //DONT DELETE
+  sleep(2);
   // mixer.setVelocity(0.1);
   // mixer.setVelocity(0.1);
   // sleep(2);
+  mixer.setVelocity(0);
   // mixer.setVelocity(0);
   
   while (not finished and not lost and not service.stop)
@@ -142,13 +148,10 @@ void BPlan20::run()
     switch (state)
     { 
       case 12345:
+        send_command("127.0.0.1", 25005, "aruco"); //LOOK HERE FIX
         sleep(3);
-        send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
-        
-        
         break;
       
-
       // case 10000:
         
       //   if (imu.gyro[2] < -150){
@@ -181,7 +184,7 @@ void BPlan20::run()
         
         mixer.setEdgeMode(true, 0);
         mixer.setVelocity(0.2);
-        encoder_ = getTicks(4.8);
+        encoder_ = getTicks(5.2);
         encoder_target = encoder.enc[1] + encoder_;
         state = 151;
         break;
@@ -196,7 +199,7 @@ void BPlan20::run()
       
       case 1552:
         if (imu.gyro[2] < -50){
-          encoder_ = getTicks(1.403); //FIX HERE LESS DISTANCE
+          encoder_ = getTicks(1.39); //FIX HERE LESS DISTANCE
           encoder_target = encoder.enc[1] + encoder_;
           state = 1553;
         }
@@ -211,13 +214,13 @@ void BPlan20::run()
 
       case 1554:
         servo.setServo(3, 1, -70 + minus, 400);
-        sleep(5);
+        sleep(4);
         state = 1555;
         break;
       
       case 1555:
         cout << "1555" << endl;
-        mixer.setEdgeMode(false, 0);
+        // mixer.setEdgeMode(false, 0); þarf ekki held eg
         mixer.setVelocity(0.05);
         state = 152;
         break;
@@ -239,10 +242,16 @@ void BPlan20::run()
         if (medge.edgeValid){
           cout << "153" << endl;
           mixer.setEdgeMode(false, 0);
-          
-          sleep(4);
-          encoder_target = encoder.enc[1] + 3250;
-          mixer.setVelocity(0.2);
+          mixer.setVelocity(0.035);
+        
+          sleep(6);
+          pose.resetPose();
+          mixer.setVelocity(0);
+          sleep(2);
+          mixer.setDesiredHeading(3.14*0.04);
+          sleep(2);
+          encoder_target = encoder.enc[1] + 2500;
+          mixer.setVelocity(0.1);
           mixer.setTurnrate(0);
           last_transition = 155;
 
@@ -252,23 +261,27 @@ void BPlan20::run()
 
       case 154:
         if (encoder.enc[1] > encoder_target && medge.edgeValid){
+          cout << "154" <<endl;
           mixer.setVelocity(0.05);
+          mixer.setEdgeMode(true,0);
+          sleep(3);
+          mixer.setVelocity(0.1);
           mixer.setEdgeMode(true, 0);
 
-          encoder_target = encoder.enc[1] + 800;
-          
           state = 155;
         }
         break;
       
       case 155: //End Ramp
-        if (encoder.enc[1] > encoder_target){
+        cout << "155" << endl;
+        if (dist.dist[1] < 0.4){
           mixer.setVelocity(0);
           pose.resetPose();
           sleep(2);
           mixer.setDesiredHeading(3.14*0.99);
+          sleep(4);
+          mixer.setDesiredHeading(3.14*1.1);
           sleep(2);
-          
           servo.setServo(3, 1, -70 + minus, 300);
           last_transition = 155;
           state = 8;
@@ -337,7 +350,7 @@ void BPlan20::run()
       case 124:
         if (encoder.enc[1] > encoder_target){
           mixer.setVelocity(0);
-          servo.setServo(3, 1, 150 + minus, 200);
+          servo.setServo(3, 1, 120 + minus, 200);
           sleep(5);
           state = 135;
         }
@@ -369,7 +382,7 @@ void BPlan20::run()
         mixer.setVelocity(0.1);
         
         mixer.setEdgeMode(false, 0);
-        encoder_target = encoder.enc[1] + 1250;
+        encoder_target = encoder.enc[1] + 1500;
         last_transition = 138;
         state = 138;
         break;
@@ -383,7 +396,7 @@ void BPlan20::run()
 
           sleep(2);
           mixer.setVelocity(0.1);
-          encoder_target = encoder.enc[1] + 1000;
+          encoder_target = encoder.enc[1] + 400;
           state = 8;
 
         }
@@ -391,8 +404,6 @@ void BPlan20::run()
 
       case 80: // After spinny thing put low speed to make turn
         
-        
-
         mixer.setVelocity(0.1);
         mixer.setEdgeMode(true, 0);
         sleep(7);
@@ -658,7 +669,7 @@ void BPlan20::run()
 
       case 4: //Wait for the circle robot to pass and turn back
         if (dist.dist[0] > 0.5){
-          mixer.setDesiredHeading(-3.14*0.3);
+          mixer.setDesiredHeading(-3.14*0.35);
           sleep(1);
           
           state = 5;
@@ -667,18 +678,20 @@ void BPlan20::run()
       
       case 5: //Fix yourself on line and pass through the intersection. 
         
-        mixer.setVelocity(0.1);
-        mixer.setEdgeMode(false, 0);
+        mixer.setVelocity(0.075);
+        mixer.setEdgeMode(true, 0);
         if (last_transition == 112){ // If the loop is done go to spinny thing
-          sleep(3);
-          mixer.setTurnrate(0);
-          mixer.setVelocity(0.3);
           sleep(4);
-          mixer.setVelocity(0.1);
+          mixer.setVelocity(0.2);
+          sleep(4);
+          cout << "off" << endl;
+          mixer.setTurnrate(0);
+          mixer.setVelocity(0.2);
+          sleep(3);
           encoder_target = encoder.enc[1] + 2000;
           state = 113;
         } else {
-          sleep(3); //was sleep(2) before weird change
+          sleep(4); //was sleep(2) before weird change
 
           mixer.setTurnrate(0);
           mixer.setVelocity(0.3);
@@ -690,7 +703,7 @@ void BPlan20::run()
       
 
       case 6: // After passing intersection, latch onto line again
-        mixer.setVelocity(0.3);
+        mixer.setVelocity(0.2);
         mixer.setEdgeMode(false, 0);
         encoder_target = encoder.enc[1] + 2400;
         
@@ -701,8 +714,8 @@ void BPlan20::run()
 
         if (encoder.enc[1] > encoder_target){
           sleep(1);
-          mixer.setTurnrate(-0.8);
           mixer.setVelocity(0.2);
+          mixer.setTurnrate(-0.8);
 
           encoder_target = encoder.enc[1] + 3000;
           state = 8;
@@ -1017,7 +1030,7 @@ void BPlan20::run()
           pose.resetPose();
           
           sleep(1);
-          mixer.setDesiredHeading(-3.14 * 0.75);
+          mixer.setDesiredHeading(-3.14 * 0.7);
           encoder_target = encoder.enc[1] + 1900;
           sleep(1);
           mixer.setEdgeMode(true, 0);
@@ -1039,7 +1052,7 @@ void BPlan20::run()
 
       case 113: //Go to spinny thing
         mixer.setEdgeMode(true, 0);
-        
+        mixer.setVelocity(0.1);
         if (encoder.enc[1] > encoder_target){
           
           mixer.setVelocity(0.05);
@@ -1081,7 +1094,7 @@ void BPlan20::run()
           
           // encoder_target = encoder.enc[1] + 11500;
           
-            mixer.setVelocity(0.4);
+            mixer.setVelocity(0.3);
             state = 23;
           }
         }
@@ -1125,11 +1138,10 @@ void BPlan20::run()
         mixer.setDesiredHeading(3.14*0.55);
         sleep(2);
         
-        mixer.setVelocity(0);
-        sleep(2);
+        
         if (last_transition == 71){
-          mixer.setVelocity(0.2);
-          sleep(1);
+          // mixer.setVelocity(0.2);
+          // sleep(1);
           state = 72;
         } else if (last_transition == 112 or last_transition == 60)
           state = 127;
@@ -1444,55 +1456,59 @@ void BPlan20::run()
         break;
       
       case 72: 
+        mixer.setVelocity(0.2);
         if (medge.edgeValid){
-          mixer.setVelocity(0.04);
-          mixer.setEdgeMode(true, 0);
-         
+          mixer.setVelocity(0);
+          pose.resetPose();
+          sleep(2);
+          mixer.setDesiredHeading(3.14*0.2);
           sleep(2);
           mixer.setVelocity(0.1);
+          sleep(1);
           state = 73;
-
         }
 
         break;
       
       case 73:
-        sleep(5);
-        mixer.setVelocity(0.035);
-        mixer.setEdgeMode(false, 0);
-
-        
-          
-        state = 74;
-        
-        break;
-
-      case 74:
-        if (imu.gyro[2] < -50){
+        if (medge.edgeValid){
+          mixer.setEdgeMode(false, 0);
+          mixer.setVelocity(0.075);
           sleep(4);
-          mixer.setEdgeMode(false, 0); //DELETE
-          mixer.setVelocity(0.1); //MOVE TO 74
-          servo.setServo(3, 1, -20, 300); //MOVE TO 74
-          
-          state = 75;
+          mixer.setVelocity(0.2);
+          sleep(7);
+          state = 74;
         }
+        
+        
+        
         break;
 
-
-      case 75:
+      case 74: //In aruco
+        
         mixer.setEdgeMode(false, 0); //DELETE
         mixer.setVelocity(0.05); //MOVE TO 74
+        servo.setServo(3, 1, -20, 300); //MOVE TO 74
         if (ball_counter == 4){
           state = 170;
           break;
         }
+        state = 75;
+        
+        break;
+
+
+      case 75:
+        // mixer.setEdgeMode(false, 0); //DELETE
+        // mixer.setVelocity(0.05); //MOVE TO 74
+        
         if (dist.dist[1] < 0.125){
           
-          actual_distance_to_aruco_box = dist.dist[1];
-          cout << actual_distance_to_aruco_box << endl;
-          
-          mixer.setTurnrate(0);
+          actual_distance_to_aruco_box = dist.dist[1]; // setti þetta
+          cout << "actual_distance" << actual_distance_to_aruco_box << endl;;
           mixer.setVelocity(0);
+          mixer.setTurnrate(0);
+          
           pose.resetPose();
           sleep(2);
           state = 76;
@@ -1523,7 +1539,7 @@ void BPlan20::run()
         }
         if (state != 170){
           aruco_box_id = aruco_id;
-          encoder_ = getTicks(0.072 + actual_distance_to_aruco_box + fail_counter*0.1);
+          encoder_ = getTicks(0.066 + actual_distance_to_aruco_box+ fail_counter*0.1); //  og var 0.062
           servo.setServo(3, 1, -850 + minus, 300);
           encoder_target = encoder.enc[1] + encoder_;
           sleep(1);
@@ -1554,7 +1570,12 @@ void BPlan20::run()
 
       case 79:
         mixer.setTurnrate(0);
-        mixer.setVelocity(-0.25);
+        if (ball_counter >= 2){
+          mixer.setVelocity(-0.5);
+        } else{
+          mixer.setVelocity(-0.25);
+        }
+        
         encoder_ = getTicks(0.35 + ball_counter*0.2);
         encoder_target = encoder.enc[1] - encoder_;
         state = 791;
@@ -1567,7 +1588,7 @@ void BPlan20::run()
           } else{
             mixer.setVelocity(0);
             sleep(1);
-            mixer.setDesiredHeading(3.14*0.55);
+            mixer.setDesiredHeading(3.14*0.5);
             sleep(4);
             encoder_ = getTicks(1.04);
             encoder_target = encoder.enc[1] + encoder_;
@@ -1592,39 +1613,36 @@ void BPlan20::run()
         break;
       
       case 793:
-        if (dist.dist[1] < 0.35){
+        if (dist.dist[1] < 0.55){
           mixer.setVelocity(0);
           sleep(1);
           fail_counter = 0;
-          
-          mixer.setVelocity(-0.1);
-          sleep(2);
-          mixer.setVelocity(0);
-          sleep(2);
-          
-          mixer.setDesiredHeading(3.14*0.3);
-
+          aruco_box_str = std::to_string(aruco_box_id);
+          aruco_command_target = "aruco_target," + aruco_box_str;
+          heading_for_ball = 0;
           state = 794;
         }
         break;
       
       case 794:
-
-        
         sleep(1);
-        send_command("127.0.0.1", 25005, "aruco"); //LOOK HERE FIX
+        send_command("127.0.0.1", 25005, aruco_command_target); //LOOK HERE FIX
         cout << "finding house" << endl;
         if (aruco_box_id == aruco_id){
           cout << "found house" << endl;
-          // mixer.setVelocity(0.1);
-          pose.resetPose();
           state = 795;
         } else {
           cout << "did not find house" << endl;
-          mixer.setDesiredHeading(3.14*0.3 - 3.14*0.1*fail_counter);
+          if (heading_for_ball == 0){
+            heading_for_ball = 3.14*0.21;
+          }
+          heading_for_ball = heading_for_ball - 3.14*0.05*fail_counter;
+          mixer.setDesiredHeading(heading_for_ball);
+          sleep(2);
+          fail_counter++;
         }
-        fail_counter++;
-        if (fail_counter > 6){
+        
+        if (fail_counter > 8){
           sleep(2);
           mixer.setDesiredHeading(0);
           sleep(2);
@@ -1635,33 +1653,31 @@ void BPlan20::run()
         break;
       
       case 795:
-
-        if (not (angle_to_aruco == -1)){
-          if (angle_to_aruco < 10){
-            if (angle_to_aruco > 0){
-              mixer.setDesiredHeading((angle_to_aruco-15)*get_center_aruco*3.14);
-            }
-            mixer.setDesiredHeading(-(angle_to_aruco-15)*get_center_aruco*3.14);
-            sleep(1);
-            pose.resetPose();
-          } else if (angle_to_aruco > 50){
-            mixer.setDesiredHeading(-(angle_to_aruco-45)*get_center_aruco*3.14);
-            sleep(1);
-            pose.resetPose();
-          } 
+        for (int i = 0; i < 3; i++){
           
-        } 
+          if (actual_angle_to_aruco < 0){
         
-        if (angle_to_aruco < 50 && angle_to_aruco > 10 && aruco_id == aruco_box_id){
-          sleep(2);
-          
-          mixer.setVelocity(0.1);
-          state = 796;
-        } else{
-          send_command("127.0.0.1", 25005, "aruco");
+            heading_for_ball = heading_for_ball - actual_angle_to_aruco*3.14;
+            mixer.setDesiredHeading(heading_for_ball);
+
+          }	else{
+            heading_for_ball = heading_for_ball - actual_angle_to_aruco*3.14;
+            mixer.setDesiredHeading(heading_for_ball);
+          }
+          cout << "heading:" << heading_for_ball << endl;
+          sleep(1);
+          send_command("127.0.0.1", 25005, aruco_command_target);
         }
+        sleep(2);
+        
+        mixer.setVelocity(0.1);
+        state = 796;
+      
+
 
         break;
+
+       
 
 
       case 796: //Release aruco ball
@@ -1683,7 +1699,7 @@ void BPlan20::run()
         break;
       
       case 798:
-        mixer.setDesiredHeading(-3.14*0.62);
+        mixer.setDesiredHeading(-3.14*0.65);
         sleep(3);
 
         mixer.setVelocity(0.2);
@@ -1697,11 +1713,9 @@ void BPlan20::run()
           sleep(3);
           servo.setServo(3, 1, -50, 300);
           ball_counter ++;
-          sleep(4);
-          mixer.setTurnrate(0);
-          mixer.setVelocity(-0.1);
-          sleep(3);
-          state = 75;
+          sleep(2);
+          
+          state = 74;
         }
         if (dist.dist[1] < 0.15){
           mixer.setDesiredHeading(-0.8*3.14);
@@ -1722,7 +1736,7 @@ void BPlan20::run()
         sleep(3);
         ball_counter ++;
         white_box_found = false;
-        state = 75;
+        state = 74;
 
         break;
       
@@ -1731,9 +1745,10 @@ void BPlan20::run()
         mixer.setVelocity(0);
         pose.resetPose();
         servo.setServo(3, 1, -800, 300);
+        pose.resetPose();
         sleep(3);
         mixer.setDesiredHeading(3.14);
-        sleep(3);
+        sleep(5);
         state = 171;
         break;
 
@@ -1751,7 +1766,7 @@ void BPlan20::run()
         if (encoder.enc[1] > encoder_target){
             mixer.setVelocity(0);
             sleep(1);
-            mixer.setDesiredHeading(-3.14*0.99);
+            mixer.setDesiredHeading(0);
             sleep(6);
             mixer.setVelocity(0.1);
             mixer.setEdgeMode(true, 0);
@@ -1768,7 +1783,7 @@ void BPlan20::run()
           if (dist.dist[1] < 0.15){
             
             mixer.setVelocity(0);
-            sleep(2);
+            sleep(1);
             state = 174;
           }
         break;
@@ -1776,7 +1791,8 @@ void BPlan20::run()
       case 174:
         
         mixer.setVelocity(0.05);
-        sleep(2);
+        ball_counter = 0;
+        sleep(3);
         mixer.setVelocity(0);
         state = 175;
         break;
@@ -1827,6 +1843,16 @@ void BPlan20::run()
       
       case 178: 
         sleep(1);
+        if (revolve_counter < 6){
+          sleep(1);
+        } else {
+          sleep(2);
+        }
+
+        if (revolve_counter == 10 or ball_counter == 3){
+          state = 187; //Implementa escape hér, nenni því ekki nuna
+        }
+
         send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
         cout << dist_to_ball << endl;
         cout << angle_to_ball << endl;
@@ -1842,7 +1868,6 @@ void BPlan20::run()
           revolve_counter = 1;
           
           fail_counter = 0;
-          halfing_distance = 0.08;
           state = 179;
         }
         break;
@@ -1861,118 +1886,108 @@ void BPlan20::run()
           right = false;
         }
         
-        
+        if (old_dist_to_ball < dist_to_ball){
+          cout << "STUCK" << endl;
+          old_dist_to_ball = 1000;
+          sleep(1);
+          send_command("127.0.0.1", 25005, "golf");
+          break;
+        }
 
-        if (dist_to_ball > 0.60){
-          if (right){
-            cout << "found ball but it is far and to the left" << endl;
+        if (dist_to_ball > 0.55){
+          for (int i = 0; i < 1; i++){
+            
+            if (actual_angle_to_golf < 0){
+              heading_for_ball = heading_for_ball - actual_angle_to_golf*3.14;
+              mixer.setDesiredHeading(heading_for_ball);
+              sleep(1);
+
+            }	else{
+              heading_for_ball = heading_for_ball - actual_angle_to_golf*3.14;
+              mixer.setDesiredHeading(heading_for_ball);
+              sleep(1);
+            }
+            cout << "heading:" << heading_for_ball << endl;
+            
+          }
+
+          cout << "ball to far away, going closer: " << dist_to_ball << endl;
+
+          encoder_ = getTicks(dist_to_ball-0.5);
+          encoder_target = encoder.enc[1] + encoder_;
+          cout << "encoder_target:" << encoder_target << endl;
+          
+          mixer.setVelocity(0.1);
+          setVelZero = true;
+          while (setVelZero){
+            
+            usleep(50000);
+            if (encoder.enc[1] > encoder_target){
+              setVelZero = false;
+            }
+          }
+          mixer.setVelocity(0);
+          old_dist_to_ball = dist_to_ball - 0.1;
+          sleep(1);
+          send_command("127.0.0.1", 25005, "golf");
+          
+        } else if (dist_to_ball != -2 && dist_to_ball != -1){
+          
+          for (int i = 0; i < 2; i++){
+            
+            if (actual_angle_to_golf < 0){
+          
+              heading_for_ball = heading_for_ball - actual_angle_to_golf*3.14;
+              mixer.setDesiredHeading(heading_for_ball);
+
+            }	else{
+              heading_for_ball = heading_for_ball - actual_angle_to_golf*3.14;
+              mixer.setDesiredHeading(heading_for_ball);
+            }
+            cout << "heading:" << heading_for_ball << endl;
+            if (i == 0){
+              sleep(1);
+              send_command("127.0.0.1", 25005, "golf");
+            }
+            
+          }
+          cout << "found position picking ball up" << endl;
+          old_dist_to_ball = 1000;
+          servo.setServo(3, 1, -160, 300);
+          sleep(2);
+          mixer.setVelocity(0.05);
+          mixer.setTurnrate(0.02);
+          
+          encoder_ = getTicks(dist_to_ball - 0.2);
+          encoder_target = encoder.enc[1] + encoder_;
+          pick_up = true;
+          state = 180;
+        } else{
+          if (left){
+            heading_for_ball = heading_for_ball + 0.05*3.14;
+            mixer.setDesiredHeading(heading_for_ball);
+            sleep(1);
+          } else if (right){
             heading_for_ball = heading_for_ball - 0.05*3.14;
             mixer.setDesiredHeading(heading_for_ball);
             sleep(1);
-          } else if (left){
-            heading_for_ball = heading_for_ball + 0.05*3.14;
-            cout << "found ball but it is far and to the right" << endl;
-            mixer.setDesiredHeading(heading_for_ball);
-            sleep(1);
-          }
-          mixer.setVelocity(0.125);
-          sleep(2);
-          mixer.setVelocity(0);
-        }
-        else if (dist_to_ball > 0.48){
-          mixer.setVelocity(0.1);
-          sleep(1);
-          mixer.setVelocity(0);
-        }
-        
-        else if (dist_to_ball < 0.48 && dist_to_ball > 0.01){
-          while (true){
-            if (dist_to_ball > 0.48){
-              mixer.setVelocity(0.05);
-              sleep(1);
-              mixer.setVelocity(0);
-            }
-            if (fail_counter > 5){
-              cout << "Tried to often, picking up ball anyway" << endl;
-              servo.setServo(3, 1, -200, 300);
-              sleep(2);
-              mixer.setVelocity(0.1);
-              encoder_ = getTicks(dist_to_ball - 0.2);
-              encoder_target = encoder.enc[1] + encoder_;
-              cout << "encoder_: " << encoder_ << endl;
-              halfing_distance = 0.08;
-              pick_up = true;
-              
-              state = 180;
-              break;
-            }
-            send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
-            if (angle_to_ball < 45 && angle_to_ball > 0){
-              cout << "found position picking ball up" << endl;
-              servo.setServo(3, 1, -200, 300);
-              sleep(2);
-              mixer.setVelocity(0.1);
-              encoder_ = getTicks(dist_to_ball - 0.2);
-              encoder_target = encoder.enc[1] + encoder_;
-              cout << "encoder_: " << encoder_ << endl;
-              halfing_distance = 0.08;
-              pick_up = true;
-              state = 180;
-              break;	
-                    
-                  
-            } else if (angle_to_ball > 45){
-              cout << "distance correct, trying to align, ball to far right" << endl;
-              fail_counter ++;
-              heading_for_ball = heading_for_ball - 3.14*halfing_distance;
-              mixer.setDesiredHeading(heading_for_ball);
-              halfing_distance = halfing_distance/1.2;
-                      
-            } else if (angle_to_ball < 0){
-              cout << "distance correct, trying to align, ball to far left" << endl;
-              fail_counter ++;
-
-              heading_for_ball = heading_for_ball + 3.14*halfing_distance;	
-              mixer.setDesiredHeading(heading_for_ball);
-              halfing_distance = halfing_distance/1.2;
-            }
-          }
-        }
-        
-        if (angle_to_ball == -1 && dist_to_ball == -1){
-          if (right){
-            cout << "lost ball, backing up and trying to find it again" << endl;
+          } else{
             mixer.setVelocity(-0.1);
-            sleep(1);
+            sleep(2);
             mixer.setVelocity(0);
-            sleep(1);
-            heading_for_ball = heading_for_ball + 3.14*0.075;
-            mixer.setDesiredHeading(heading_for_ball);
-            sleep(1);
-
-            
-          } else if (left){
-            cout << "lost ball, backing up and trying to find it again" << endl;
-            mixer.setVelocity(-0.1);
-            sleep(1);
-            mixer.setVelocity(0);
-            sleep(1);
-            heading_for_ball = heading_for_ball - 3.14*0.075;
-            mixer.setDesiredHeading(heading_for_ball);
-            sleep(1);
           }
-        left = false;
-        right = false;
+          
+          send_command("127.0.0.1", 25005, "golf");
         }
-        if (not pick_up){
-          send_command("127.0.0.1", 25005, "golf"); //LOOK HERE FIX
-        }
-        
+
         break;
+
+        
       
       case 180:
        
         if (encoder.enc[1] > encoder_target){
+          mixer.setTurnrate(0);
           mixer.setVelocity(0);
           servo.setServo(3, 1, -40 + minus, 300);
           sleep(4);
@@ -1991,7 +2006,7 @@ void BPlan20::run()
       
       case 181:
         mixer.setVelocity(0.1);
-        if (dist.dist[1] < 0.125){
+        if (dist.dist[1] < 0.1){
           mixer.setVelocity(0);
           sleep(1);
           state = 182;
@@ -2014,18 +2029,24 @@ void BPlan20::run()
       
       case 183:
         sleep(1);
-        send_command("127.0.0.1", 25005, "aruco");
+        send_command("127.0.0.1", 25005, "aruco_target,18");
         if (fail_counter > 4){
           cout << "Failed to many times to get correct position on aruco, guessing im correct" << endl;
           sleep(2);
-          servo.setServo(3, 1, -105, 300);
+          servo.setServo(3, 1, -120, 300);
           mixer.setVelocity(0.1);
-          
           state = 184;
           break;
         }
+
+        if (dist_to_aruco == -1){
+          fail_counter ++;
+          heading_for_ball = heading_for_ball - 0.03*3.14;
+          mixer.setDesiredHeading(heading_for_ball);
+          break;
+        }
         cout << "angle: " << angle_to_aruco << endl;
-        if (dist_to_aruco > 0.2){
+        if (dist_to_aruco > 0.25){
           if (angle_to_aruco > 115){
             cout << "aruco to far away and to the right, turning and driving" << endl;
             heading_for_ball = heading_for_ball - 0.06*3.14;
@@ -2037,65 +2058,94 @@ void BPlan20::run()
             mixer.setDesiredHeading(heading_for_ball);
             sleep(1);
           }
-          cout << "aruco to far away, going closer" << endl;
-          if (dist_to_aruco > 0.7){
-            mixer.setVelocity(0.15);
-            sleep(4);
-            mixer.setVelocity(0);
-          } else if (dist_to_aruco > 0.4){
-            mixer.setVelocity(0.15);
-            sleep(2);
-            mixer.setVelocity(0);
-          } else{
-            mixer.setVelocity(0.1);
-            sleep(2);
-            mixer.setVelocity(0);
-          }
-          
-        } else{
-          if (angle_to_aruco != -1){
-            if (angle_to_aruco < -30){
-              cout << "aruco to left, turning" << endl;
-              heading_for_ball = heading_for_ball + halfing_distance*3.14;
-              mixer.setDesiredHeading(heading_for_ball);
-              halfing_distance = halfing_distance/1.2;
-              fail_counter++;
-              sleep(1);
-              
-            }
-              
-            else if (angle_to_aruco > 15){
+          cout << "aruco to far away, going closer: " << dist_to_aruco << endl;
 
-              cout << "aruco to right, turning" << endl;
-              heading_for_ball = heading_for_ball - halfing_distance*3.14;
-              mixer.setDesiredHeading(heading_for_ball);
-              halfing_distance = halfing_distance/1.2;
-              fail_counter++;
-              sleep(1);
+          encoder_ = getTicks(dist_to_aruco);
+          encoder_target = encoder.enc[1] + encoder_;
+          cout << "encoder_target:" << encoder_target << endl;
+          cout << "encoder.enc" << encoder.enc[1] << endl;
+          mixer.setVelocity(0.2);
+          setVelZero = true;
+          while (setVelZero){
+            
+            usleep(50000);
+            if (encoder.enc[1] > encoder_target){
               
+              setVelZero = false;
             }
+          }
+          mixer.setVelocity(0);
+          
+        } else if (dist_to_aruco != -2 or dist_to_aruco != -1){
+          
+          for (int i = 0; i < 2; i++){
+            
+            if (actual_angle_to_aruco < 0){
+          
+              heading_for_ball = heading_for_ball - actual_angle_to_aruco*3.14 + 0.015*3.14;
+              mixer.setDesiredHeading(heading_for_ball);
+
+            }	else{
+              heading_for_ball = heading_for_ball - actual_angle_to_aruco*3.14 - 0.015*3.14;
+              mixer.setDesiredHeading(heading_for_ball);
+            }
+            cout << "heading:" << heading_for_ball << endl;
+            sleep(1);
+            send_command("127.0.0.1", 25005, "aruco");
+          }
+          sleep(2);
+          servo.setServo(3, 1, -120, 300);
+          mixer.setVelocity(0.1);
+          state = 184;
+
+        }
+
+        break;
+
+        // else{
+        //   if (angle_to_aruco != -1){
+        //     if (angle_to_aruco < -30){
+        //       cout << "aruco to left, turning" << endl;
+        //       heading_for_ball = heading_for_ball + halfing_distance*3.14;
+        //       mixer.setDesiredHeading(heading_for_ball);
+        //       halfing_distance = halfing_distance/1.2;
+        //       fail_counter++;
+        //       sleep(1);
+              
+        //     }
+              
+        //     else if (angle_to_aruco > 15){
+
+        //       cout << "aruco to right, turning" << endl;
+        //       heading_for_ball = heading_for_ball - halfing_distance*3.14;
+        //       mixer.setDesiredHeading(heading_for_ball);
+        //       halfing_distance = halfing_distance/1.2;
+        //       fail_counter++;
+        //       sleep(1);
+              
+        //     }
             
           
 
-          if (angle_to_aruco <= 15 && angle_to_aruco >= -30){
-            cout << "angle to aruco correct. Driving" << endl;
-            sleep(2);
-            servo.setServo(3, 1, -105, 300);
-            mixer.setVelocity(0.1);
-            state = 184;
-          } else{
-              send_command("127.0.0.1", 25005, "aruco");
-              break;
-            }
-          } else{
-            cout << "lost aruco nr 18, turning right" << endl;
-            heading_for_ball = heading_for_ball + 3.14*0.05;
-            mixer.setDesiredHeading(heading_for_ball);
-            sleep(2);
-          }
-        }
+        //   if (angle_to_aruco <= 15 && angle_to_aruco >= -30){
+        //     cout << "angle to aruco correct. Driving" << endl;
+        //     sleep(2);
+        //     servo.setServo(3, 1, -105, 300);
+        //     mixer.setVelocity(0.1);
+        //     state = 184;
+        //   } else{
+        //       send_command("127.0.0.1", 25005, "aruco");
+        //       break;
+        //     }
+        //   } else{
+        //     cout << "lost aruco nr 18, turning right" << endl;
+        //     heading_for_ball = heading_for_ball + 3.14*0.05;
+        //     mixer.setDesiredHeading(heading_for_ball);
+        //     sleep(2);
+        //   }
+        // }
         
-        break;
+        
       
       case 184:
         
@@ -2105,6 +2155,7 @@ void BPlan20::run()
       
       case 185:
         if (dist.dist[1] < 0.125){
+          usleep(500000);
           mixer.setVelocity(0);
           sleep(3);
           
@@ -2127,17 +2178,67 @@ void BPlan20::run()
         sleep(1);
         mixer.setDesiredHeading(-3.14*0.5);
         sleep(3);
-        mixer.setVelocity(0.2);
+        mixer.setVelocity(0.3);
         sleep(2);
         mixer.setVelocity(0);
         sleep(1); //
         mixer.setDesiredHeading(0);
         sleep(2);
         heading_for_ball = 0;
+        ball_counter++;
         state = 178;
         break;
 
+      case 187: //GET BACK ON TRACK FROM BALLS
+        mixer.setVelocity(0);
+        sleep(1);
+        mixer.setDesiredHeading(-0.5*3.14);
+        sleep(2);
+        mixer.setVelocity(0.1);
+        state = 188;
+        break;
       
+      case 188:
+        if (medge.edgeValid){
+          mixer.setVelocity(0.035);
+          mixer.setEdgeMode(false, 0);
+          sleep(3);
+          mixer.setEdgeMode(true, 0);
+          mixer.setVelocity(0.2);
+          encoder_ = getTicks(2.6);
+          encoder_target = encoder.enc[1] + encoder_;
+          state = 189;
+        }
+
+        break;
+      
+      case 189:
+        if (encoder.enc[1] > encoder_target){
+          mixer.setVelocity(0);
+          pose.resetPose();
+          sleep(2);
+          mixer.setDesiredHeading(3.14*0.08);
+          sleep(2);
+          mixer.setVelocity(0.1);
+          state = 190;
+        }
+        break;
+      
+      case 190:
+        if (medge.edgeValid){
+          sleep(2);
+          state = 191;
+        }
+        break;
+      
+      case 191:
+        if (medge.edgeValid){
+          mixer.setVelocity(0.05);
+          mixer.setEdgeMode(true, 0);
+          last_transition = 112;
+          state = 125;
+        }
+        break;
 
 
       case 41: //RACE 41 to 44 DO NOT RUN UNLESS IN PERFECT POSITION IT GOES VEEEEERY FAST
@@ -2325,7 +2426,6 @@ void BPlan20::send_command(const std::string& host, int port, const std::string&
     }
     cout << numbers[2] << endl;
     if (numbers[2] > 0 && numbers[2] < 0.00001){
-      cout << "yippee" << endl;
       dist_to_ball = numbers[0];
       angle_to_ball = numbers[1];
     }
@@ -2334,6 +2434,13 @@ void BPlan20::send_command(const std::string& host, int port, const std::string&
     angle_to_aruco = numbers[2];
     aruco_id = numbers[0];
     }
+
+    float cameraFOV = 60;
+    float imageWidth = 640;
+    
+    actual_angle_to_aruco = (angle_to_aruco) * ((cameraFOV / imageWidth) / 180);
+    actual_angle_to_golf = ((angle_to_ball)) * ((cameraFOV / imageWidth) / 180);
+    cout << actual_angle_to_aruco << endl;
     close(sock);
 
     
