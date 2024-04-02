@@ -75,7 +75,7 @@ class Model:
 
     def nms(self, boxes, scores):
         # Apply NMS
-        indices = cv2.dnn.NMSBoxes(boxes.tolist(), scores.tolist(), score_threshold=0.4, nms_threshold=0.4)
+        indices = cv2.dnn.NMSBoxes(boxes.tolist(), scores.tolist(), score_threshold=0.5, nms_threshold=0.6)
 
         # Filter the boxes based on NMS
         nms_boxes = boxes[indices]

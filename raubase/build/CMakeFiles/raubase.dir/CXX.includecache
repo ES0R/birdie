@@ -15,6 +15,8 @@ math.h
 -
 unistd.h
 -
+iterator
+-
 mpose.h
 /home/local/svn/robobot/raubase/src/mpose.h
 steensy.h
@@ -41,6 +43,12 @@ bplan20.h
 /home/local/svn/robobot/raubase/src/bplan20.h
 sencoder.h
 /home/local/svn/robobot/raubase/src/sencoder.h
+simu.h
+/home/local/svn/robobot/raubase/src/simu.h
+sys/socket.h
+-
+arpa/inet.h
+-
 
 /home/local/svn/robobot/raubase/src/bplan20.h
 
@@ -131,6 +139,10 @@ unistd.h
 -
 math.h
 -
+utime.h
+/home/local/svn/robobot/raubase/src/utime.h
+
+/home/local/svn/robobot/raubase/src/simu.h
 utime.h
 /home/local/svn/robobot/raubase/src/utime.h
 

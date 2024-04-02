@@ -142,33 +142,6 @@ raubase/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/build
 .PHONY : raubase/fast
 
-src/bplan101.o: src/bplan101.cpp.o
-
-.PHONY : src/bplan101.o
-
-# target to build an object file
-src/bplan101.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan101.cpp.o
-.PHONY : src/bplan101.cpp.o
-
-src/bplan101.i: src/bplan101.cpp.i
-
-.PHONY : src/bplan101.i
-
-# target to preprocess a source file
-src/bplan101.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan101.cpp.i
-.PHONY : src/bplan101.cpp.i
-
-src/bplan101.s: src/bplan101.cpp.s
-
-.PHONY : src/bplan101.s
-
-# target to generate assembly for a file
-src/bplan101.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan101.cpp.s
-.PHONY : src/bplan101.cpp.s
-
 src/bplan20.o: src/bplan20.cpp.o
 
 .PHONY : src/bplan20.o
@@ -195,60 +168,6 @@ src/bplan20.s: src/bplan20.cpp.s
 src/bplan20.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan20.cpp.s
 .PHONY : src/bplan20.cpp.s
-
-src/bplan21.o: src/bplan21.cpp.o
-
-.PHONY : src/bplan21.o
-
-# target to build an object file
-src/bplan21.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan21.cpp.o
-.PHONY : src/bplan21.cpp.o
-
-src/bplan21.i: src/bplan21.cpp.i
-
-.PHONY : src/bplan21.i
-
-# target to preprocess a source file
-src/bplan21.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan21.cpp.i
-.PHONY : src/bplan21.cpp.i
-
-src/bplan21.s: src/bplan21.cpp.s
-
-.PHONY : src/bplan21.s
-
-# target to generate assembly for a file
-src/bplan21.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan21.cpp.s
-.PHONY : src/bplan21.cpp.s
-
-src/bplan40.o: src/bplan40.cpp.o
-
-.PHONY : src/bplan40.o
-
-# target to build an object file
-src/bplan40.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan40.cpp.o
-.PHONY : src/bplan40.cpp.o
-
-src/bplan40.i: src/bplan40.cpp.i
-
-.PHONY : src/bplan40.i
-
-# target to preprocess a source file
-src/bplan40.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan40.cpp.i
-.PHONY : src/bplan40.cpp.i
-
-src/bplan40.s: src/bplan40.cpp.s
-
-.PHONY : src/bplan40.s
-
-# target to generate assembly for a file
-src/bplan40.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/raubase.dir/build.make CMakeFiles/raubase.dir/src/bplan40.cpp.s
-.PHONY : src/bplan40.cpp.s
 
 src/bplan_test.o: src/bplan_test.cpp.o
 
@@ -907,18 +826,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... raubase"
-	@echo "... src/bplan101.o"
-	@echo "... src/bplan101.i"
-	@echo "... src/bplan101.s"
 	@echo "... src/bplan20.o"
 	@echo "... src/bplan20.i"
 	@echo "... src/bplan20.s"
-	@echo "... src/bplan21.o"
-	@echo "... src/bplan21.i"
-	@echo "... src/bplan21.s"
-	@echo "... src/bplan40.o"
-	@echo "... src/bplan40.i"
-	@echo "... src/bplan40.s"
 	@echo "... src/bplan_test.o"
 	@echo "... src/bplan_test.i"
 	@echo "... src/bplan_test.s"

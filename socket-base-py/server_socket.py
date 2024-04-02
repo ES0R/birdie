@@ -91,7 +91,7 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         # DIstance calculation
         W_image_original = xmax_original - xmin_original  # Use original image width for distance calculation
         distance = (W_real * focal_length_x) / W_image_original
-        distance = 0.88*distance-0.154 # funky conversion
+        distance = 0.734*distance-0.0561 # funky conversion
 
 
         object_center_x_original = xmin_original + W_image_original / 2
@@ -177,8 +177,8 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
                 
                 # Calculate distance and displacement for each marker
                 distance, distance_to_middle = self.calculate_distances(image, (xmin, ymin, xmax, ymax), W_real)
-
-                if distance < min_distance and ymin < 380:
+                
+                if distance < min_distance:
                     min_distance = distance
                     selected_corner = corner
                     selected_id = id
@@ -215,9 +215,11 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
                 temp_distance, temp_distance_to_middle = self.calculate_distances(image, (xmin, ymin, xmax, ymax), W_real)
                 
                 # Check if the distance is within the desired range
-                if temp_distance < 1.5:
+                if temp_distance < 1.1 and xmin > 120 and xmax < 490:
                     distance, distance_to_middle = temp_distance, temp_distance_to_middle
-                    break 
+                    break
+                else:
+                    return "-1, -1" 
                 # Found a suitable object, no need to check further
         # Visualization
         if save_image:

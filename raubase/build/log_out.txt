@@ -1,15 +1,887 @@
-# UService:: created directory log_20240327_130510.174/
+# UService:: created directory log_20240402_154948.163/
 # UService::setup: open to Teensy
-# STeensy::setup: took 0.010072 sec to open to Teensy
+# STeensy::setup: took 0.010071 sec to open to Teensy
 # SState::decode: asked for new name (idi -> dname)
-# STeensy::run: Confirm OK after 6 retry and 0.2656s: send';47!idi
+# STeensy::run: Confirm OK after 3 retry and 0.1472s: send';47!idi
 '# SpyVision:: disabled in robot.ini
-# Video device 0: width=640, height=480, format=MJPG, FPS=25
-# Camera is running (to stabilize illumination)
-# UService::setup - waited 0.398998 sec for full setup
-# UService:: Teensy setup communication msg resend 5, dumped 0 messages
-# UService:: stop_switch say stop now
-Caught signal -1
-# --------- terminating -----------
-# UCam::run: camera released
-# UService:: configuration saved to robot.ini
+# UCam - camera could not open
+# UService::setup - waited 0.187418 sec for full setup
+# UService:: Teensy setup communication msg resend 2, dumped 0 messages
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=39 != q2=66 (msg=;66liv 3 1 4 6 ;66hbt 298.9267 116 1646 11.78 0 9 20.3 1 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=20 != q2=36 (msg=;36ir 1.500 1.500 917 724 46475 15183 46429 1392ofrm !idi
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=49 != q2=51 (msg=;51dnam robobot Birdie
+
+ UTeensy:: unused Teensy message: dnam robobot Birdie
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=99 != q2=93 (msg=;93confir sbhbt 500
+
+ UTeensy:: unused Teensy message: confir sbhbt 500
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=85 != q2=93 (msg=;93confirm !s;93confirm !ub hbt 500
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=7 != q2=69 (msg=;69hbt 299.4768 1 14 1.78 0 9 20.4 1 1
+
+# SState::decode: asked for new name (idi -> dname)
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=44 != q2=51 (msg=;51dname ro;93confirm !sub hbt 500
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=50 != q2=93 (msg=;93confir sub hbt 500
+
+ UTeensy:: unused Teensy message: confir sub hbt 500
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=4 != q2=91 (msg=;91 4 4 5 5 5 5 9
+
+ UTeensy:: unused Teensy message:  4 4 5 5 5 5 9
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=94 != q2=99 (msg=;99liv 4 1 2 2 4 2 0 3;33enc 4294967295 0 47357 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=24 != q2=68 (msg=;68liv 8
+
+# SState::decode: asked for new name (idi -> dname)
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=20 != q2=33 (msg=;33enc 4294967295 0;83liv 7 -1 -2 0 -1 -6 1 2
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=54 != q2=18 (msg=;18li;68acc0 0.795878 -0.0278117 -0.541239 12
+
+ UTeensy:: unused Teensy message: li;68acc0 0.795878 -0.0278117 -0.541239 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=58 != q2=51 (msg=;51acc0 0.790466 -0.0349121 -0.514
+
+# Teenst message discarded (crc-error) ;0n   75  9lv     1331;2yo .340571 .361
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=99 != q2=58 (msg=;58l1       ;40enc 0 0 47380 1
+
+ UTeensy:: unused Teensy message: l1       ;40enc 0 0 47380 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=18 != q2=66 (msg=;66gyro 3.89353 0.679016 1.25122 12
+
+ UTeensy:: unused Teensy message: gyro 3.89353 0.679016 1.25122 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=32 != q2=75 (msg=;75acc0 0.794657 -0.03526-.3431
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=87 != q2=20 (msg=;20liv 11 8 6 12 9 12 139
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=22 != q2=1 (msg=;01gyr034525 0.60enc 0 0 47358 0 1
+
+ UTeensy:: unused Teensy message: gyr034525 0.60enc 0 0 47358 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=41 != q2=40 (msg=;40enc 0 0 475  5ac .924-.305 ;35enc 4294967295 0 4735  ;33liv 8 8 5 8 7 3 4 8
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=3 != q2=35 (msg=;35enc 4294967295 0 47359 01
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=84 != q2=33 (msg=;33ec0v        7
+
+ UTeensy:: unused Teensy message: ec0v        7
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=64 != q2=15 (msg=;15gyro0 3.45866 2.52024 1.56911 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=5 != q2=41 (msg=;41svo 0 0 0  0 0 0  1 -800 0 000   ;68acc0 0.796061 -0.0386556 -0.542867 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=93 != q2=21 (msg=;21lv;53ac .93213 -0.0385539 -0.523641 12
+
+ UTeensy:: unused Teensy message: lv;53ac .93213 -0.0385539 -0.523641 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=20 != q2=75 (msg=;75liv 4 7 5 ;33enc 0  7360 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=17 != q2=12 (msg=;12li   281  118ac .827-.379 0587 2;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0
+
+ UTeensy:: unused Teensy message: li   281  118ac .827-.379 0587 2;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=61 != q2=33 (msg=;33enc0043001
+
+ UTeensy:: unused Teensy message: enc0043001
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=74 != q2=6 (msg=;06gyro0 2436-.2885 1.30717 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=9 != q2=28 (msg=;28ec49979  76  ;24liv 7 7 8 12 2 5 5 17
+
+ UTeensy:: unused Teensy message: ec49979  76  ;24liv 7 7 8 12 2 5 5 17
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=85 != q2=52 (msg=;52gyro0 1.52079 -2.23 .43 2;5ac .974 00074-.6931
+
+# Teenst message discarded (crc-error) ;9 00  0 0 0  0 0 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=46 != q2=74 (msg=;7488 12
+
+ UTeensy:: unused Teensy message: 88 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=43 != q2=7 (msg=;07liv 11 7 11 11 16 8 14 10 2;05liv1   11 11 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=40 != q2=68 (msg=;68liv 52;35enc 0024-  0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=3 != q2=35 (msg=;35enc 0 0 47362 01
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=77 != q2=47 (msg=;47hbt 300.4768 116 1646 11.77 0 9 20.0 11;3ec0043201
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=33 != q2=35 (msg=;35enc 0 0 4736;50acc0 0.796204 -0.03184 -0.515828 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=74 != q2=35 (msg=;35n   76  ;5i 44988871;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0
+
+ UTeensy:: unused Teensy message: n   76  ;5i 44988871;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=30 != q2=74 (msg=;74i 1691    2
+
+ UTeensy:: unused Teensy message: i 1691    2
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=22 != q2=38 (msg=;38acc0 0.803426 -0.0248006-.3831
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=9 != q2=41 (msg=;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 00
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=12 != q2=30 (msg=;30ec49979  76  ;30liv 3 -1 -2 0 1 -2 1 2
+
+ UTeensy:: unused Teensy message: ec49979  76  ;30liv 3 -1 -2 0 1 -2 1 2
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=4 != q2=20 (msg=;2051
+
+ UTeensy:: unused Teensy message: 51
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=5 != q2=30 (msg=;30e;v1  ;68gyro0 2.2761 1.16  ;1gro0 2.81016 1.80308 1.59709 12
+
+ UTeensy:: unused Teensy message: e;v1  ;68gyro0 2.2761 1.16  ;1gro0 2.81016 1.80308 1.59709 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=4 != q2=28 (msg=;28liv 7 2 3 7 4 7  ;30enc 4294967294 0 47364 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=22 != q2=85 (msg=;85liv -2 -1 2 0 0   ;26gyro0 3.28827 2.17183 1.43687 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=79 != q2=56 (msg=;56acc0 0.79634liv 0 -5 -2 -7 -3 -2 0 6
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=23 != q2=30 (msg=;30enc 4294967294 043401
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=37 != q2=66 (msg=;66i 10  ;71gyro0 3.77655 3.06193 1.4267 12
+
+ UTeensy:: unused Teensy message: i 10  ;71gyro0 3.77655 3.06193 1.4267 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=68 != q2=39 (msg=;39ec0043  ;6i    3 3 1 13
+
+ UTeensy:: unused Teensy message: ec0043  ;6i    3 3 1 13
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=82 != q2=76 (msg=;76acc0 0.787496 -0.0350545 -.7781
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=84 != q2=41 (msg=;41svo 0 0 0  0  1-0 0    00 ;8i        4
+
+Received response: -1, -1
+
+2.24208e-44
+0
+-1
+-1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=14 != q2=62 (msg=;62acc0 0.787435 -0.0v 12 10 12 18 12 18 15 14
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=52 != q2=36 (msg=;36enc 4;15gyro0 3.50444 1.54622 1.;17acc0 0.794169 -0.0380656 -0.55188 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=78 != q2=56 (msg=;56liv 7 1  10    6;2n 24979 24625473001
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=43 != q2=22 (msg=;22enc 4294967295 42949672;31enc 4294967295 4294967279 47386 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=8 != q2=69 (msg=;69gyro0 -1.71 24.9914 4.61833 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=69 != q2=52 (msg=;52c00721 0000477gr0-.13 667 ;67acc0 0.797953 -0.0423177 -0.508565 12
+
+ UTeensy:: unused Teensy message: c00721 0000477gr0-.13 667 ;67acc0 0.797953 -0.0423177 -0.508565 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=60 != q2=10 (msg=;10liv 13 4 1 7 6 3 2 3
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=21 != q2=19 (msg=;19liv 8 ;31enc 481
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=71 != q2=31 (msg=;31enc 4294967295 429496727 ;55liv 144;75gyro0 1.61235 8.92894 5.5542 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=14 != q2=61 (msg=;61acc0 0.77828 -0.0434977 -0.42 2;1n 249 246264390;23liv 7 1 5 9    ;31439 2;41sv    000 1 8030    000
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=83 != q2=31 (msg=;31enc 4294967295 429;64liv 5 3 4 8 364115liv 8 0 6 6 4 10 9 20
+
+# Teenst message discarded (crc-error) ;2gyro0 2.00653 -1.64032 2.27865 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=10 != q2=31 (msg=;31enc 4294967295 4294967276 473901
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=62 != q2=31 (msg=;31enc 424625499776 47389 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=25 != q2=74 (msg=;74liv 7 2 3 8 1 6 9 7
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=32 != q2=55 (msg=;55acc0 0.821228 -0.081264652
+
+# Teenst message discarded (crc-error) ;2
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=43 != q2=31 (msg=;31enc 4294967295 42949672;31enc 4294967295 4294967276 47389 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=82 != q2=31 (msg=;31enc 4294967295 42949677 78  lv473   378;1n 2462549977 78  8gr01285-.16 .812
+
+# Teenst message discarded (crc-error) ;0r00818 614225561;55c00797 00576-.33212
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=35 != q2=63 (msg=;63acc0 0.757996 -0.030587621 4
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=38 != q2=81 (msg=;81gyo .16 6883198;54acc0 0.752177 -0.361 0598 2;2n 2462449977 479  ;62liv 6 5 3 6 0 6 4 20
+
+ UTeensy:: unused Teensy message: gyo .16 6883198;54acc0 0.752177 -0.361 0598 2;2n 2462449977 479  ;62liv 6 5 3 6 0 6 4 20
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=85 != q2=41 (msg=;41svo 0 0 0  0 0 0  1lv 5 3 0 0 6 1 8 8
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=72 != q2=63 (msg=;63gyro0 2.97038 -5.26174 .50 2;643201
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=38 != q2=24 (msg=;24enc 4294967294 4246264320
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=1 != q2=59 (msg=;59c00811 00853.3841
+
+ UTeensy:: unused Teensy message: c00811 00853.3841
+# Teenst message discarded (crc-error) ;4n-0 0    000
+
+# Teenst message discarded (crc-error) ;2yo .51 .291154 2;36acc0 0.800374 -0.0408732 -0.523132 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=80 != q2=24 (msg=;24enc 4294967294 4294967275 7;24enc 4294967292 4294967274 47396 0 1;4yo .49 .4113 2.25576 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=4 != q2=2 (msg=;02acc0 0.78302 179835;45gyro0 -1.32243 8.32113 2.60671 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=5 != q2=9 (msg=;09gyro0 3.36456 6.0272 ;66acc0 0.780884 -0.0475464 -0.524556 1;21n 2462949977 70  6lv444664;22yo .31 .23 .44 2ac .742-.4968 -0.488139 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=34 != q2=14 (msg=;14enc 4294967288 4294967270 4741  ;05li      332;23ec49978 246284  ;2yo 4798669734691
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=86 != q2=41 (msg=;41so0;63acc0 0.779785 -0.0511475 -0.525065125851
+
+ UTeensy:: unused Teensy message: so0;63acc0 0.779785 -0.0511475 -0.525065125851
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=83 != q2=39 (msg=;39acc .847-.280 0603 ;22enc 4294962;74liv 18 12 10 6 4969
+
+ UTeensy:: unused Teensy message: acc .847-.280 0603 ;22enc 4294962;74liv 18 12 10 6 4969
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=61 != q2=24 (msg=;2444271
+
+ UTeensy:: unused Teensy message: 44271
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=43 != q2=41 (msg=;41svo 0 0 0  0 0 0  130    00;77ac00777 0i       0;10enc 4294967290 4294967270 474;05gyro03911216623941
+
+# Teenst message discarded (crc-error) ;9ac .76 00281-.7141
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=16 != q2=56 (msg=;56acc0 0.772115 -1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=30 != q2=10 (msg=;10enc 4294967290 4294967270 4742 06
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=42 != q2=28 (msg=;28enc 4294967288 429490
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=86 != q2=19 (msg=;19enc 4294967285 4294967265 47434 01
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=79 != q2=59 (msg=;59ac .793-.411-0.489054 12
+
+ UTeensy:: unused Teensy message: ac .793-.411-0.489054 12
+# Teenst message discarded (crc-error) ;6ac .691-.477 055 21ec49978 2462147441 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=95 != q2=44 (msg=;44acc0 0.775859 -0.03323 0610 2;6n 2462349976 74  ;41svo 0 0 0  0 0 0  1 -80030    000
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=41 != q2=18 (msg=;18enc 4294967283 49976 ;73liv        5
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=72 != q2=48 (msg=;48acc0 0.7979;08liv 11 12 7 15 6 4 2 11
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=68 != q2=66 (msg=;66gr;5c00717 00848-0.512146 12
+
+ UTeensy:: unused Teensy message: gr;5c00717 00848-0.512146 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=61 != q2=16 (msg=;16liv       21
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=55 != q2=18 (msg=;18g2
+
+ UTeensy:: unused Teensy message: g2
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=40 != q2=33 (msg=;33gyro0 0.9421
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=9 != q2=41 (msg=;41svo 00 0  0 0 0  1 -800 300  0 0 0  0 0 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=83 != q2=71 (msg=;71c .817-.04;78liv 7 5 9 6 7 2 7 14
+
+ UTeensy:: unused Teensy message: c .817-.04;78liv 7 5 9 6 7 2 7 14
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=81 != q2=40 (msg=;40acc0 .744-.v 6 2 6 4 5 4 6 4
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=40 != q2=80 (msg=;80y;53acc0 0.779256 -0.011556 -0.62266 12
+
+ UTeensy:: unused Teensy message: y;53acc0 0.779256 -0.011556 -0.62266 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=99 != q2=59 (msg=;5911
+
+ UTeensy:: unused Teensy message: 11
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=6 != q2=20 (msg=;20gyro0 5.84412 -5.99416 4.2572 2;41so000    1-0 0 000   9i        1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=93 != q2=59 (msg=;59liv 3 3 6 4 5 2 0 .12805 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=99 != q2=41 (msg=;41svo 0 0 0  0 0  2
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=23 != q2=44 (msg=;44liv 10 0 2   11 ;95gyro0 -12.2426 -1.12406 2.26847 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=84 != q2=17 (msg=;17liv 8 4 6 7 4 104100199 2.51516 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=48 != q2=14 (msg=;14liv 8 3 5 3 2 1 367251 47523 0 1
+
+# Teenst message discarded (crc-error) ;5lv83365-  ;57acc0 0.784119 -0.0578003 -0.553935 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=1 != q2=11 (msg=;11
+
+ UTeensy:: unused Teensy message: 
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=16 != q2=24 (msg=;24liv;17enc 4294967276 4294967250 47528 0 1
+
+ UTeensy:: unused Teensy message: liv;17enc 4294967276 4294967250 47528 0 1
+# Teenst message discarded (crc-error) ;;5ac .978-.324 0506 27 2462645101
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=77 != q2=6 (msg=;06liv 6 2 3 4 5 4 -5 10;70c008188 00549-.2461
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=60 != q2=64 (msg=;64383
+
+ UTeensy:: unused Teensy message: 383
+# Teenst message discarded (crc-error) ;0n 246249975 75    0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=66 != q2=20 (msg=;20enc 4294967276 429496725;41svo 0 0 0     1-0 0  17261
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=22 != q2=42 (msg=;42gyro0 -1.52-.74 125 2;13enc 4294967263 4294967240 47583 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=52 != q2=76 (msg=;76acc0 0.17;13enc 4294967263 4294967240 47583 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=92 != q2=72 (msg=;72acc .922-.284 0567 2;22ec4997262 9973 78  ;2i      341;7yo 702;22enc 4294967262 4294629455 0 1
+
+ UTeensy:: unused Teensy message: acc .922-.284 0567 2;22ec4997262 9973 78  ;2i      341;7yo 702;22enc 4294967262 4294629455 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=67 != q2=96 (msg=;96liv 7 -1 1 116013
+
+# Teenst message discarded (crc-error) ;2n 4294967262 4294967239 47585 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=19 != q2=6 (msg=;06gyro0 -3.88336 -4.2038 4.441
+
+# Teenst message discarded (crc-error) ;0gr0-.80 1.61489 5.80343 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=93 != q2=41 (msg=;41svo 0 0 0  0 0 0  1 -800 300  0 0 0     2462848751 31
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=39 != q2=94 (msg=;94liv 6-  2506
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=44 != q2=19 (msg=;19enc 4294967263 4294620;69gyro0 3.44594 -0.0460 .88 2;8n 2462549974 79  ;1c007 -0.0721436 -0.585856 12
+
+# Teenst message discarded (crc-error) ;0n 2462349;80liv 14 5 9 0 5 28 9 28
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=35 != q2=41 (msg=;41so046401
+
+ UTeensy:: unused Teensy message: so046401
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=11 != q2=70 (msg=;70gyro0 3.29336 -7.80;58acc0 0.8349 -0.0198771 -0.621663 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=1 != q2=25 (msg=;25
+
+ UTeensy:: unused Teensy message: 
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=90 != q2=56 (msg=;56gyro0 32.369 -50;94acc0 0.883911 -0.00246175 -0.502604 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=71 != q2=25 (msg=;25enc 49975 2462;01liv 6 -2 3 41 2
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=59 != q2=16 (msg=;16enc 42949672534vo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=30 != q2=8 (msg=;08liv 0 6 2 2  111;25e2 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=85 != q2=51 (msg=;51acc0 0.838033 -0.0936686 0220 2;07en 2462;04liv 16 0 10 20 14 10 7 7
+
+# Teenst message discarded (crc-error) ;6n246234 4294967239 47715 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=63 != q2=56 (msg=;56yo 5.94-.41 17261
+
+ UTeensy:: unused Teensy message: yo 5.94-.41 17261
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=11 != q2=16 (msg=;16enc 4294967217 429496722847301
+
+# Teenst message discarded (crc-error) ;4s0    1-0 0 000   ;6n 24621 4294967228 47749 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=97 != q2=40 (msg=;40acc0 0.785929 -0.009757-.2381
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=20 != q2=53 (msg=;53acc0 0.762777 -0.0645142 -0.4751
+
+# Teenst message discarded (crc-error) ;7iv 13 5 4 19 8 14 6 8
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=87 != q2=11 (msg=;11ec49979 246230 47771 0 1
+
+ UTeensy:: unused Teensy message: ec49979 246230 47771 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=46 != q2=76 (msg=;76lv9261  2814so0  000  8030    000
+
+ UTeensy:: unused Teensy message: lv9261  2814so0  000  8030    000
+# Teenst message discarded (crc-error) ;0n 246122462847001
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=22 != q2=30 (msg=;30enc 4294967195 4294967249 47;63gyro0 2.32951 -26.0518 7.71077 12;27enc 4294967197 4294967259 47806 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=9 != q2=8 (msg=;08acc0 0.842041 -0.184850621 2;1i      11 8
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=27 != q2=23 (msg=;23enc 4294967197 4280487 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=99 != q2=3 (msg=;03acc0 0.862854 -0.140442 0580 2;23enc 246149976 71  ;43liv 11 0 2 11 2 11 3 -18
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=68 != q2=16 (msg=;16gyro0 22.082 -38.3606 5.42959 ;2ec49;64liv 8 5 -2 2 3 8 7 2
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=29 != q2=41 (msg=;41svo 0 0 0  0 0 0  1 -800 300  0 0 0 ;64gyro0 -8.34656 -21.787 0.80363 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=78 != q2=10 (msg=;10acc0 0.910807 -0.107178-.2921
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=19 != q2=25 (msg=;25n 2461149975 77  ;40gyo 5334--0.0488078 -0.728658 12
+
+ UTeensy:: unused Teensy message: n 2461149975 77  ;40gyo 5334--0.0488078 -0.728658 12
+# Teenst message discarded (crc-error) ;6;90gyro0 8.76617 -23.9894 22851
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=65 != q2=5 (msg=;05l;90gyro0 -11.2203 -12.7843 5.92041 12
+
+ UTeensy:: unused Teensy message: l;90gyro0 -11.2203 -12.7843 5.92041 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=12 != q2=41 (msg=;41svo 0 0 0  0 0 0  1 -8030  0 0 0  0 0 0
+
+# Teenst message discarded (crc-error) ;3c00856-.0739-.598124 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=16 != q2=29 (msg=;29enc 4294967178 4294962949501
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=43 != q2=16 (msg=;16i        ;20enc 4294967175 4294967267 47930 0 1
+
+ UTeensy:: unused Teensy message: i        ;20enc 4294967175 4294967267 47930 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=23 != q2=4 (msg=;04i 0;12gyro0 12.001 -22.96124975 75  ;23y;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0
+
+ UTeensy:: unused Teensy message: i 0;12gyro0 12.001 -22.96124975 75  ;23y;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0
+# Teenst message discarded (crc-error) ;7c00802 0067 0568 2;12liv 8 4 2 12 2 12 4 7
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=46 != q2=1 (msg=;01n 294967145 4294967250 48003 0 1
+
+ UTeensy:: unused Teensy message: n 294967145 4294967250 48003 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=61 != q2=12 (msg=;12acc0 0.808818 -0.128866 -0.234904 1
+
+# Teenst message discarded (crc-error) ;1yo 3.29-556 49331
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=96 != q2=94 (msg=;94acc0 0.790202 -0.122881ec49973 2462540701
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=66 != q2=10 (msg=;10n 2461949971221;55acc0 0839 00422-.0231
+
+ UTeensy:: unused Teensy message: n 2461949971221;55acc0 0839 00422-.0231
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=84 != q2=60 (msg=;60gyro0 -23.2569 -19.2261 -.95 2;19enc 4294967124 4294967198 48076 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=83 != q2=55 (msg=;55liv 3 2 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=4 != q2=66 (msg=;66lv 9 -1 3 4 5 8 1 12
+
+ UTeensy:: unused Teensy message: lv 9 -1 3 4 5 8 1 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=86 != q2=13 (msg=;13enc49972 2460 893 0 1
+
+ UTeensy:: unused Teensy message: enc49972 2460 893 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=79 != q2=55 (msg=;55gyro0 10.0428 -32460 0427 2;1ec49972 2462741501
+
+# Teenst message discarded (crc-error) ;4n 2461949974 83  ;3c00996 0175-.5681;3i 161 192 01;12enc 4294967129 4294967253 48144 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=81 != q2=24 (msg=;24enc 429496712900
+
+# Teenst message discarded (crc-error) ;2i      4 6 2
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=62 != q2=19 (msg=;19enc 42992 2462841201
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=9 != q2=5 (msg=;05enc 429972 2462041101
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=38 != q2=2 (msg=;02acc0 0.870809-.303;1v    000;28gyro0 -8.72548 -59.199 -4.00798 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=46 != q2=76 (msg=;76acc0 0.928772 -0.085enc 4294967094 4294967257 48241 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=80 != q2=99 (msg=;99liv 7 -3 2 4 13 -1 3 2;20acc ;15enc 4294967088 4294967253 48251 01
+
+# Teenst message discarded (crc-error) ;6yo 7589-82-.44 2;24en 2460749974 86  ;1c00922 0122 0329 2;9i  1-     989 2;98li    07 -2 10 -2
+
+# Teenst message discarded (crc-error) ;7;41gyro0 -1.51062 -26.73 1.431;06enc 4294967042 4294967209 48341 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=75 != q2=15 (msg=;15e4 0326 2
+
+ UTeensy:: unused Teensy message: e4 0326 2
+# Teenst message discarded (crc-error) ;0;08enc 42;65gyro0 3.35185 -7.96254 -7..8171
+
+# Teenst message discarded (crc-error) ;2  ;63gyro0 1.47502 -5.97382 -3.8147 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=48 != q2=63 (msg=;63ac00914 00038-.6771
+
+ UTeensy:: unused Teensy message: ac00914 00038-.6771
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=41 != q2=93 (msg=;93liv 1 -2 1 10 -4 28 1 
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=92 != q2=18 (msg=;18gyro0 1.54359 26091
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=55 != q2=32 (msg=;32enc 2469849979 547 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=48 != q2=64 (msg=;64acc0 0.9;06enc 4294967008 4294967103 48571  ;81liv -1 -13 -3 4 -7 -6 -3 -5
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=32 != q2=21 (msg=;21gyro0 3.33405 1.39872 2.5481
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=66 != q2=55 (msg=;55acc0 0.933573 -00391-;33enc 4294;12liv 9 0 0 3 3 7 10 28
+
+# Teenst message discarded (crc-error) ;4;51hbt 302.4768 116 1646 11.65 0  05114n 2469549978 83 ;5ac .301-.958 0.7081
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=75 != q2=89 (msg=;89acc0 0.904256 -0.106201 -0.258;15enc 4294966954 4294967044 48702 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=10 != q2=15 (msg=;15liv 5 10931
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=68 != q2=18 (msg=;18liv 5 0 9 8 4 10 4 7
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=60 != q2=42 (msg=;42enc 4294966899 2469648501
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=10 != q2=31 (msg=;31i- 5- 3- 1- ;33enc 4294966882 4294969888 0;6c00905-.042-27081
+
+ UTeensy:: unused Teensy message: i- 5- 3- 1- ;33enc 4294966882 4294969888 0;6c00905-.042-27081
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=22 != q2=82 (msg=;82gyro0 0.73750;58acc0 0.909261 -0.0870565 -0.247904 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=57 != q2=49 (msg=;49gr01812864759151
+
+ UTeensy:: unused Teensy message: gr01812864759151
+# Teenst message discarded (crc-error) ;;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=48 != q2=24 (msg=;24enc 42949666 246890  ;9yo .68 .28 .10 2;2i 11 7 3 9 8 7 7 9
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=6 != q2=35 (msg=;35enc;27liv 5 6 7 2 7 8 8 2
+
+ UTeensy:: unused Teensy message: enc;27liv 5 6 7 2 7 8 8 2
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=35 != q2=24 (msg=;24y;26enc 4294966863 4294966766 40301
+
+ UTeensy:: unused Teensy message: y;26enc 4294966863 4294966766 40301
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=51 != q2=55 (msg=;55i 35414340
+
+ UTeensy:: unused Teensy message: i 35414340
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=63 != q2=19 (msg=;19en .78 72096686;28enc 4294966833 4294966677 49194 0 1
+
+ UTeensy:: unused Teensy message: en .78 72096686;28enc 4294966833 4294966677 49194 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=48 != q2=42 (msg=;42liv -4 2
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=44 != q2=17 (msg=;17acc0 .299-.;77gyro0 7.36491 -19.7042 7.3981
+
+--------------------------------------------
+Connecting to TCP server: 127.0.0.1:25005
+Sending command: golf
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=73 != q2=94 (msg=;94;0yo .67-854 .75 2;1v   1;59acc0 0959;15enc 4294966785 429962 93  0456-.6311
+
+ UTeensy:: unused Teensy message: ;0yo .67-854 .75 2;1v   1;59acc0 0959;15enc 4294966785 429962 93  0456-.6311
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=33 != q2=63 (msg=;63;65acc0 0.934977 -0.0894369 -0.232015 12
+
+ UTeensy:: unused Teensy message: ;65acc0 0.934977 -0.0894369 -0.232015 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=7 != q2=78 (msg=;78ac .406-.888 0289 2;23liv 12 9 9 5 5 13 13 17
+
+ UTeensy:: unused Teensy message: ac .406-.888 0289 2;23liv 12 9 9 5 5 13 13 17
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=19 != q2=41 (msg=;41svo .0892944 -0.235433 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=16 != q2=8 (msg=;08lv1  41 281 1
+
+ UTeensy:: unused Teensy message: lv1  41 281 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=57 != q2=7 (msg=;07liv 4 4 1 16 10 18 19 -0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=8 != q2=72 (msg=;72gyro0 7.65228 -11.3398 .74 2;29li1 5 7 8 7 8 9 22
+
+# Teenst message discarded (crc-error) ;8enc 4294966816 4294966635 49577 0 1
+
+# Teenst message discarded (crc-error) ;6c00914 -0.940 0242 2;0n49961 2466348  ;2i 1981 4 831;5nc 4294966820 4294966651 49599 0 1
+
+# Teenst message discarded (crc-error) ;6lv8664310
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=52 != q2=98 (msg=;98acc0 0.909322 -0.09453;62gyr04637128504032;1i  00558-0.4871
+
+# Teenst message discarded (crc-error) ;2ec49963 2464 17 14 3
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=46 != q2=41 (msg=;41acc0 0.913961 -0.0900472 -0.230245 2;3en 2468649960 97  ;9i    7301  ;34gyr03.7626185-.4541
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=37 != q2=74 (msg=;74acc0 0.4;32enc 4294966833 499;14gyro0 4.01306 6.91732 -0.984192 1;73acc0 0.938456 -0.0944621 -0.259949 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=20 != q2=32 (msg=;32enc 4294966833 429496668746201
+
+# Teenst message discarded (crc-error) ;1lv;37acc0 0.931315 -0.082;23enc 4294966827 4294966674 49711 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=21 != q2=41 (msg=;41enc 42;17enc 4294966802 4294966617 49805 0 14139 -7.29879 3.41543 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=57 != q2=61 (msg=;61acc0 0975 -0.0904744 -0.168335 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=68 != q2=38 (msg=;38enc 4294966838 4294966656 498;1lv421211  
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=15 != q2=72 (msg=;72gyro0 6.26119 -3.6722 .9 2;1v    00 0  1 -800 300  0 0 0  0 0 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=98 != q2=97 (msg=;97liv -1 2yo .2-.76329 3.69008 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=47 != q2=97 (msg=;97liv 1 0 13 0 6 11 16;17enc 4294966814 4294966630 49942 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=36 != q2=49 (msg=;49liv 5 2 1 10 5 -13 -4 3i       39
+
+# Teenst message discarded (crc-error) ;3gyro0 5.2592 -0.84432 3.42305 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=43 != q2=41 (msg=;41svo 0 0 0  0 0 0  1 830    000
+
+# Teenst message discarded (crc-error) ;7c00928 00472-.24 2;53n 246794969 901
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=1 != q2=44 (msg=;44enc 4294966798 24651497 0 947 0225 2;03enc 4294966800 4294966588 5000  ;67liv 4 2 5 1 3 13 9 9
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=55 != q2=65 (msg=;65ac00998 00456-.2811
+
+ UTeensy:: unused Teensy message: ac00998 00456-.2811
+# Teenst message discarded (crc-error) ;8n 2468449969 00  ;10enc 4294966804 4294966587 500501
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=85 != q2=10 (msg=;10enc 4294966801 429967 02  6lv210 5 10 7 26 9 5
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=2 != q2=19 (msg=;19enc 4294966796 4294966564 500601
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=54 != q2=81 (msg=;81;19enc 429496678 2465550401
+
+ UTeensy:: unused Teensy message: ;19enc 429496678 2465550401
+# Teenst message discarded (crc-error) ;7lv1      01;1gr0505 0.274658 0.615438 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=81 != q2=66 (msg=;66li 364931  3
+
+ UTeensy:: unused Teensy message: li 364931  3
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=56 != q2=14 (msg=;14enc 4294966758 4294966445 00  ;0yo .90 2972038;52acc0 0.986633 -0.0754801 -0.81 210enc 4294966763 4294966446 50215 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=31 != q2=8 (msg=;08enc 42949667 2464652201
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=90 != q2=86 (msg=;86liv -1 0 -3 14 -1 4  ;62c00982 00122-.2751
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=83 != q2=65 (msg=;65ac996453 50267 0 1
+
+ UTeensy:: unused Teensy message: ac996453 50267 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=96 != q2=99 (msg=;99acc0 0.952311 -0.104716 -0.261
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=24 != q2=16 (msg=;16ec49965 2464252201
+
+ UTeensy:: unused Teensy message: ec49965 2464252201
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=69 != q2=12 (msg=;12;66acc0 0.953369 -0.099 0288 27n 2467649967 00 0 1
+
+ UTeensy:: unused Teensy message: ;66acc0 0.953369 -0.099 0288 27n 2467649967 00 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=76 != q2=41 (msg=;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  000
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=9 != q2=75 (msg=;75gyro0 5.68136 0.62561 0.74768 ;5i  6-     ;72acc0 0.947327 -0.0819906 -0.209859 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=3 != q2=18 (msg=;18enc 246732465850365 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=23 != q2=70 (msg=;70acc0 0.953979 -0.0668945 -0.2114;26enc 4294966789 4294966527 50394 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=83 != q2=9 (msg=;09liv 6 5 4 11 7 15;52acc0 0.952535 -0.09243-.10271
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=63 != q2=41 (msg=;41svo 0 0 0  0 0 0  1800 300  0 0 0  0 0 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=65 != q2=46 (msg=;46c00973-0.746-.5081
+
+ UTeensy:: unused Teensy message: c00973-0.746-.5081
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=11 != q2=93 (msg=;93acc0 0.999 0021 0200 2;465054201
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=38 != q2=11 (msg=;11gyo .82 .24 .9 21i 48 241 01
+
+ UTeensy:: unused Teensy message: gyo .82 .24 .9 21i 48 241 01
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=17 != q2=74 (msg=;74acc0 0.946818-9lv746-1 -3 4 -10 16
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=15 != q2=23 (msg=;23liv 9 5 ;17enc 4294966785 422 04   
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=61 != q2=10 (msg=;10gyro0 2.86611 -0174 .23
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=73 != q2=21 (msg=;21enc 429967 2465451
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=93 != q2=19 (msg=;19liv 8 2 -7 1 7 7 1 ;51ac .686;15liv 12 4 2 -1 7 9 6 7
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=48 != q2=33 (msg=;33acc0 0.21 00223-.2031
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=55 != q2=12 (msg=;12enc 4294966752 4294966475 50631 0 0447 .74 2;13i 61 ;16enc 4294966753 4294966476 50633 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=70 != q2=21 (msg=;21liv 9 8 4 12 6 5 5 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=86 != q2=18 (msg=;18n 24677;95liv 10 0 -1  ;1enc49962464056801
+
+ UTeensy:: unused Teensy message: n 24677;95liv 10 0 -1  ;1enc49962464056801
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=54 != q2=90 (msg=;90liv 0 2  ;31gyro0 4.43776 1.35549 1.59454 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=33 != q2=9 (msg=;09enc 4246;0lv506716639 -0.0801798 -0.225505 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=35 != q2=18 (msg=;18enc 4294966709 429496604  ;41sro0 4.67682 1.13932 1.17238 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=98 != q2=75 (msg=;75acc0 0.957987 -0.0943197 -02 2;18enc 4294966695 4294966410 50777 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=57 != q2=15 (msg=;15liv 4 4 6 3 2 3 6 5 006494-.1621
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=93 != q2=96 (msg=;96 1;1ac964-0.0864868 -0.206645 12
+
+ UTeensy:: unused Teensy message:  1;1ac964-0.0864868 -0.206645 12
+# Teenst message discarded (crc-error) ;;73acc0 0.958862 -0.0841064 -0.29797 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=59 != q2=22 (msg=;22gyo .36 .67 .15 2;9i 3641  062
+
+ UTeensy:: unused Teensy message: gyo .36 .67 .15 2;9i 3641  062
+# Teenst message discarded (crc-error) ;5ac .445-.858 0202 244331;02g;62acc0 0.946981 -.8;7i 00 22095-0.0979-.2261
+
+# Teenst message discarded (crc-error) ;1    ;19yo .01 049 .77 262 0284 2
+
+# Teenst message discarded (crc-error) ;9n 2466849966 12  ;66lv703451  ;09ec49962 246225;41gr551;76acc .578-.942 1 7
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=20 != q2=5 (msg=;05enc 4294966620 ;44acc0 0.956258 -0.0832113 -0.171143 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=78 != q2=25 (msg=;25liv 7 8 10 9 2387
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=93 != q2=76 (msg=;76acc0 0.969543 -0.0869751 -0.2577721
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=75 != q2=57 (msg=;57acc0 0.956828 -0.09375 -0.232218 1;11enc 4294966652 4294966181 51249 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=70 != q2=40 (msg=;40liv 14 -3 17 23 6 .24 25  ;25;10enc 4294966661 4294966184 51263 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=85 != q2=80 (msg=;80gyro0 3.8982-.94 .401
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=98 != q2=80 (msg=;80gyro0 4.11987 -9.46511711
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=10 != q2=55 (msg=;550 51296 0 1
+
+ UTeensy:: unused Teensy message: 0 51296 0 1
+# Teenst message discarded (crc-error) ;7n 24662429962 12 
+
+# Teenst message discarded (crc-error) ;9i 031-  01 695-.862-.0481
+
+# Teenst message discarded (crc-error) ;
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=46 != q2=41 (msg=;41svo 0 0 0  0 0 0 18;2 .503-.922 0262 22enc 49967 2463954501
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=10 != q2=16 (msg=;16enc 4294966675 42;19enc 4294966681 4294966370 51489 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=34 != q2=29 (msg=;29liv 6 6 8 8 1990 00636-.9881
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=9 != q2=58 (msg=;58liv 1 -6 -4 -1 6 7 6142415 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=34 != q2=54 (msg=;54acc0 0.971802 -0.;11enc 4294966631 4294966267 51652 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=36 != q2=12 (msg=;12liv 712 7 15 16 16 11 5
+
+# Teenst message discarded (crc-error) ;6enc 4294966642 4294966284 51692 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=94 != q2=34 (msg=;34g9 12
+
+ UTeensy:: unused Teensy message: g9 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=85 != q2=1 (msg=;01li 4;19enc 4294966644 4294966296 51708 0 1
+
+ UTeensy:: unused Teensy message: li 4;19enc 4294966644 4294966296 51708 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=7 != q2=49 (msg=;49gyro0 3.52732 -3.262841;41svo 0 0 0  0 0 0  1 -800 300  0 0 0   ;5c0 0929 00789-.1121
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=27 != q2=61 (msg=;61gyro0 3.03396 -2.607 .8871
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=85 != q2=21 (msg=;21gyro0 1.85649 0.081380220481;86i    1 2 0  1
+
+# Teenst message discarded (crc-error) ;
+
+# Teenst message discarded (crc-error) ;8yo .56 81423041
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=54 != q2=18 (msg=;18en 246634996267 51918 0 1
+
+ UTeensy:: unused Teensy message: en 246634996267 51918 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=55 != q2=21 (msg=;21enc 42466649967 10 1
+
+# Teenst message discarded (crc-error) ;2c00996 0095 0215 2;9n2466249969 15  ;55liv 3 7 4 17 3 0 0 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=27 != q2=3 (msg=;03liv 9 -3 11  53-;62gyro0 6.3324 4.57255 2.42615 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=69 != q2=5 (msg=;05enc 429496662 424r04965255521921
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=29 != q2=2 (msg=;02enc 429496663027 2;0lv420161  5
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=92 != q2=2 (msg=;02enc 4294966627 4294962050101
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=16 != q2=53 (msg=;53acc0 0.952026 -0.069844 02
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=13 != q2=11 (msg=;11enc 4294966616 4294966214 52098  
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=8 != q2=59 (msg=;59liv 381652311ec499614629513 01
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=97 != q2=14 (msg=;14acc0 0929 0083 0232 n 4294966622 4294966234 52182 0 1
+
+# Teenst message discarded (crc-error) ;8n 246604996 29  ;23 .64213 -0.1026 -0.243754 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=96 != q2=58 (msg=;58l;92gyro0 1.55894 6.8630518 2;02ac .1-.24 02 0 0 0  0 0 0
+
+ UTeensy:: unused Teensy message: l;92gyro0 1.55894 6.8630518 2;02ac .1-.24 02 0 0 0  0 0 0
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=69 != q2=17 (msg=;17enc 4294966572 4;43acc0 0.969014 -0.10083-.3581;50liv 14 -4 11 23 7 22 13 10
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=12 != q2=60 (msg=;60acc0 0.956807 -0.09;08en 24650499616  ;97liv 4 0 1     030    00 0
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=15 != q2=74 (msg=;74acc0 0.979838 -0.0840861 -0.269633 1;14enc 4294;12liv 9 10 5 0 11 7 9 0
+
+# Teenst message discarded (crc-error) ;9gr0328 154361121
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=14 != q2=79 (msg=;79ac .4203 -0193 02416 2;5n 2465249;78gyro0 2.69063 -4.34367 6.66809 12
+
+ UTeensy:: unused Teensy message: ac .4203 -0193 02416 2;5n 2465249;78gyro0 2.69063 -4.34367 6.66809 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=41 != q2=69 (msg=;69gyr04237-.4777 6.34257 12
+
+ UTeensy:: unused Teensy message: gyr04237-.4777 6.34257 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=8 != q2=39 (msg=;39liv 8 -2 0 2 5 -2 -1 1;11acc0 0.976766 -0.0713094 -0.26237 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=75 != q2=15 (msg=;15en 2465349966 54501
+
+ UTeensy:: unused Teensy message: en 2465349966 54501
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=2 != q2=74 (msg=;74acc0 0.968099 00752-.3971
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=88 != q2=56 (msg=;56acc0 0.950439 -0.0737305 -0.261495 124996058 52520 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=25 != q2=2 (msg=;02acc0 0.941142 -0.0639445 -0.2564 2;5n 2466495 246055401
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=6 != q2=57 (msg=;57gyro0 2.80253 -2.80576212;84l0-  22- 16
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=1 != q2=6 (msg=;06enc 429958ac .493-.761 0246 2;10ec49960 246055570 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=81 != q2=19 (msg=;19enc 4294968 2460855501
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=65 != q2=23 (msg=;23gyro0 3.;65acc0 0.923991 -0.0824585 -0.225728 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=92 != q2=28 (msg=;28enc 429496644 2469456701
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=67 != q2=92 (msg=;92acc0 0.929961 2468246384956 23  ;88lv31 0 -1 0 -2 6 -4
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=73 != q2=11 (msg=;11enc 4294966411 42949658;52l;69acc0 0.924947 -0.071024 0169 2;17enc 4294966408 4294965824 52972 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=15 != q2=79 (msg=;79liv 2 8 6 19 13 1795
+
+ UTeensy:: unused Teensy message: gyo .42 .;50acc0 0.921814 -0.0713908 -0.227417 12
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=2 != q2=94 (msg=;94liv -1 28
+
+# Teenst message discarded (crc-error) ;6ac .262-.956 0128 2;08en;97acc0 0.93748 -0.0861003 -0.232727 12
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=62 != q2=8 (msg=;08n 2463549952 32  ;6;48acc0 0.944234 -0.0921    41 01;12enc 4294966366 4294965822 53038 0 1
+
+ UTeensy:: unused Teensy message: n 2463549952 32  ;6;48acc0 0.944234 -0.0921    41 01;12enc 4294966366 4294965822 53038 0 1
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=25 != q2=66 (msg=;66gyro0 5.03286 13.5244 -4.9336 2;6i  1077321;2ac .576;4so000;62064 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=86 != q2=56 (msg=;56i     01  7
+
+ UTeensy:: unused Teensy message: i     01  7
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=51 != q2=52 (msg=;52yo .19 2.31 29941
+
+ UTeensy:: unused Teensy message: yo .19 2.31 29941
+# Teenst message discarded (crc-error) ;8c00933 00843-.55 2;5n 24647;06enc 4294966413 4294965822 53093 0 1
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=21 != q2=96 (msg=;96enc 42949949951 32  ;66i 21     83
+
+# Teenst message discarded (crc-error) ;6n 2463449950 35  ;4yo 04436344-.38 2;6i    225010978 00564-.8291
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=86 != q2=6 (msg=;06enc 4294966342 4294965764 5322  ;17li 2588
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=40 != q2=6 (msg=;06enc 4294966307 4294965707 53401
+
+# UHandler::handleCommand: CRC check failed (from Teensy) q1=93 != q2=41 (msg=;41svo 0 0 0  0 0 0  1 -800 300  0 0 0  0 0 0;06acc .806-.066-.6471
+
+# UHandler::handleCommand: CRC 
