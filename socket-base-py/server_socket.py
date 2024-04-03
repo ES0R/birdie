@@ -215,7 +215,7 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
                 temp_distance, temp_distance_to_middle = self.calculate_distances(image, (xmin, ymin, xmax, ymax), W_real)
                 
                 # Check if the distance is within the desired range
-                if temp_distance < 1.1 and xmin > 120 and xmax < 490:
+                if temp_distance < 1.3 and xmin > 120 and xmax < 490:
                     distance, distance_to_middle = temp_distance, temp_distance_to_middle
                     break
                 else:

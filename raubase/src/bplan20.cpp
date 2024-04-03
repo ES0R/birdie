@@ -77,12 +77,12 @@ void BPlan20::run()
   int fail_counter = 0;
   float actual_distance_to_aruco_box = 0;
 
-  state = 1; //////
+  state = 1; ////////
   int back_up_counter = 0;
 
-  int last_transition = 1; //BREAYTA I 0//
+  int last_transition = 0; //BREAYTA I 0//
 
-  int encoder_target = 0;//BREYTA I 0//
+  int encoder_target = 0;//BREYTA I 0////
   float heading_for_ball = 0;
   bool right = false; //
   bool left = false;
@@ -117,7 +117,7 @@ void BPlan20::run()
   // mixer.setVelocity(0);
   // mixer.setDesiredHeading(-3.14*0.5);
   
-  servo.setServo(3, 1, -350, 300); //
+  servo.setServo(3, 1, -800, 300); //
   sleep(2); //
   pose.resetPose(); //DONT DELET
   sleep(2);
@@ -258,7 +258,7 @@ void BPlan20::run()
           mixer.setVelocity(-0.1);
           sleep(1);
           mixer.setVelocity(0);
-          servo.setServo(3, 1, -70 + minus, 300);
+          
           last_transition = 155;    
           encoder_target = encoder.enc[1] - 500;
           state = 9;
@@ -375,7 +375,7 @@ void BPlan20::run()
 
           sleep(2);
           mixer.setVelocity(0.1);
-         
+          mixer.setTurnrate(-0.09);
           state = 8000;
 
         }
@@ -387,19 +387,19 @@ void BPlan20::run()
           mixer.setVelocity(0);
           pose.resetPose();
           sleep(1);
-          mixer.setDesiredHeading(-3.14);
+          mixer.setDesiredHeading(-3.14*0.9);
           sleep(3);
           mixer.setVelocity(-0.1);
           sleep(2);
 
           mixer.setVelocity(0.035);
-          mixer.setEdgeMode(false, 0);
+          mixer.setEdgeMode(true, 0); //VAR FALSE
           encoder_target = encoder.enc[1] + 500;
           if (last_transition == 138){
             state = 156;
           }else{
             sleep(1);
-            state = 9;
+            state = 9;//
           }
             
           }
@@ -411,8 +411,22 @@ void BPlan20::run()
         mixer.setVelocity(0.1);
         mixer.setEdgeMode(true, 0);
         sleep(7);
-        mixer.setVelocity(0.035);
-        state = 81;
+        // mixer.setVelocity(0.05);
+        state = 8008;
+        break;
+
+      case 8008:
+        if (imu.gyro[2] < -35){
+          mixer.setVelocity(0);
+          pose.resetPose();
+          sleep(2);
+          mixer.setDesiredHeading(3.14*0.5);
+          sleep(2);
+          mixer.setEdgeMode(true, 0);
+          mixer.setVelocity(0.05);
+          sleep(3);
+          state = 81;
+        }
         break;
 
       case 81: //Go up to box door and turn to the left
@@ -628,14 +642,14 @@ void BPlan20::run()
         
         break;
       
-      case 95://Turn around and resume to following the line until end of race and then go to state 23
+      case 95: //Box end
         pose.resetPose();
         sleep(2);
         
         mixer.setEdgeMode(false, 0);
         mixer.setVelocity(0.25);
         sleep(8);
-        last_transition = 2;
+        last_transition = 3;
         state = 23;
         break;
 
@@ -797,6 +811,7 @@ void BPlan20::run()
 
           mixer.setEdgeMode(true, 0);
           sleep(1);
+          servo.setServo(3, 1, -70 + minus, 300);
           mixer.setVelocity(0.2);
           pick_up_upstairs_ball = true;
           // encoder_target = encoder.enc[1] + 27000;
@@ -1048,16 +1063,21 @@ void BPlan20::run()
           sleep(2);
           servo.setServo(3, 1, -850 + minus, 200);
           sleep(5);
-          mixer.setDesiredHeading(-3.14*0.8);
+          mixer.setDesiredHeading(-3.14*0.7);
           sleep(3);
           
           encoder_ = getTicks(9);
           mixer.setVelocity(0.05);
-          mixer.setEdgeMode(true, 0);
+          mixer.setEdgeMode(false, 0);
           encoder_target = encoder.enc[1] + encoder_;
+          sleep(3);
+          mixer.setEdgeMode(true, 0);
           
-          sleep(6);
+          
+          sleep(3);
           mixer.setVelocity(0.3);
+          sleep(5);
+          mixer.setEdgeMode(false, 0);
           state = 110;
         }
         break;
@@ -1089,10 +1109,10 @@ void BPlan20::run()
         }
         break;
 
-      case 112: //Go to position to view circle robot again and return to state 2. 
+      case 112: //After ramp. Go to position to view circle robot again and return to state 2. 
         if (encoder.enc[1] > encoder_target){
           encoder_target = encoder_target - 500;
-          last_transition = 3;
+          last_transition = 1;
           state = 2;
         }
         break;
@@ -1224,13 +1244,13 @@ void BPlan20::run()
           mixer.setEdgeMode(false, 0);
           sleep(3);
           mixer.setVelocity(0.1);
-          sleep(8);
+          sleep(12);
           mixer.setVelocity(0);
           pose.resetPose();
           sleep(2);
           mixer.setDesiredHeading(-3.14*0.09);
           mixer.setVelocity(0.1);
-          servo.setServo(3, 1, -150, 400);
+          
           sleep(3);
           state = 602;
         }
@@ -1245,6 +1265,7 @@ void BPlan20::run()
           sleep(3);
           mixer.setVelocity(-0.1);
           sleep(2);
+          servo.setServo(3, 1, -150, 400);
           mixer.setVelocity(0);
           sleep(1);
           
@@ -1387,7 +1408,7 @@ void BPlan20::run()
           encoder_ = getTicks(1.45);
           encoder_target = encoder.enc[1] + encoder_;
           sleep(1);
-          mixer.setVelocity(0.2);
+          mixer.setVelocity(0.25);
           state = 30;
         }
         // mixer.setVelocity(0.2); //
@@ -1535,8 +1556,8 @@ void BPlan20::run()
           mixer.setVelocity(0.035);
           mixer.setEdgeMode(false,0);
 
-          sleep(4);
-          mixer.setVelocity(0.2);
+          sleep(3);
+          mixer.setVelocity(0.25);
           mixer.setEdgeMode(false, 0);
           sleep(1);
           
@@ -1755,7 +1776,10 @@ void BPlan20::run()
         if (aruco_id == 53){
           white_box_found = true;
         }
-        
+        if (aruco_box_id == aruco_id){
+          aruco_box_id = 0;
+          break;
+        }
         while (aruco_id == -1 or aruco_id == -2){
           fail_counter ++;
 
@@ -1829,8 +1853,8 @@ void BPlan20::run()
           mixer.setVelocity(-0.3);
         }
         
-        encoder_ = getTicks(0.35 + ball_counter*0.2);
-        encoder_target = encoder.enc[1] - encoder_;
+        encoder_ = getTicks(0.35 + ball_counter*0.1); // last day change 0.1 was 0.2
+        encoder_target = encoder.enc[1] - encoder_;//
         state = 791;
         break;
       
@@ -2120,7 +2144,7 @@ void BPlan20::run()
         break;
       
       case 172: //If we want to go for the balls then he turns around and does them. The variable should then be true
-          if (imu.gyro[2] < -35){
+          if (imu.gyro[2] < -40){
             cout << "172" << endl;
             mixer.setVelocity(0);
             mixer.setTurnrate(0);
@@ -2155,7 +2179,7 @@ void BPlan20::run()
       case 173:
           
           if (dist.dist[1] < 0.15){
-            
+            servo.setServo(3, 1, -450, 400);
             mixer.setVelocity(0);
             sleep(1);
             state = 174;
@@ -2163,10 +2187,10 @@ void BPlan20::run()
         break;
 
       case 174:
-        mixer.setVelocity(0.2);
+        mixer.setVelocity(0.3);
         ball_counter = 0;
         sleep(1);
-        mixer.setVelocity(0);
+        mixer.setVelocity(0);//
         state = 175;
         break;
       
@@ -2527,7 +2551,7 @@ void BPlan20::run()
             sleep(1);
             send_command("127.0.0.1", 25005, "aruco_target,18");
           }
-          sleep(2);
+          sleep(2); 
           servo.setServo(3, 1, -150, 300); // VAR Í MINUS 120. ALLS EKKI BREYTA 
           mixer.setVelocity(0.1);
           state = 184;
@@ -2659,11 +2683,11 @@ void BPlan20::run()
         state = 191;
         break;
       
-      case 191:
+      case 191: //end arucooo
         if (medge.edgeValid){
           mixer.setVelocity(0.05);
           mixer.setEdgeMode(true, 0);
-          last_transition = 1;
+          last_transition = 2;
           sleep(4);
           state = 125;
         }
@@ -2774,7 +2798,6 @@ void BPlan20::terminate(){
     fclose(logfile);
     logfile = nullptr;
   }
-    
 }
 
 void BPlan20::toLog(const char* message)
